@@ -51,4 +51,4 @@ production:
   <<: *default
   database: voteideal_production
   username: voteideal
-  password: <%= ENV['VOTEIDEAL_DATABASE_PASSWORD'] %>
+  password: <%= ENV['RAILSWITHMYSQL_DATABASE_PASSWORD'] %>
