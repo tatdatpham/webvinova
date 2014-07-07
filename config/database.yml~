@@ -18,13 +18,8 @@ default: &default
   socket: /var/run/mysqld/mysqld.sock
 
 development:
-  adapter: mysql2
-  encoding: utf8
-  database: ideals
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  <<: *default
+  database: voteideal
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -56,4 +51,4 @@ production:
   <<: *default
   database: voteideal_production
   username: voteideal
-  password: <%= ENV['VOTEIDEAL_DATABASE_PASSWORD'] %>
+  password: <%= ENV['RAILSWITHMYSQL_DATABASE_PASSWORD'] %>
