@@ -1,1 +1,18 @@
 <%= link_to 'Login', login_users_path %> | <%= link_to 'Signup', signup_users_path %>
+
+<h2>Login</h2>
+
+<%= form_tag("", method: "post") do %>
+  <%= @msg %>
+  <p>
+    <%= label_tag(:email, "Your Email")%><br />
+    <%= text_field_tag(:email) %>
+   
+  </p>
+  <p>
+    <%= label_tag(:password, "Your password")%><br />
+    <%= text_field_tag(:password) %>
+  </p>
+  <p><%= submit_tag ("Login") %></p>
+
+<% end %>

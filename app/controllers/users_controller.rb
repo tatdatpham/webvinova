@@ -7,12 +7,29 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def login
+  def signup
     
   end
 
-  def signup
-    
+  def login
+    # binding.pry
+    if session[:user_id].nil? 
+      @users_all = User.all
+      @users_all.each do |user|
+        if params['email'] = user.email and params['password'] = user.password
+          session[:user_email] = user.email
+          session[:user_id] = user.id
+          session[:user_fullname] = user.fullname
+          session[:user_phone] = user.phone
+          session[:user_birthday] = user.birthday
+          
+        else
+          @msg = "Login Fails"
+        end
+      end
+    else
+      redirect_to posts_path  
+    end
   end
 
   # GET /users/1
