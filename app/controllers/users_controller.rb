@@ -12,17 +12,21 @@ class UsersController < ApplicationController
   end
 
   def login
-    # binding.pry
     if session[:user_id].nil? 
       @users_all = User.all
+      @check = false
       @users_all.each do |user|
-        if params['email'] = user.email and params['password'] = user.password
-          session[:user_email] = user.email
+        if params["email"] == user.email and params["password"] == user.password
           session[:user_id] = user.id
+          session[:user_email] = user.email
           session[:user_fullname] = user.fullname
-          session[:user_phone] = user.phone
           session[:user_birthday] = user.birthday
-          
+          session[:user_phone] = user.phone
+          @check = true
+          redirect_to posts_path
+        end
+        if @check
+          @msg = "Login successfully"
         else
           @msg = "Login Fails"
         end
@@ -30,6 +34,16 @@ class UsersController < ApplicationController
     else
       redirect_to posts_path  
     end
+  end
+
+  def logout
+    session[:user_id] = nil
+    session[:user_email] = nil
+    session[:user_fullname] = nil
+    session[:user_birthday] = nil
+    session[:user_phone] = nil
+    @msg = ""
+    redirect_to login_users_path
   end
 
   # GET /users/1
