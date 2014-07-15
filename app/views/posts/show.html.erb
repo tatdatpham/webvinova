@@ -39,5 +39,20 @@
     <%= f.submit ("Vote") %>
   <% end %>
 </p>
+
+
+<h2>Viet binh luan:</h2>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+  <p> 
+    <%= f.text_area :content, size: "32x6" %>
+  </p>
+    
+  <p>
+    <%= f.submit ("Dang binh luan") %>
+  </p>
+  
+<% end %>
+
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
