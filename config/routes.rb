@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :comments
 
   resources :posts do
     resources :votes
+    resources :comments
   end
 
   resources :users do
