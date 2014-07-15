@@ -31,7 +31,12 @@
 </p>
 
 <p>
-  <strong>Vote this Post: </strong>
+  <strong>Vote: </strong><%= @post.votes.count %>
+  <strong>Rate: </strong><%= @post.votes.average(:rate) %>
+</p>
+
+<p>
+  <strong>Your vote is: </strong>
   <%= form_for([@post, @post.votes.build]) do |f| %>
     <%= f.select :rate, options_for_select([1, 2, 3, 4, 5]) %>
     <%= f.hidden_field :user_id, value: session[:user_id] %>
