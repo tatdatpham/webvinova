@@ -45,7 +45,7 @@
   <% end %>
 </p>
 
-<h2>Viet binh luan:</h2>
+<h2>Write comment for this post:</h2>
 <%= form_for([@post, @post.comments.build]) do |f| %>
   <p> 
     <%= f.text_area :content, size: "32x6" %>
@@ -60,11 +60,11 @@
 <% end %>
 
 <% @comments.each do |comment| %>
-<% user = @users.find_by id: comment.user_id %>
 
-  <p> Commenter:  <%= user.fullname %> </p>
-  <p> Content  :  <%= comment.content %> </p>
+  <p> Contenter:  <%= comment.user.fullname %> </p>
+  <p> Content:  <%= comment.content %> </p>
+  <span>===================================</span>
 <% end %>
-
+<br>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
