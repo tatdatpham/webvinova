@@ -28,7 +28,10 @@ class UsersController < ApplicationController
         if @check
           @msg = "Login successfully"
         else
-          @msg = "Login Fails"
+          if params["email"] == nil
+            @msg = ""
+          else @msg = "Login Fails"
+          end
         end
       end
     else
