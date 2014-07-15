@@ -26,6 +26,10 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
 
+    @post = Post.find(params[:id])
+    @comment = @post.comments.create((params['user_id'],params[:content]).permit(:user_id, :content))
+    redirect_to post_path(@post)
+
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
