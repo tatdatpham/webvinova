@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       get 'signup'
       get 'logout'
     end
+      member do
+         get 'posts'
+      end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
