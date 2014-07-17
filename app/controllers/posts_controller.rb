@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.where user_id: session[:user_id]
     if params[:user_id] != nil
-      @posts = Post.where user_id: params[:user_id]
+      @posts = Post.where user_id: params[:user_id], status: '1', sharewith: ['0', '1']
     end
   end
 
