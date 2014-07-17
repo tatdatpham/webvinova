@@ -60,9 +60,9 @@
 <% end %>
 
 <% @comments.each do |comment| %>
-<% user = @users.find_by id: comment.user_id %>
+<% users = @users.find_by id: comment.user_id %>
 
-  <p> Commenter:  <%= user.fullname %> </p>
+  <p> Commenter:  <%= users.fullname%> </p>
   <p> Content  :  <%= comment.content %> </p>
 <% end %>
 
