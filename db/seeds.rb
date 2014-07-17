@@ -8,7 +8,7 @@
 users = User.create(email: 'dat@gmail.com', password: '123', fullname: 'Pham Tat Dat', birthday: '1993-01-01', phone: '03903029')
 users = User.create(email: 'hai@gmail.com', password: '123', fullname: 'Nguyen Duc Hai', birthday: '1993-04-01', phone: '0434034434')
 
-posts = Post.create(title: 'VSVA Protortype day', content: 'content for VSVA Protortype day', sharewith: '0', view: '10', status: '-1', user_id: '1')
-posts = Post.create(title: 'VSVA Protortype day 1', content: 'content for VSVA Protortype day 1', sharewith: '1', view: '420', status: '0', user_id: '2')
-posts = Post.create(title: 'VSVA Protortype day 2', content: 'content for VSVA Protortype day 2', sharewith: '2', view: '40', status: '1', user_id: '1')
-posts = Post.create(title: 'VSVA Protortype day 3', content: 'content for VSVA Protortype day 3', sharewith: '1', view: '530', status: '1', user_id: '2')
+posts = Post.create(title: 'VSVA Protortype day', content: 'content for VSVA Protortype day', sharewith: '0', view: '0', status: '-1', user_id: '1')
+posts = Post.create(title: 'VSVA Protortype day 1', content: 'content for VSVA Protortype day 1', sharewith: '1', view: '0', status: '0', user_id: '2')
+posts = Post.create(title: 'VSVA Protortype day 2', content: 'content for VSVA Protortype day 2', sharewith: '2', view: '0', status: '1', user_id: '1')
+posts = Post.create(title: 'VSVA Protortype day 3', content: 'content for VSVA Protortype day 3', sharewith: '1', view: '0', status: '1', user_id: '2')

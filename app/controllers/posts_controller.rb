@@ -10,9 +10,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @comments = @post.comments
-    @users = User.all
-
+    view_plus = @post.view + 1
+    @post.update(view: view_plus)
   end
 
   # GET /posts/new
