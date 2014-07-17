@@ -12,26 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+      <%= f.label :email %><br>
+      <%= f.text_field :email, :class => 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
+      <%= f.label :password %><br>
+      <%= f.password_field :password , :class => 'form-control'%>
   </div>
   <div class="field">
-    <%= f.label :fullname %><br>
-    <%= f.text_field :fullname %>
+      <%= f.label :fullname %><br>
+      <%= f.text_field :fullname , :class => 'form-control'%>
   </div>
   <div class="field">
-    <%= f.label :birthday %><br>
-    <%= f.date_field :birthday %>
+      <%= f.label :birthday %><br>
+      <%= f.date_field :birthday , :class => 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.number_field :phone %>
+      <%= f.label :phone %><br>
+      <%= f.number_field :phone  , :class => 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+      <center>
+      <%= f.submit 'Signup', :class => "btn btn-success" %>
+      <%= link_to 'Already have account?', login_users_path, class: "btn btn-default" %>
+      </center>
   </div>
 <% end %>
