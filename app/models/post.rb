@@ -22,4 +22,8 @@ class Post < ActiveRecord::Base
 			return 'Private'
 		end
 	end
+
+	def check_show_vote(user_id, post_id)
+		vote = Vote.find_by user_id: user_id , post_id: post_id
+	end
 end
