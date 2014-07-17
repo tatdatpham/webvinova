@@ -54,6 +54,10 @@ class UsersController < ApplicationController
     @posts = Post.where user_id: @user.id, status: '1'
   end
 
+  def post_show
+    @post = Post.find(params[:post_id])
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
