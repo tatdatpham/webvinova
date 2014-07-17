@@ -1,4 +1,4 @@
-<h1>Listing posts</h1>
+<h1>Listing posts of user <%= @user.fullname %></h1>
 
 <table>
   <thead>
@@ -8,7 +8,6 @@
       <th>Sharewith</th>
       <th>View</th>
       <th>Status</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,19 +20,7 @@
         <td><%= post.sharewith_text %></td>
         <td><%= post.view %></td>
         <td><%= post.status_text %></td>
-        <td><%= post.user.fullname %></td>
-        <td><%= link_to 'Show', post %></td>
-        <% if params[:user_id] == nil %>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<% if params[:user_id] == nil %>
-  <%= link_to 'New Post', new_post_path %>
-<% end %>

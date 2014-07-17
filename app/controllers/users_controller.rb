@@ -49,6 +49,15 @@ class UsersController < ApplicationController
     redirect_to login_users_path
   end
 
+  def posts
+    @user = User.find(params[:id])
+    @posts = Post.where user_id: @user.id, status: '1'
+  end
+
+  def post_show
+    @post = Post.find(params[:post_id])
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show

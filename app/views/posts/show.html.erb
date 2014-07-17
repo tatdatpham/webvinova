@@ -34,6 +34,7 @@
   <strong>Vote: </strong><%= @post.votes.count %>
   <strong>Rate: </strong><%= @post.votes.average(:rate) %>
 </p>
+
 <% if @post.check_show_vote(session[:user_id], @post.id) == nil %>
 <p>
   <strong>Your vote is: </strong>
@@ -50,6 +51,23 @@
   <% @post.comments.each do |comment| %>    
     <p> Content:  <%= comment.content %> </p>
     <span>=============================</span>
+
+<% if (session[:user_id] != @post.user_id) %>
+  <p>
+    <strong>Your vote is: </strong>
+    <%= form_for([@post, @post.votes.build]) do |f| %>
+      <%= f.select :rate, options_for_select([1, 2, 3, 4, 5]) %>
+      <%= f.hidden_field :user_id, value: session[:user_id] %>
+      <%= f.hidden_field :post_id, value: @post.id %>
+      <%= f.submit ("Vote") %>
+    <% end %>
+  </p>
+<% end %>
+<% if @post.comments.count > 0 %>
+  <% @post.comments.each do |comment| %>    
+    <p> Content:  <%= comment.content %> </p>
+    <span>===================================</span>
+
   <% end %>
 <% end %>
 
