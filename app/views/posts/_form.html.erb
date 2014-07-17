@@ -24,17 +24,11 @@
     <%= f.number_field :sharewith %>
   </div>
   <div class="field">
-    <%= f.label :view %><br>
-    <%= f.number_field :view %>
-  </div>
-  <div class="field">
     <%= f.label :status %><br>
-    <%= f.number_field :status %>
+    <%= f.select :status, options_for_select([['Draft', -1], ['Deactive', 0], ['Active', 1]]) %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
+    <%= f.hidden_field :view, value: '0' %>
+    <%= f.hidden_field :user_id, value: session[:user_id]%>
   <div class="actions">
     <%= f.submit %>
   </div>
