@@ -14,5 +14,7 @@
  *= require_self
  *= require bootstrap
  *= require bootstrap.min
+ *= require bootstrap-theme
+ *= require bootstrap-theme.min
  *= require style
 */
