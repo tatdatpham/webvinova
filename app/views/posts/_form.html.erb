@@ -21,15 +21,15 @@
   </div>
   <div class="field">
     <%= f.label :sharewith %><br>
-    <%= f.select(:sharewith, options_for_select([['Public', 0], ['Friend', 1], ['Private', 2]]), {}, {class: "form-control"} ) %>
+    <%= f.select(:sharewith, options_for_select([['Public', 0], ['Friend', 1], ['Private', 2]]), {}, {class: ""} ) %>
   </div>
   <div class="field">
     <%= f.label :status %><br>
-    <%= f.select(:status, options_for_select([['Draft', -1], ['Deactive', 0], ['Active', 1]]), {}, {class: "form-control"} ) %>
+    <%= f.select(:status, options_for_select([['Draft', -1], ['Deactive', 0], ['Active', 1]]), {}, {class: ""} ) %>
   </div>
     <%= f.hidden_field :view, value: '0' %>
     <%= f.hidden_field :user_id, value: session[:user_id]%>
   <div class="actions">
-    <%= f.submit 'Update', :class => 'btn btn-success' %>
+    <%= f.submit 'Update', :class => 'btn btn-sm btn-success' %>
   </div>
 <% end %>

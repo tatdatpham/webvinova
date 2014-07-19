@@ -1,62 +1,56 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<p>
-  <strong>Sharewith:</strong>
-  <%= @post.sharewith_text %>
-</p>
-
-<p>
-  <strong>View:</strong>
-  <%= @post.view %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @post.status_text %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user.fullname %>
-</p>
-
-<p>
-  <strong>Vote: </strong><%= @post.votes.count %>
-  <strong>Rate: </strong><%= @post.votes.average(:rate) %>
-</p>
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h4 class="list-group-item-heading"><%= @post.title %></h4>
+  </a>
+  <a href="#" class="list-group-item">
+    <p class="list-group-item-text"><%= @post.content %></p>
+  </a>
+  <a href="#" class="list-group-item">
+    <p class="list-group-item-text">
+      <strong>Sharewith: </strong><span class="badge"><%= @post.sharewith_text %></span> |
+      <strong>View: </strong><span class="badge"><%= @post.view %></span> |
+      <strong>Status: </strong><span class="badge"><%= @post.status_text %></span> |
+      <strong>Voted: </strong><span class="badge"><%= @post.votes.count %></span> |
+      <strong>Rate: </strong><span class="badge"><%= @post.votes.average(:rate) %> / 5</span>
+    </p>
+  </a>
+  <a href="#" class="list-group-item">
+    <p class="list-group-item-text">
+      <strong>Posted by: </strong>
+      <%= @post.user.fullname %>
+    </p>
+  </a>
+</div>
 
 <% if @post.check_show_vote(session[:user_id], @post.id) == nil %>
-<p>
-  <strong>Your vote is: </strong>
-  <%= form_for([@post, @post.votes.build]) do |f| %>
-    <%= f.select :rate, options_for_select([1, 2, 3, 4, 5]) %>
-    <%= f.hidden_field :user_id, value: session[:user_id] %>
-    <%= f.hidden_field :post_id, value: @post.id %>
-    <%= f.submit ("Vote") %>
-  <% end %>
-</p>
+<h4>Your vote is: </h4>
+  <p>
+    <%= form_for([@post, @post.votes.build]) do |f| %>
+      <%= f.select :rate, options_for_select([1, 2, 3, 4, 5]) %>
+      <%= f.hidden_field :user_id, value: session[:user_id] %>
+      <%= f.hidden_field :post_id, value: @post.id %>
+      <%= f.submit "Vote", class: "btn btn-xs btn-danger" %>
+    <% end %>
+  </p>
 <% end %>
 
 <% if @post.comments.count > 0 %>
-  <% @post.comments.each do |comment| %>    
-    <p> User:  <%= comment.user.fullname %> </p>
-    <p> Content:  <%= comment.content %> </p>
-    <span>=============================</span>
-
-  <% end %>
+  <table class="table">
+    <tbody>
+      <% @post.comments.each do |comment| %>    
+        <tr>
+          <td>
+          <p><strong>User: </strong><%= comment.user.fullname %></p>
+          <p><strong>Content: </strong><%= comment.content %></p>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>
 
-<h2>Write comment for this post:</h2>
+<h4>Write comment for this post:</h4>
 <%= form_for([@post, @post.comments.new]) do |f| %>
   <p> 
     <%= f.text_area :content, size: "32x6" %>
@@ -66,12 +60,11 @@
   </p>
     
   <p>
-    <%= f.submit ("Post Comment") %>
+    <%= f.submit "Post Comment", class: "btn btn-sm btn-success" %>
   </p>
   
 <% end %>
 
-<br>
 <% if session[:user_id] == @post.user_id %>
   <%= link_to 'Edit', edit_post_path(@post) %> |
   <%= link_to 'Back', posts_path %>
