@@ -34,26 +34,19 @@
     <% end %>
   </p>
 <% end %>
-
 <% if @post.comments.count > 0 %>
-  <table class="table">
-    <tbody>
-      <% @post.comments.each do |comment| %>    
-        <tr>
-          <td>
-          <p><strong>User: </strong><%= comment.user.fullname %></p>
-          <p><strong>Content: </strong><%= comment.content %></p>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% @post.comments.each do |comment| %>    
+    <div class="alert alert-warning" role="alert">
+      <strong><%= comment.user.fullname %>: </strong> <%= comment.content %>
+      <p><%= comment.created_at.strftime("%d-%m-%Y %H:%M") %></p>
+    </div>
+  <% end %>
 <% end %>
 
 <h4>Write comment for this post:</h4>
 <%= form_for([@post, @post.comments.new]) do |f| %>
   <p> 
-    <%= f.text_area :content, size: "32x6" %>
+    <%= f.text_area :content, size: "50x6" %>
     <%= f.hidden_field :status, value: "1" %>
     <%= f.hidden_field :post_id, value: @post.id %>
     <%= f.hidden_field :user_id, value: session[:user_id]  %>
