@@ -11,7 +11,7 @@
           <th>Fullname</th>
           <th>Birthday</th>
           <th>Phone</th>
-          <th colspan="4"></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
       <tbody>
@@ -25,16 +25,16 @@
             <td>
               <%= form_tag(posts_path, method: "get") do %>
                 <%= hidden_field :user_id, "", value: user.id %>
-                <%= submit_tag ("View post") %>
+                <%= submit_tag "View post", class: "btn btn-xs btn-info" %>
               <% end %>
-            </td>            
-            <td>
-            <%= link_to 'Show', user, class: "btn btn-xs btn-default" %>
-            <% if params[:user_id] == nil %>
-            <%= link_to 'Edit', edit_user_path(user), class: "btn btn-xs btn-default" %>
-            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-default" %>
             </td>
-            <% end %>
+            <td>
+              <%= link_to 'Show', user, class: "btn btn-xs btn-default" %>
+              <% if params[:user_id] == nil %>
+              <%= link_to 'Edit', edit_user_path(user), class: "btn btn-xs btn-default" %>
+              <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-default" %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
