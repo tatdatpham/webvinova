@@ -1,47 +1,46 @@
+
 <h1>Listing posts</h1>
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2 class="panel-title"><center><i class="fa fa-info fa-lg"></i> List Ideal Posts</center></h2>
+    <h3 class="panel-title">Listing Ideals</h3>
   </div>
   <div class="panel-body">
-    <div class="table-responsive"> 
-      <table class="table table-bordered table-striped table-hover table-responsive">
-        <thead>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Sharewith</th>
+          <th>View</th>
+          <th>Status</th>
+          <th>User</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @posts.each do |post| %>
           <tr>
-            <th><center>Title</center></th>
-            <th><center>Content</center></th>
-            <th><center>Sharewith</center></th>
-            <th><center>View</center></th>
-            <th><center>Status</center></th>
-            <th><center>User</center></th>
-            <th><center>Options</center></th>
+            <td><%= post.title %></td>
+            <td><%= post.content %></td>
+            <td><%= post.sharewith_text %></td>
+            <td><%= post.view %></td>
+            <td><%= post.status_text %></td>
+            <td><%= post.user.fullname %></td>
+            <td><%= link_to 'Show', post, class: "btn btn-xs btn-default" %>
+            <% if params[:user_id] == nil %>
+            <%= link_to 'Edit', edit_post_path(post), class: "btn btn-xs btn-default" %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-default" %></td>
+            <% end %>
           </tr>
-        </thead>
-
-        <tbody>
-          <% @posts.each do |post| %>
-            <tr>
-              <td><%= post.title %></td>
-              <td><%= post.content %></td>
-              <td><%= post.sharewith_text %></td>
-              <td><%= post.view %></td>
-              <td><%= post.status_text %></td>
-              <td><%= post.user.fullname %></td>
-              <td width=15%><center><%= link_to 'Show', post, class: "btn btn-success btn-xs" %>
-              <% if params[:user_id] == nil %>
-                <%= link_to 'Edit', edit_post_path(post),class: "btn btn-primary btn-xs" %>
-                <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></center></td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
-<br>
 
 <% if params[:user_id] == nil %>
-  <%= link_to 'New Post', new_post_path %>
+  <%= button_to 'New Post', new_post_path, class: "btn btn-success", method: "get" %>
 <% end %>
+
+
