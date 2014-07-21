@@ -41,7 +41,7 @@
               <% if session[:user_id] != nil %>
               <li><a href="/users">People</a></li>
               <li><a href="/posts">Your ideals</a></li>
-              <li><a href="/users/logout">Logout</a></li>
+              <li><a href="/users/logout">Logout(<%= session[:user_fullname] %>)</a></li>
               <% end %>
             </ul>
           </div><!--/.nav-collapse -->
