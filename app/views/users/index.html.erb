@@ -3,42 +3,47 @@
     <h3 class="panel-title">Listing Users</h3>
   </div>
   <div class="panel-body">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Email</th>
-          <th>Password</th>
-          <th>Fullname</th>
-          <th>Birthday</th>
-          <th>Phone</th>
-          <th colspan="2"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @users.each do |user| %>
+  <% if (@users.count == 0) %>
+    <p>There are no post to show.</p>
+  <% else %>
+      <table class="table table-striped table-hover table-bordered table-responsive ">
+        <thead>
           <tr>
-            <td><%= user.email %></td>
-            <td><%= user.password %></td>
-            <td><%= user.fullname %></td>
-            <td><%= user.birthday %></td>
-            <td><%= user.phone %></td>
-            <td>
-              <%= form_tag(posts_path, method: "get") do %>
-                <%= hidden_field :user_id, "", value: user.id %>
-                <%= submit_tag "View post", class: "btn btn-xs btn-info" %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to 'Show', user, class: "btn btn-xs btn-default" %>
-              <% if params[:user_id] == nil %>
-              <%= link_to 'Edit', edit_user_path(user), class: "btn btn-xs btn-default" %>
-              <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-default" %>
-              <% end %>
-            </td>
+            <th><center>Email</center></th>
+            <th><center>Password</center></th>
+            <th><center>Fullname</center></th>
+            <th><center>Birthday</center></th>
+            <th><center>Phone</center></th>
+            <th><center>Option</center></th>
+            <th><center>Action</center></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.email %></td>
+              <td><%= user.password %></td>
+              <td><%= user.fullname %></td>
+              <td><%= user.birthday %></td>
+              <td><%= user.phone %></td>
+              <td width=6%><center>
+                <%= form_tag(posts_path, method: "get") do %>
+                  <%= hidden_field :user_id, "", value: user.id %>
+                  <%= submit_tag "View post", class: "btn btn-xs btn-info" %>
+                <% end %>
+              </center></td>
+              <td width=15%><center>
+                <%= link_to 'Show', user, class: "btn btn-xs btn-default" %>
+                <% if params[:user_id] == nil %>
+                <%= link_to 'Edit', edit_user_path(user), class: "btn btn-xs btn-default" %>
+                <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+                <% end %>
+              </center></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>
 
