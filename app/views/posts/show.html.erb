@@ -1,77 +1,91 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6">
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+    <h2>
+      <%= @post.title %>
+    </h2>
 
-<p>
-  <strong>Sharewith:</strong>
-  <%= @post.sharewith_text %>
-</p>
+    <p> 
+      <%= @post.content %>
+    </p>
 
-<p>
-  <strong>View:</strong>
-  <%= @post.view %>
-</p>
+     <p>
+      <strong>Author:</strong>
+      <%= @post.user.fullname %>
+    </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @post.status_text %>
-</p>
+    <p>
+      <strong>Sharewith:</strong>
+      <%= @post.sharewith_text %>
+      <strong>View:</strong>
+      <%= @post.view %>
+      <strong>Status:</strong>
+      <%= @post.status_text %>
+    </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user.fullname %>
-</p>
+    <div class="row">
+      <div class="col-lg-6">
+        <p>
+          <strong>Vote: </strong><%= @post.votes.count %>
+          <strong>Rate: </strong>
+          <% if @post.votes.average(:rate) == nil%> <%= 0 %>  <% else %> <%=@post.votes.average(:rate) %>  <% end %>
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          
+            <div class="col-lg-8">
+              <% if @post.check_show_vote(session[:user_id], @post.id) == nil %>
+              <%= form_for([@post, @post.votes.build], class: "form-inline", role: "form") do |f| %>
+              <div class="input-group">
+                <div class="input-group-addon">Your Vote</div>
+                  <%= f.select :rate, options_for_select([1, 2, 3, 4, 5]),{}, class: 'form-control' %>
+                </div>
+              </div>
+                <%= f.hidden_field :user_id, value: session[:user_id] %>
+                <%= f.hidden_field :post_id, value: @post.id %>
+            </div>
+            <div class="col-lg-3">
+                <%= f.submit ("Vote"), class: "btn btn-default" %>
+            </div>
+                <% end %>
+              <% end %>
+          </div>
+           
+      </div>
 
-<p>
-  <strong>Vote: </strong><%= @post.votes.count %>
-  <strong>Rate: </strong><%= @post.votes.average(:rate) %>
-</p>
+    <% if @post.comments.count > 0 %>
+      <% @post.comments.each do |comment| %>    
+        <p> Content:  <%= comment.content %> </p>
+        <span>=============================</span>
 
-<% if @post.check_show_vote(session[:user_id], @post.id) == nil %>
-<p>
-  <strong>Your vote is: </strong>
-  <%= form_for([@post, @post.votes.build]) do |f| %>
-    <%= f.select :rate, options_for_select([1, 2, 3, 4, 5]) %>
-    <%= f.hidden_field :user_id, value: session[:user_id] %>
-    <%= f.hidden_field :post_id, value: @post.id %>
-    <%= f.submit ("Vote") %>
-  <% end %>
-</p>
-<% end %>
+      <% end %>
+    <% end %>
 
-<% if @post.comments.count > 0 %>
-  <% @post.comments.each do |comment| %>    
-    <p> Content:  <%= comment.content %> </p>
-    <span>=============================</span>
+    <h3>Write comment for this post:</h3>
+    <%= form_for([@post, @post.comments.new]) do |f| %>
+      <p> 
+        <%= f.text_area :content, class: 'form-control',rows: '5' %>
+        <%= f.hidden_field :status, value: "1" %>
+        <%= f.hidden_field :post_id, value: @post.id %>
+        <%= f.hidden_field :user_id, value: session[:user_id]  %>
+      </p>
+        
+      <p>
+        <%= f.submit ("Post Comment"), class: "btn btn-primary" %>
+      </p>
+      
+    <% end %>
 
-  <% end %>
-<% end %>
+    <br>
+    <% if session[:user_id] == @post.user_id %>
+      <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-default btn-xs" %> 
+      <%= link_to 'Back', posts_path, class:"btn btn-default btn-xs" %>
+    <% end %>
+  </div>
+  <div class="col-lg-3"></div>
+</div>
 
-<h2>Write comment for this post:</h2>
-<%= form_for([@post, @post.comments.new]) do |f| %>
-  <p> 
-    <%= f.text_area :content, size: "32x6" %>
-    <%= f.hidden_field :status, value: "1" %>
-    <%= f.hidden_field :post_id, value: @post.id %>
-    <%= f.hidden_field :user_id, value: session[:user_id]  %>
-  </p>
-    
-  <p>
-    <%= f.submit ("Post Comment") %>
-  </p>
-  
-<% end %>
-
-<br>
-<% if session[:user_id] == @post.user_id %>
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-  <%= link_to 'Back', posts_path %>
-<% end %>
