@@ -62,7 +62,7 @@
                 <% else %>
                   <%= form_tag('remove_connect', method: "get") do %>
                     <%= hidden_field :user_id, nil, value: user.id %>
-                    <%= submit_tag "Unfriend", class: "btn btn-xs btn-default" %>
+                    <%= submit_tag "Unfriend", class: "btn btn-xs btn-danger" %>
                   <% end %>
                 <% end %>
                 </center>
