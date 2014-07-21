@@ -37,8 +37,9 @@
         </p>
       </a>
     </div>
-
       <%= link_to 'Edit', edit_user_path(@user) %> |
+      <% if (session[:user_status] > '0')%>
       <%= link_to 'Back', users_path %>
+      <% end %>
   </div>
 </div>

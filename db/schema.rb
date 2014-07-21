@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20140721031241) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status"
+    t.integer  "status"
   end
 
   create_table "votes", force: true do |t|

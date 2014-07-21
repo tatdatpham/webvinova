@@ -1,3 +1,5 @@
+require "digest"
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -18,7 +20,7 @@ class UsersController < ApplicationController
       @users_all = User.all
       @check = false
       @users_all.each do |user|
-        if params["email"] == user.email and params["password"] == user.password
+        if params["email"] == user.email and Digest::MD5.hexdigest(params["password"]) == user.password
           session[:user_id] = user.id
           session[:user_email] = user.email
           session[:user_fullname] = user.fullname
@@ -83,7 +85,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to root_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -124,6 +126,9 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :fullname, :birthday, :phone)
+      params[:user][:password] = Digest::MD5.hexdigest(params[:user][:password])
+      params[:user][:status] = 0
+      
+      params.require(:user).permit(:email, :password, :fullname, :birthday, :phone, :status)
     end
 end

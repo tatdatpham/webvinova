@@ -5,10 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-users = User.create(email: 'dat@gmail.com', password: '123', fullname: 'Pham Tat Dat', birthday: '1993-01-01', phone: '03903029', status: '0')
-users = User.create(email: 'hai@gmail.com', password: '123', fullname: 'Nguyen Duc Hai', birthday: '1993-04-01', phone: '0434034434', status: '0')
-users = User.create(email: 'justin@gmail.com', password: '123', fullname: 'Nguyen Binh Dieu', birthday: '1990-02-01', phone: '083920293', status: '0')
-users = User.create(email: 'admin@gmail.com', password: '123', fullname: 'Adminstrator', birthday: '1980-03-05', phone: '0302050295', status: '1')
+users = User.create(email: 'dat@gmail.com', password: '202cb962ac59075b964b07152d234b70', fullname: 'Pham Tat Dat', birthday: '1993-01-01', phone: '03903029', status: '0')
+users = User.create(email: 'hai@gmail.com', password: '202cb962ac59075b964b07152d234b70', fullname: 'Nguyen Duc Hai', birthday: '1993-04-01', phone: '0434034434', status: '0')
+users = User.create(email: 'justin@gmail.com', password: '202cb962ac59075b964b07152d234b70', fullname: 'Nguyen Binh Dieu', birthday: '1990-02-01', phone: '083920293', status: '0')
+users = User.create(email: 'admin@gmail.com', password: '202cb962ac59075b964b07152d234b70', fullname: 'Adminstrator', birthday: '1980-03-05', phone: '0302050295', status: '1')
 
 posts = Post.create(title: 'VSVA Protortype day', content: 'content for VSVA Protortype day', sharewith: '0', view: '0', status: '-1', user_id: '1')
 posts = Post.create(title: 'VSVA Protortype day 1', content: 'content for VSVA Protortype day 1', sharewith: '0', view: '0', status: '0', user_id: '1')
