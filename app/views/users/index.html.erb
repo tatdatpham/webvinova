@@ -15,7 +15,9 @@
             <th><center>Birthday</center></th>
             <th><center>Phone</center></th>
             <th><center>Option</center></th>
+            <% if (session[:user_status] > '0') %>
             <th><center>Action</center></th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
@@ -32,13 +34,15 @@
                   <%= submit_tag "View post", class: "btn btn-xs btn-info" %>
                 <% end %>
               </center></td>
-              <td width=15%><center>
-                <%= link_to 'Show', user, class: "btn btn-xs btn-default" %>
-                <% if params[:user_id] == nil %>
-                <%= link_to 'Edit', edit_user_path(user), class: "btn btn-xs btn-default" %>
-                <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
-                <% end %>
-              </center></td>
+              <% if (session[:user_status] > '0') %>
+                <td width=15%><center>
+                  <%= link_to 'Show', user, class: "btn btn-xs btn-default" %>
+                  <% if params[:user_id] == nil %>
+                  <%= link_to 'Edit', edit_user_path(user), class: "btn btn-xs btn-default" %>
+                  <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+                  <% end %>
+                </center></td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
@@ -46,5 +50,6 @@
     <% end %>
   </div>
 </div>
-
-<%= button_to 'New User', new_user_path, class: "btn btn-success", method: "get" %>
+<% if (session[:user_status] > '0') %>
+  <%= button_to 'New User', new_user_path, class: "btn btn-success", method: "get" %>
+<% end %>

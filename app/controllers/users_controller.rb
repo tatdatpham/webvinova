@@ -22,6 +22,7 @@ class UsersController < ApplicationController
           session[:user_fullname] = user.fullname
           session[:user_birthday] = user.birthday
           session[:user_phone] = user.phone
+          session[:user_status] = user.status
           @check = true
           redirect_to posts_path
         end
@@ -45,6 +46,7 @@ class UsersController < ApplicationController
     session[:user_fullname] = nil
     session[:user_birthday] = nil
     session[:user_phone] = nil
+    session[:user_status] = nil
     @msg = ""
     redirect_to login_users_path
   end
