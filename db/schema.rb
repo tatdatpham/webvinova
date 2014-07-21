@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715022710) do
+ActiveRecord::Schema.define(version: 20140721022247) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20140715022710) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "connects", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "connects", ["user_id"], name: "index_connects_on_user_id", using: :btree
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "content"
@@ -37,6 +46,16 @@ ActiveRecord::Schema.define(version: 20140715022710) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "shares", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shares", ["post_id"], name: "index_shares_on_post_id", using: :btree
+  add_index "shares", ["user_id"], name: "index_shares_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email"
