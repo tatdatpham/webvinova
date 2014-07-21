@@ -9,9 +9,34 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def signup
-    
+  def search
+    # @users_with_email = User.where(email: params[:keyword])
 
+    # # binding.pry
+    # @users_with_fullname = User.where(fullname: params[:keyword])
+
+    # @users = @users_with_fullname + @users_with_email
+    
+    @keyword = params[:keyword]    
+    t = User.arel_table
+
+    @users  = User.where(
+      t[:fullname].matches("%#{params[:keyword]}%").
+      or(t[:email].matches("%#{params[:keyword]}%"))
+    )
+    return @users
+  end
+
+  def connect
+    @connect = Connect.create(user_id: session[:user_id], friend: params[:user_id][0])
+    redirect_to request.referrer
+  end
+  def remove_connect
+    @connect = Connect.where(user_id: session[:user_id], friend: params[:user_id][0]).destroy_all
+    redirect_to request.referrer
+  end
+
+  def signup
     @user = User.new
   end
 

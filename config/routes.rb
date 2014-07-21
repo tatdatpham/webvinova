@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       get 'login'
       get 'signup'
       get 'logout'
+      get 'search'
+      get 'connect'
+      get 'remove_connect'
     end
   end
 
