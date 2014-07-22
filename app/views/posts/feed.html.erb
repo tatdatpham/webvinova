@@ -2,12 +2,15 @@
 <div class="col-sm-10">
   <div class="list-group">
 	  <% @posts.each do |post| %>
-	    <div class="list-group-item">
+	    <div class="list-group-item feed_container">
+	    	<div class="feed_avatar"><img class="img-thumbnail" alt="100x100" src="" style="width: 100px; height: 100px;"></div>
+	      <div class="feed_detail">	      	
 	      <h5 class="list-group-item-heading" style="color: #4183c4">
 	      	<strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
 	      </h5>
 	      <p class="list-group-item-text"><%= post.content %></p>
 	      <p class="list-group-item-text"><strong>Author: </strong><%= post.user.fullname %> <strong>View:</strong> <%= post.view %></p>
+	      </div>
 	    </div>
     <% end %>
   </div>

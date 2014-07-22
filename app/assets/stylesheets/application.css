@@ -18,3 +18,20 @@
  *= require bootstrap-theme.min
  *= require style
 */
+*{
+	margin: 0;
+	padding: 0;
+}
+.feed_container{
+	width: 100%;
+	float: left;
+}
+.feed_avatar{
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+.feed_detail{
+	margin-left: 10px;
+	float: left;
+}
