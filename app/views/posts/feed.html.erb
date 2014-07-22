@@ -2,11 +2,13 @@
 <div class="col-sm-10">
   <div class="list-group">
 	  <% @posts.each do |post| %>
-	    <a href="#" class="list-group-item">
-	      <h5 class="list-group-item-heading" style="color: #4183c4"> <strong><%= post.title %></strong> </h5>
+	    <div class="list-group-item">
+	      <h5 class="list-group-item-heading" style="color: #4183c4">
+	      	<strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
+	      </h5>
 	      <p class="list-group-item-text"><%= post.content %></p>
 	      <p class="list-group-item-text"><strong>Author: </strong><%= post.user.fullname %> <strong>View:</strong> <%= post.view %></p>
-	    </a>
+	    </div>
     <% end %>
   </div>
 </div>

@@ -24,7 +24,7 @@
         <div class="col-lg-6">
         <br>
           <%= f.label :sharewith %>
-          <%= f.select(:sharewith, options_for_select([['Public', 0], ['Friend', 1], ['Private', 2]]), {}, {class: "form-control"} ) %>
+          <%= f.select(:sharewith, options_for_select([['Public', 0], ['Friend', 1], ['Private', 2]], @post.sharewith), {}, {class: "form-control"} ) %>
         </div>
 
         <div class="col-lg-6">
