@@ -1,4 +1,4 @@
-
+<script type="text/javascript" src="/jquery.tokeninput.js"></script>
     <%= form_for @post, html: { class: "edit_post", id: "edit_post_45" } do |f| %>
       <% if @post.errors.any? %>
         <div id="error_explanation">
@@ -40,4 +40,23 @@
         </div>
       </div>
     <% end %>
-
+    <script type="text/javascript">
+      $("#post_sharewith").change(function(){
+        if ($("#post_sharewith").val() == 1) $("#share_friend").show();
+        else $("#share_friend").hide();
+      });
+    </script>
+    <div id="share_friend" style="display: none">
+      <h2>Friends</h2>
+        <input type="text" id="demo-input-local" name="blah" />
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $("#demo-input-local").tokenInput([
+              <% @friend.each do |friend| %>
+                {id: <%= friend.id %>, name: "<%= friend.fullname %>"},
+              <% end %>
+              {id: 0, name: ""}
+            ]);
+        });
+        </script>
+    </div>
