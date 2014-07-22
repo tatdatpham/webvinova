@@ -48,12 +48,22 @@ class PostsController < ApplicationController
     @me_friend = User.where(id: @remain_connect_me_friend.pluck(:friend))
 
     @friend = @friend_me + @me_friend
-    
+       
     @post = Post.new
   end
 
   # GET /posts/1/edit
   def edit
+    @remain_connect_friend_me = Connect.where(friend: session[:user_id], status: 1)
+    @friend_me = User.where(id: @remain_connect_friend_me.pluck(:user_id))
+
+    @remain_connect_me_friend = Connect.where(user_id: session[:user_id], status: 1)
+    @me_friend = User.where(id: @remain_connect_me_friend.pluck(:friend))
+
+    @friend = @friend_me + @me_friend
+
+    @user_shared = Share.where post_id: params[:id]
+    @friend_shared = User.where id: @user_shared.pluck(:user_id)
   end
 
   # POST /posts
@@ -83,6 +93,12 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        friend_list = params[:friend_list].split(/,/)
+
+        friend_list.each do |f|
+          share = Share.create(post_id: @post.id, user_id: f)
+        end
+
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else

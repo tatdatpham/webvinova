@@ -40,7 +40,7 @@
               else $("#share_friend").hide();
             });
           </script>
-          <div id="share_friend" style="display: none">
+          <div id="share_friend" <% if (@post.sharewith != 1) %> style="display: none" <% end %>>
             <%= label_tag("Friends") %>
             <br>
               <input type="text" id="demo-input-local" name="friend_list" />
@@ -50,8 +50,18 @@
                     <% @friend.each do |friend| %>
                       {id: <%= friend.id %>, name: "<%= friend.fullname %>"},
                     <% end %>
-                    {id: 0, name: ""}
-                  ]);
+                    // {id: 0, name: ""}
+                  ]
+                <% if @friend_shared != nil %>
+                  , {
+                prePopulate: [
+                    <% @friend_shared.each do |friend_shared| %>
+                      {id: <%= friend_shared.id %>, name: "<%= friend_shared.fullname %>"},
+                    <% end %>
+                ]
+                   }
+                <% end %>
+                );
               });
               </script>
           </div>
