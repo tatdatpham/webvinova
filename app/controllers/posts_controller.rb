@@ -94,6 +94,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update(post_params)
         friend_list = params[:friend_list].split(/,/)
+        share_destroy = Share.where(post_id: @post.id).destroy_all
 
         friend_list.each do |f|
           share = Share.create(post_id: @post.id, user_id: f)
