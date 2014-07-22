@@ -1,4 +1,6 @@
-<div class="panel panel-primary">
+<div class="col-lg-1"></div>
+<div class="col-lg-10">
+  <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title">Listing Ideals</h3>
   </div>
@@ -10,7 +12,6 @@
         <thead>
           <tr>
             <th>Title</th>
-            <th>Content</th>
             <th>Sharewith</th>
             <th>View</th>
             <th>Status</th>
@@ -22,7 +23,6 @@
           <% @posts.each do |post| %>
             <tr>
               <td><%= post.title %></td>
-              <td><%= post.content %></td>
               <td><%= post.sharewith_text %></td>
               <td><%= post.view %></td>
               <td>
@@ -50,4 +50,4 @@
   <%= link_to 'Back', users_path %>
 <% end %>
 
-
+</div>
