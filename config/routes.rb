@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :posts do
     resources :votes
     resources :comments
+    collection do
+      get 'feed'
+    end
+
   end
 
   resources :users do

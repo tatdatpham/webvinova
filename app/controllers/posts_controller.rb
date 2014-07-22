@@ -4,10 +4,22 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    remain_connect_count()
     @posts = Post.where user_id: session[:user_id]
     if params[:user_id] != nil
       @posts = Post.where user_id: params[:user_id], status: '1', sharewith: ['0', '1']
     end
+  end
+
+  def feed
+    remain_connect_count()
+    @posts = Post.where status: 1, sharewith: [0,1] 
+  end
+
+  def remain_connect_count
+    @remain_connect = Connect.where(friend: session[:user_id], status: 0)
+    @users_count = User.where(id: @remain_connect.pluck(:user_id))
+    session[:waiting_connect] = @users_count.count
   end
 
   # GET /posts/1

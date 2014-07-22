@@ -79,7 +79,7 @@ class UsersController < ApplicationController
 
           remain_connect_count()
 
-          redirect_to posts_path
+          redirect_to feed_posts_path
         end
         if @check
           @msg = "Login successfully"
@@ -91,7 +91,7 @@ class UsersController < ApplicationController
         end
       end
     else
-      redirect_to posts_path  
+      redirect_to feed_posts_path  
     end
   end
 
@@ -102,16 +102,19 @@ class UsersController < ApplicationController
     session[:user_birthday] = nil
     session[:user_phone] = nil
     session[:user_status] = nil
+    session[:waiting_connect] = nil
     @msg = ""
     redirect_to login_users_path
   end
 
   def posts
+    remain_connect_count()
     @user = User.find(params[:id])
     @posts = Post.where user_id: @user.id, status: '1'
   end
 
   def post_show
+    remain_connect_count()
     @post = Post.find(params[:post_id])
   end
 
