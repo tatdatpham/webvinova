@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140721031241) do
+ActiveRecord::Schema.define(version: 20140722014636) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140721031241) do
     t.integer  "friend"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "status"
   end
 
   add_index "connects", ["user_id"], name: "index_connects_on_user_id", using: :btree

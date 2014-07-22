@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       get 'search'
       get 'connect'
       get 'remove_connect'
+      get 'waiting_connect'
+      get 'accept_connect'
     end
   end
 

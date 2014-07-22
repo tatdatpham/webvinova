@@ -1,21 +1,10 @@
-<%= form_tag('users/search', method: 'get') do %>
-  <div class="row">
-    <div class="col-lg-4">
-      <%= text_field_tag 'keyword', nil, class: 'form-control', placeholder: 'Find a friend' %>
-    </div>
-    <div>
-      <%= button_tag 'Search', class: 'btn btn-default' %>
-    </div>
-  </div>
-<% end %>
-<br>
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title">Listing Users</h3>
   </div>
   <div class="panel-body">
   <% if (@users.count == 0) %>
-    <p>There are no post to show.</p>
+    <p>There are no waiting friends to show.</p>
   <% else %>
       <table class="table table-striped table-hover table-bordered table-responsive ">
         <thead>
@@ -53,24 +42,16 @@
               </td>
               <td>
                 <center>
-                <% @check_connect_of_me = Connect.where user_id: session[:user_id], friend: user.id %>
-                <% @check_connect_of_friend = Connect.where friend: session[:user_id], user_id: user.id %>
-
-                <% @count = @check_connect_of_me.count + @check_connect_of_friend.count %>
-                <% @status = @check_connect_of_me.pluck(:status) + @check_connect_of_friend.pluck(:status) %>
-
-                <% if @count == 0 %>
-                  <%= form_tag('users/connect', method: "get") do %>
+                <% @check_connect = Connect.where user_id: session[:user_id], friend: user.id %>
+                <% if @check_connect.count == 0 %>
+                  <%= form_tag('accept_connect', method: "get") do %>
                     <%= hidden_field :user_id, nil, value: user.id %>
-                    <%= submit_tag "Add friend", class: "btn btn-xs btn-primary" %>
+                    <%= submit_tag "Accept", class: "btn btn-xs btn-primary" %>
                   <% end %>
-
-                <% elsif @status[0] == 0 %>
-                  <span class="label label-default">Waiting</span>
                 <% else %>
-                  <%= form_tag('users/remove_connect', method: "get") do %>
+                  <%= form_tag('remove_connect', method: "get") do %>
                     <%= hidden_field :user_id, nil, value: user.id %>
-                    <%= submit_tag "Unfriend", class: "btn btn-xs btn-danger" %>
+                    <%= submit_tag "Remove", class: "btn btn-xs btn-danger" %>
                   <% end %>
                 <% end %>
                 </center>

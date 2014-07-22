@@ -53,14 +53,22 @@
               </td>
               <td>
                 <center>
-                <% @check_connect = Connect.where user_id: session[:user_id], friend: user.id %>
-                <% if @check_connect.count == 0 %>
-                  <%= form_tag('connect', method: "get") do %>
+                <% @check_connect_of_me = Connect.where user_id: session[:user_id], friend: user.id %>
+                <% @check_connect_of_friend = Connect.where friend: session[:user_id], user_id: user.id %>
+
+                <% @count = @check_connect_of_me.count + @check_connect_of_friend.count %>
+                <% @status = @check_connect_of_me.pluck(:status) + @check_connect_of_friend.pluck(:status) %>
+
+                <% if @count == 0 %>
+                  <%= form_tag('users/connect', method: "get") do %>
                     <%= hidden_field :user_id, nil, value: user.id %>
                     <%= submit_tag "Add friend", class: "btn btn-xs btn-primary" %>
                   <% end %>
+
+                <% elsif @status[0] == 0 %>
+                  <span class="label label-default">Waiting</span>
                 <% else %>
-                  <%= form_tag('remove_connect', method: "get") do %>
+                  <%= form_tag('users/remove_connect', method: "get") do %>
                     <%= hidden_field :user_id, nil, value: user.id %>
                     <%= submit_tag "Unfriend", class: "btn btn-xs btn-danger" %>
                   <% end %>

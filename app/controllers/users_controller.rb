@@ -6,10 +6,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    remain_connect_count()
     @users = User.all
   end
 
   def search
+    remain_connect_count()
     # @users_with_email = User.where(email: params[:keyword])
 
     # # binding.pry
@@ -27,13 +29,34 @@ class UsersController < ApplicationController
     return @users
   end
 
+  def remain_connect_count
+    @remain_connect = Connect.where(friend: session[:user_id], status: 0)
+    @users_count = User.where(id: @remain_connect.pluck(:user_id))
+    session[:waiting_connect] = @users_count.count
+  end
+
   def connect
-    @connect = Connect.create(user_id: session[:user_id], friend: params[:user_id][0])
+    @connect = Connect.create(user_id: session[:user_id], friend: params[:user_id][0], status: '0')
+    remain_connect_count()
     redirect_to request.referrer
   end
+
   def remove_connect
     @connect = Connect.where(user_id: session[:user_id], friend: params[:user_id][0]).destroy_all
+    @connect = Connect.where(friend: session[:user_id], user_id: params[:user_id][0]).destroy_all
+    remain_connect_count()
     redirect_to request.referrer
+  end
+
+  def accept_connect
+    @connect = Connect.find_by(friend: session[:user_id], user_id: params[:user_id][0])
+    @connect.update(status: '1')
+    redirect_to users_path
+  end
+
+  def waiting_connect
+    @remain_connect = Connect.where(friend: session[:user_id], status: 0)
+    @users = User.where(id: @remain_connect.pluck(:user_id))
   end
 
   def signup
@@ -53,6 +76,9 @@ class UsersController < ApplicationController
           session[:user_phone] = user.phone
           session[:user_status] = user.status
           @check = true
+
+          remain_connect_count()
+
           redirect_to posts_path
         end
         if @check
