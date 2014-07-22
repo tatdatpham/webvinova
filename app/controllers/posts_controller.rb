@@ -7,13 +7,23 @@ class PostsController < ApplicationController
     remain_connect_count()
     @posts = Post.where user_id: session[:user_id]
     if params[:user_id] != nil
-      @posts = Post.where user_id: params[:user_id], status: '1', sharewith: ['0', '1']
+      # Public post
+      @posts_public = Post.where status: '1', sharewith: '0', user_id: params[:user_id]
+      # Shared post
+      @friend_list = Share.where user_id: session[:user_id]
+      @posts_shared = Post.where id: @friend_list.pluck(:post_id), sharewith: '1', status: '1', user_id: params[:user_id]
+      @posts = @posts_public + @posts_shared
     end
   end
 
   def feed
     remain_connect_count()
-    @posts = Post.where status: 1, sharewith: [0,1] 
+    # Public post
+    @posts_public = Post.where status: '1', sharewith: '0'
+    # Shared post
+    @friend_list = Share.where user_id: session[:user_id]
+    @posts_shared = Post.where id: @friend_list.pluck(:post_id), sharewith: '1', status: '1'
+    @posts = @posts_public + @posts_shared
   end
 
   def remain_connect_count
@@ -49,10 +59,16 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    
     @post = Post.new(post_params)
 
     respond_to do |format|
       if @post.save
+        friend_list = params[:friend_list].split(/,/)
+
+        friend_list.each do |f|
+          share = Share.create(post_id: @post.id, user_id: f)
+        end
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
