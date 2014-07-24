@@ -50,6 +50,7 @@
 }
 #view_more{
 	display: inline-block;
+	padding: 3px;
 }
 .page{
 	float: left;
