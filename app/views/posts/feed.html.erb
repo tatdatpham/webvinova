@@ -4,8 +4,11 @@
 	count = 1;
 	$(document).ready(function(){
 		$("#view_more").click(function(){
-			$("#page"+count).show();
-			count ++;
+			if (count <= <%= total/post_per_page %>) {
+				if (count == <%= total/post_per_page %>) $(".view_more_div").hide();
+				$("#page"+count).show();
+				count ++;
+			}
 		});
 	});
 </script>
