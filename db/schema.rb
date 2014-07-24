@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140722014636) do
 
-  create_table "comments", force: true do |t|
+  create_table "comments", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|
     t.text     "content"
     t.integer  "status"
     t.integer  "post_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140722014636) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
-  create_table "connects", force: true do |t|
+  create_table "connects", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|
     t.integer  "user_id"
     t.integer  "friend"
     t.datetime "created_at"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140722014636) do
 
   add_index "connects", ["user_id"], name: "index_connects_on_user_id", using: :btree
 
-  create_table "posts", force: true do |t|
+  create_table "posts", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|
     t.string   "title"
     t.text     "content"
     t.integer  "sharewith"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20140722014636) do
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
-  create_table "shares", force: true do |t|
+  create_table "shares", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140722014636) do
   add_index "shares", ["post_id"], name: "index_shares_on_post_id", using: :btree
   add_index "shares", ["user_id"], name: "index_shares_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|
     t.string   "email"
     t.string   "password"
     t.string   "fullname"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20140722014636) do
     t.integer  "status"
   end
 
-  create_table "votes", force: true do |t|
+  create_table "votes", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|
     t.integer  "rate"
     t.integer  "user_id"
     t.integer  "post_id"

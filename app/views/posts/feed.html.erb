@@ -8,7 +8,7 @@
 	      <h5 class="list-group-item-heading" style="color: #4183c4">
 	      	<strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
 	      </h5>
-	      <p class="list-group-item-text"><%= post.content %></p>
+	      <p class="list-group-item-text"><%= post.content.truncate(200, separator: ' ') %></p>
 	      <p class="list-group-item-text"><strong>Author: </strong><%= post.user.fullname %> <strong>View:</strong> <%= post.view %></p>
 	      </div>
 	    </div>
