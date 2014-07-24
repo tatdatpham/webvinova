@@ -440,3 +440,33 @@
           box-shadow: inset 0 1px 3px rgba(0, 0, 0, .05), 0 1px 0 rgba(255, 255, 255, .1);
 }
 /*# sourceMappingURL=bootstrap-theme.css.map */
+
+.ideal{
+  padding: 20px 20px;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+.ideal .image {
+  float: left;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+div .ideal {
+display: block;
+}
+.text{
+  padding: 20px 0px;
+  margin-left:95px;
+  padding-bottom:8px;
+  font-family: Cambria, serif;
+  font-weight:normal;
+}
+.text{
+  padding:3px 0;
+  font-size:13px;
+  color:#888;
+
+}

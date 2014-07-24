@@ -2,11 +2,16 @@
 <div class="col-sm-8">
   <div class="list-group">
 	  <% @posts.each do |post| %>
-	    <a href="#" class="list-group-item">
-	      <h4 class="list-group-item-heading"><%= post.title %></h4>
-	      <p class="list-group-item-text"><%= post.content %></p>
-	      <p class="list-group-item-text"><strong>Author: </strong><%= post.user.fullname %> <strong>View:</strong> <%= post.view %></p>
-	    </a>
+	  	<div class="ideal">
+	  		<div class="image">
+	  			<img src="http://sukien360-data.online.vncdn.net/40/ca/06/8d/08/0bcbeafce98b1151739a76fed235a6df/1.f24313c3be330ef19edd6047cccd8715_495672_HFRSEKMKFZYNT.jpg">
+	  		</div>
+	  		<div class="text">
+			    <span><%= post.title %></span>
+			    <span><%= post.content %></span>
+			    <span><strong>Author: </strong><%= post.user.fullname %> <strong>View:</strong> <%= post.view %> </span>
+		    </div>
+	    </div>
     <% end %>
   </div>
 </div>
