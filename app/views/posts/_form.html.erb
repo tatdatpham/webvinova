@@ -22,17 +22,20 @@
       </div>
       <div class="row">
         <div class="col-lg-6">
-        <br>
-          <%= f.label :sharewith %>
-          <%= f.select(:sharewith, options_for_select([['Public', 0], ['Friend', 1], ['Private', 2]], @post.sharewith), {}, {class: "form-control"} ) %>
+          <%= f.label :sharewith %><br>
+          <%= f.select(:sharewith, options_for_select([['Public', 0], ['Friend', 1], ['Private', 2]]), {}, {class: "form-control"} ) %>
+
+        
         </div>
 
         <div class="col-lg-6">
-        <br>
           <%= f.label :status %>
           <%= f.select(:status, options_for_select([['Draft', -1], ['Deactive', 0], ['Active', 1]]), {}, {class: "form-control"} ) %>
         </div>
-     
+      </div>
+        
+      <div class="row">
+          <br>
         <div class="col-lg-9">
           <script type="text/javascript">
             $("#post_sharewith").change(function(){
@@ -43,7 +46,7 @@
           <div id="share_friend" <% if (@post.sharewith != 1) %> style="display: none" <% end %>>
             <%= label_tag("Friends") %>
             <br>
-              <input type="text" id="demo-input-local" name="friend_list" />
+              <input type="text" id="demo-input-local" name="friend_list" class="form-control" />
               <script type="text/javascript">
               $(document).ready(function() {
                   $("#demo-input-local").tokenInput([
@@ -69,6 +72,7 @@
 
         <div class="col-lg-3">
         <br>
+
           <%= f.hidden_field :view, value: '0' %>
           <%= f.hidden_field :user_id, value: session[:user_id]%>
           <%= f.submit 'Post Ideal', :class => 'btn btn-success' %>
