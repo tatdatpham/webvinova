@@ -28,14 +28,11 @@
       <div class="row">
         <div class="col-lg-6">
           <%= f.label :sharewith %><br>
-          <%= f.select(:sharewith, options_for_select([['Public', 0], ['Friend', 1], ['Private', 2]]), {}, {class: "form-control"} ) %>
-
-        
+          <%= f.select(:sharewith, options_for_select([['Public', 0], ['Friend', 1], ['Private', 2]], @post.sharewith), {}, {class: "form-control"} ) %>
         </div>
-
         <div class="col-lg-6">
           <%= f.label :status %>
-          <%= f.select(:status, options_for_select([['Draft', -1], ['Deactive', 0], ['Active', 1]]), {}, {class: "form-control"} ) %>
+          <%= f.select(:status, options_for_select([['Draft', -1], ['Deactive', 0], ['Active', 1]], @post.status), {}, {class: "form-control"} ) %>
         </div>
       </div>
         
