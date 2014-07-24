@@ -19,14 +19,14 @@ class PostsController < ApplicationController
   def feed
     remain_connect_count()
     # Public post
-    #@posts_public = Post.where status: '1', sharewith: '0'
+    @posts_public = Post.where status: '1', sharewith: '0'
     # Shared post
     @friend_list = Share.where user_id: session[:user_id]
     @posts_shared = Post.where id: @friend_list.pluck(:post_id), sharewith: '1', status: '1'
     #my post
     @my_post = Post.where user_id: session[:user_id], status: '1'
       
-    @posts = @posts_shared + @my_post
+    @posts = @posts_public + @posts_shared + @my_post
   end
 
   def remain_connect_count
