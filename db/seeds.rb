@@ -29,7 +29,7 @@ Lãnh đạo Đài Loan Mã Anh Cửu cho biết: “Đây là một ngày đau 
 
 Vụ việc chuyến bay GE222 gặp nạn được cho là vụ tai nạn hàng không gây tử vong đầu tiên ở Đài Loan kể từ 12 năm qua. Trong khi xuất hiện một số thông tin cho rằng, có thể chiếc máy bay gặp nạn vì thời tiết xấu do ảnh hưởng của báo Matmo. Tuy nhiên, một đại diện của cơ quan hàng không dân dụng Đài Loan khẳng định, thời tiết “đủ tốt” để máy bay có thể hạ cánh an toàn.
 
-Đại diện của cơ quan này cũng cho biết, cơ trưởng trên chuyến bay GE222 là một phi công giàu kinh nghiệm với 22 năm trong nghề. Hiện hãng hàng không TransAsia Airways đã có hỗ trợ ban đầu cho mỗi gia đình nạn nhân khoảng 6.600 USD./.', sharewith: '0', view: '0', status: '-1', user_id: '1')
+Đại diện của cơ quan này cũng cho biết, cơ trưởng trên chuyến bay GE222 là một phi công giàu kinh nghiệm với 22 năm trong nghề. Hiện hãng hàng không TransAsia Airways đã có hỗ trợ ban đầu cho mỗi gia đình nạn nhân khoảng 6.600 USD./.', sharewith: '0', view: '0', status: '-1', user_id: '1', thumbnail: '1.jpg')
 posts = Post.create(title: 'Indonesia: Những thách thức với Tổng thống đắc cử Jokowi', content: 'Ông Jokowi sẽ nhậm chức Tổng thống vào tháng 10 tới đây với nhiều thách thức ở phía trước.
 Indonesia: Những thách thức với Tổng thống đắc cử Jokowi
 Tổng thống vừa mới đắc cử Joko "Jokowi" Widodo. (Ảnh: AP)
@@ -43,7 +43,7 @@ Anh Abianto, người dân Jakarta chia sẻ: “Tôi nghĩ Jokowi có thể là
 Ông Joko Widodo với phong cách nói và làm, không  nhân nhượng với quan liêu và sẵn sàng gặp gỡ trực tiếp với thường dân đã khiến ông có được sự ủng hộ lớn trong dân chúng.  Người dân Indonesia tin tưởng và ủng hộ các chính sách của ông Jokowi trong nhiệm kỳ tơi.
 Anh Alia Hakim, Sinh viên Đai học Tổng hợp Indonesia cho biết: “Nhóm cố vấn của ông Jokowi đã có kế hoạch từ trước khi ông ấy trở thành tổng thống. Do vậy, tôi sẽ ủng hộ các chính sách của Jokowi hơn là phản đổi”.
 Theo kế hoạch, ông Jokowi sẽ nhậm chức Tổng thống vào ngày 20/10 tới đây và là Tổng thống thứ bảy của Indonesia.
-- See more at: http://vtv.vn/Thoi-su-quoc-te/Indonesia-Nhung-thach-thuc-voi-Tong-thong-dac-cu-Jokowi/126225.vtv#sthash.8TwEWmpE.dpù', sharewith: '0', view: '0', status: '0', user_id: '1')
+- See more at: http://vtv.vn/Thoi-su-quoc-te/Indonesia-Nhung-thach-thuc-voi-Tong-thong-dac-cu-Jokowi/126225.vtv#sthash.8TwEWmpE.dpù', sharewith: '0', view: '0', status: '0', user_id: '1', thumbnail: '2.jpg')
 posts = Post.create(title: 'Hộp đen MH17 không bị can thiệp', content: 'Các nhà điều tra của Hà Lan cho hay dữ liệu trong hộp đen của chiếc máy bay bị bắn rơi MH17 vẫn còn nguyên vẹn và sẽ được phân tích vào hôm nay. 
 Hộp đen MH17 sẽ được gửi tới Anh  /  Hộp đen MH17 được giao cho Malaysia
 hop-den-5914-1406167333.jpg
@@ -56,7 +56,7 @@ Hiện hai hộp đen của MH17 được tìm thấy từ hiện trường ở 
 
 Các chuyên gia AAIB được giao nhiệm vụ lấy thông tin từ bộ phận ghi âm buồng lái, trong đó có cuộc trao đổi giữa các phi công, và nội dung của thiết bị ghi dữ liệu chuyến bay. "Dữ liệu ghi âm buồng lái đã được tải về thành công và chứa những thông tin giá trị về chuyến bay. Các dữ liệu phải được phân tích và điều tra thêm", OVV nói. Các chuyên gia đang bắt đầu phân tích thông tin từ các hộp đen.
 
-Hôm 22/7, lực lượng ly khai Ukraine đang kiểm soát hiện trường đã bàn giao các hộp đen cho giới chức Malaysia. Theo phó thủ tướng Malaysia Tan Sri Muhyiddin Yassin, các phiến quân nhất trí với quyết định này một cách vô điều kiện và không đòi hỏi một ưu đãi nào. ', sharewith: '0', view: '0', status: '1', user_id: '1')
+Hôm 22/7, lực lượng ly khai Ukraine đang kiểm soát hiện trường đã bàn giao các hộp đen cho giới chức Malaysia. Theo phó thủ tướng Malaysia Tan Sri Muhyiddin Yassin, các phiến quân nhất trí với quyết định này một cách vô điều kiện và không đòi hỏi một ưu đãi nào. ', sharewith: '0', view: '0', status: '1', user_id: '1', thumbnail: '3.jpg')
 posts = Post.create(title: 'Ông Fidel Castro cho rằng: “Nga và Trung Quốc cần dẫn dắt trật tự thế giới mới”', content: '"Nga và Trung Quốc cần dẫn đầu thế giới mới này đảm bảo sự tồn tại của nhân loại, nếu trước đó chủ nghĩa đế quốc không gây ra cuộc chiến tranh hủy diệt tội lỗi", ông Fidel Castro viết trong bài báo.
 Theo ông Castro, Nga và Trung Quốc có nhiều đóng góp cho khoa học, công nghệ và phát triển kinh tế của các quốc gia Nam Mỹ và Caribe.
 Hôm thứ Tư trong chuyến thăm Cuba, Chủ tịch Trung Quốc Tập Cận Bình đã có cuộc gặp với ông Fidel Castro. 
@@ -69,7 +69,7 @@ Chuyến thăm của ông Putin và Tập Cận Bình đến Mỹ Latinh tăng c
 
 Các ông Putin và Tập Cận Bình đã tham dự hội nghị thượng đỉnh BRICS tại Brazil. 
 
-Hội nghị thượng đỉnh này kêu gọi các thành viên tìm cách giảm ảnh hưởng của Mỹ và EU trên trường quốc tế.', sharewith: '1', view: '0', status: '-1', user_id: '1')
+Hội nghị thượng đỉnh này kêu gọi các thành viên tìm cách giảm ảnh hưởng của Mỹ và EU trên trường quốc tế.', sharewith: '1', view: '0', status: '-1', user_id: '1', thumbnail: '4.jpg')
 posts = Post.create(title: 'Gaza: Chiến sự đẫm máu – thêm 81 người chết', content: 'Không ngoài mối quan ngại của cộng đồng quốc tế, tình hình chiến sự tại Dải Gaza hôm qua (23/7) tiếp tục diễn biến phức tạp và đã cướp đi mạng sống của ít nhất 78 người Palestine cùng 3 lính Israel.
 
 Trong các thống kê công bố sáng sớm nay (24/7), các nguồn tin từ Gaza cho biết, ít nhất 76 người Palestine đã bị chết và khoảng 300 người khác bị thương trong các cuộc tấn công tổng lực bằng cả không quân, pháo binh và bộ binh của Israel vào dải Gaza trong vòng 24 giờ qua. Như vậy, đến thời điểm này, số thương vong về phía người Palestine kể từ đầu cuộc chiến hôm 8/7 đến nay lên gần 700 người chết và khoảng 4.500 người bị thương. Theo truyền hình tiếng Arab Aljazera, hầu hết các nạn nhân trong các cuộc tấn công của Israel hôm qua (23/7) tiếp tục là dân thường, gồm cả người già, phụ nữ và trẻ em. Trong đó, riêng cuộc đột kích bất ngờ hồi sáng qua của đặc nhiệm Israel vào thị trấn Khan Yunis phía nam Gaza, đã khiến hơn 10 thường dân thiệt mạng.
@@ -82,7 +82,7 @@ Tuyên bố của người đứng đầu Hamas đưa ra trong bối cảnh Ngo�
 
 Còn tại Israel, một số nguồn tin nói rằng, Israel đang cân nhắc khả năng đơn phương tuyên bố ngừng bắn và rút quân khỏi Gaza trong ít ngày tới, tương tự như động thái trong cuộc chiến mang tên “Đổ chì” hồi mùa đông 2008 - 2009. Theo Aljazera, nhà phân tích quân sự nổi tiếng của Nhật báo Yedioth Ahronoth của Israel Nahum Barnea nói rằng, trong vài ngày tới, Nội các an ninh Israel có thể sẽ ra quyết định rút quân khỏi Gaza sau khi hoàn tất việc phá hủy các đường hầm của các tay súng Palestine ở đây.
 
-Tuy nhiên, chính giới Israel chưa xác nhận thông tin này./.  ', sharewith: '1', view: '0', status: '0', user_id: '1')
+Tuy nhiên, chính giới Israel chưa xác nhận thông tin này./.  ', sharewith: '1', view: '0', status: '0', user_id: '1', thumbnail: '5.jpg')
 posts = Post.create(title: 'Trung Quốc rình chờ chờ cơ hội kết thúc “bá quyền” của Hải quân Mỹ', content: 'Báo chí Canada gần đây có đăng bài viết của tác giả Matthew Fischer. Bài viết cho rằng, đối với Trung Quốc, đến nay không có việc gì quan trọng hơn là kết thúc vị thế bá chủ của Hải quân Mỹ.
 
 Vì vậy, sau khi xảy ra cuộc đụng độ nguy hiểm cao giữa 1 tàu chiến Trung Quốc và 1 tàu tuần dương Mỹ (giám sát tàu sân bay Liêu Ninh Trung Quốc chạy thử ở Biển Đông cuối năm 2013), 2 tàu chiến Trung Quốc (tàu khu trục và tàu hộ vệ thuộc Hạm đội Nam Hải), 1 tàu tiếp tế và 1 tàu bệnh viện xuất hiện ở vùng biển Hawaii, gây tranh cãi cho binh sĩ hải quân nhiều nước trên thế giới.
@@ -109,7 +109,7 @@ Cách làm của Hải quân Mỹ tạo ra sự so sánh rõ rệt với phươn
 
 Câu hỏi dành cho các quân y và y tá Trung Quốc cũng phải đặt trước. Hơn nữa, họ kiên trì cho biết có quyền gạt bỏ trước khi đăng tải hoặc phát thanh.
 
-Khi được phóng viên tờ "Aviation Week" Mỹ hỏi, chỉ huy biên đội tàu chiến Trung Quốc cho biết, trong tương lai Trung Quốc sẽ cùng hải quân nước khác thực hiện nhiều nhiệm vụ và diễn tập hơn. Hải quân Mỹ, Canada nhất trí cho rằng, Hải quân Trung Quốc tham gia diễn tập quân sự ở Hawaii là một thành công to lớn.', sharewith: '1', view: '0', status: '1', user_id: '1')
+Khi được phóng viên tờ "Aviation Week" Mỹ hỏi, chỉ huy biên đội tàu chiến Trung Quốc cho biết, trong tương lai Trung Quốc sẽ cùng hải quân nước khác thực hiện nhiều nhiệm vụ và diễn tập hơn. Hải quân Mỹ, Canada nhất trí cho rằng, Hải quân Trung Quốc tham gia diễn tập quân sự ở Hawaii là một thành công to lớn.', sharewith: '1', view: '0', status: '1', user_id: '1', thumbnail: '6.jpg')
 
 
 comments = Comment.create(content: 'This is the first comment', status: '1', user_id: '1', post_id: '1')
@@ -151,7 +151,7 @@ Lãnh đạo Đài Loan Mã Anh Cửu cho biết: “Đây là một ngày đau 
 
 Vụ việc chuyến bay GE222 gặp nạn được cho là vụ tai nạn hàng không gây tử vong đầu tiên ở Đài Loan kể từ 12 năm qua. Trong khi xuất hiện một số thông tin cho rằng, có thể chiếc máy bay gặp nạn vì thời tiết xấu do ảnh hưởng của báo Matmo. Tuy nhiên, một đại diện của cơ quan hàng không dân dụng Đài Loan khẳng định, thời tiết “đủ tốt” để máy bay có thể hạ cánh an toàn.
 
-Đại diện của cơ quan này cũng cho biết, cơ trưởng trên chuyến bay GE222 là một phi công giàu kinh nghiệm với 22 năm trong nghề. Hiện hãng hàng không TransAsia Airways đã có hỗ trợ ban đầu cho mỗi gia đình nạn nhân khoảng 6.600 USD./.', sharewith: '0', view: '0', status: '-1', user_id: '2')
+Đại diện của cơ quan này cũng cho biết, cơ trưởng trên chuyến bay GE222 là một phi công giàu kinh nghiệm với 22 năm trong nghề. Hiện hãng hàng không TransAsia Airways đã có hỗ trợ ban đầu cho mỗi gia đình nạn nhân khoảng 6.600 USD./.', sharewith: '0', view: '0', status: '-1', user_id: '2', thumbnail: '8.jpg')
 posts = Post.create(title: 'Indonesia: Những thách thức với Tổng thống đắc cử Jokowi', content: 'Ông Jokowi sẽ nhậm chức Tổng thống vào tháng 10 tới đây với nhiều thách thức ở phía trước.
 Indonesia: Những thách thức với Tổng thống đắc cử Jokowi
 Tổng thống vừa mới đắc cử Joko "Jokowi" Widodo. (Ảnh: AP)
@@ -165,7 +165,7 @@ Anh Abianto, người dân Jakarta chia sẻ: “Tôi nghĩ Jokowi có thể là
 Ông Joko Widodo với phong cách nói và làm, không  nhân nhượng với quan liêu và sẵn sàng gặp gỡ trực tiếp với thường dân đã khiến ông có được sự ủng hộ lớn trong dân chúng.  Người dân Indonesia tin tưởng và ủng hộ các chính sách của ông Jokowi trong nhiệm kỳ tơi.
 Anh Alia Hakim, Sinh viên Đai học Tổng hợp Indonesia cho biết: “Nhóm cố vấn của ông Jokowi đã có kế hoạch từ trước khi ông ấy trở thành tổng thống. Do vậy, tôi sẽ ủng hộ các chính sách của Jokowi hơn là phản đổi”.
 Theo kế hoạch, ông Jokowi sẽ nhậm chức Tổng thống vào ngày 20/10 tới đây và là Tổng thống thứ bảy của Indonesia.
-- See more at: http://vtv.vn/Thoi-su-quoc-te/Indonesia-Nhung-thach-thuc-voi-Tong-thong-dac-cu-Jokowi/126225.vtv#sthash.8TwEWmpE.dpù', sharewith: '0', view: '0', status: '0', user_id: '2')
+- See more at: http://vtv.vn/Thoi-su-quoc-te/Indonesia-Nhung-thach-thuc-voi-Tong-thong-dac-cu-Jokowi/126225.vtv#sthash.8TwEWmpE.dpù', sharewith: '0', view: '0', status: '0', user_id: '2', thumbnail: '7.jpg')
 posts = Post.create(title: 'Hộp đen MH17 không bị can thiệp', content: 'Các nhà điều tra của Hà Lan cho hay dữ liệu trong hộp đen của chiếc máy bay bị bắn rơi MH17 vẫn còn nguyên vẹn và sẽ được phân tích vào hôm nay. 
 Hộp đen MH17 sẽ được gửi tới Anh  /  Hộp đen MH17 được giao cho Malaysia
 hop-den-5914-1406167333.jpg
@@ -178,7 +178,7 @@ Hiện hai hộp đen của MH17 được tìm thấy từ hiện trường ở 
 
 Các chuyên gia AAIB được giao nhiệm vụ lấy thông tin từ bộ phận ghi âm buồng lái, trong đó có cuộc trao đổi giữa các phi công, và nội dung của thiết bị ghi dữ liệu chuyến bay. "Dữ liệu ghi âm buồng lái đã được tải về thành công và chứa những thông tin giá trị về chuyến bay. Các dữ liệu phải được phân tích và điều tra thêm", OVV nói. Các chuyên gia đang bắt đầu phân tích thông tin từ các hộp đen.
 
-Hôm 22/7, lực lượng ly khai Ukraine đang kiểm soát hiện trường đã bàn giao các hộp đen cho giới chức Malaysia. Theo phó thủ tướng Malaysia Tan Sri Muhyiddin Yassin, các phiến quân nhất trí với quyết định này một cách vô điều kiện và không đòi hỏi một ưu đãi nào. ', sharewith: '0', view: '0', status: '1', user_id: '2')
+Hôm 22/7, lực lượng ly khai Ukraine đang kiểm soát hiện trường đã bàn giao các hộp đen cho giới chức Malaysia. Theo phó thủ tướng Malaysia Tan Sri Muhyiddin Yassin, các phiến quân nhất trí với quyết định này một cách vô điều kiện và không đòi hỏi một ưu đãi nào. ', sharewith: '0', view: '0', status: '1', user_id: '2', thumbnail: '6.jpg')
 posts = Post.create(title: 'Ông Fidel Castro cho rằng: “Nga và Trung Quốc cần dẫn dắt trật tự thế giới mới”', content: '"Nga và Trung Quốc cần dẫn đầu thế giới mới này đảm bảo sự tồn tại của nhân loại, nếu trước đó chủ nghĩa đế quốc không gây ra cuộc chiến tranh hủy diệt tội lỗi", ông Fidel Castro viết trong bài báo.
 Theo ông Castro, Nga và Trung Quốc có nhiều đóng góp cho khoa học, công nghệ và phát triển kinh tế của các quốc gia Nam Mỹ và Caribe.
 Hôm thứ Tư trong chuyến thăm Cuba, Chủ tịch Trung Quốc Tập Cận Bình đã có cuộc gặp với ông Fidel Castro. 
@@ -191,7 +191,7 @@ Chuyến thăm của ông Putin và Tập Cận Bình đến Mỹ Latinh tăng c
 
 Các ông Putin và Tập Cận Bình đã tham dự hội nghị thượng đỉnh BRICS tại Brazil. 
 
-Hội nghị thượng đỉnh này kêu gọi các thành viên tìm cách giảm ảnh hưởng của Mỹ và EU trên trường quốc tế.', sharewith: '1', view: '0', status: '-1', user_id: '2')
+Hội nghị thượng đỉnh này kêu gọi các thành viên tìm cách giảm ảnh hưởng của Mỹ và EU trên trường quốc tế.', sharewith: '1', view: '0', status: '-1', user_id: '2', thumbnail: '5.jpg')
 posts = Post.create(title: 'Gaza: Chiến sự đẫm máu – thêm 81 người chết', content: 'Không ngoài mối quan ngại của cộng đồng quốc tế, tình hình chiến sự tại Dải Gaza hôm qua (23/7) tiếp tục diễn biến phức tạp và đã cướp đi mạng sống của ít nhất 78 người Palestine cùng 3 lính Israel.
 
 Trong các thống kê công bố sáng sớm nay (24/7), các nguồn tin từ Gaza cho biết, ít nhất 76 người Palestine đã bị chết và khoảng 300 người khác bị thương trong các cuộc tấn công tổng lực bằng cả không quân, pháo binh và bộ binh của Israel vào dải Gaza trong vòng 24 giờ qua. Như vậy, đến thời điểm này, số thương vong về phía người Palestine kể từ đầu cuộc chiến hôm 8/7 đến nay lên gần 700 người chết và khoảng 4.500 người bị thương. Theo truyền hình tiếng Arab Aljazera, hầu hết các nạn nhân trong các cuộc tấn công của Israel hôm qua (23/7) tiếp tục là dân thường, gồm cả người già, phụ nữ và trẻ em. Trong đó, riêng cuộc đột kích bất ngờ hồi sáng qua của đặc nhiệm Israel vào thị trấn Khan Yunis phía nam Gaza, đã khiến hơn 10 thường dân thiệt mạng.
@@ -204,7 +204,7 @@ Tuyên bố của người đứng đầu Hamas đưa ra trong bối cảnh Ngo�
 
 Còn tại Israel, một số nguồn tin nói rằng, Israel đang cân nhắc khả năng đơn phương tuyên bố ngừng bắn và rút quân khỏi Gaza trong ít ngày tới, tương tự như động thái trong cuộc chiến mang tên “Đổ chì” hồi mùa đông 2008 - 2009. Theo Aljazera, nhà phân tích quân sự nổi tiếng của Nhật báo Yedioth Ahronoth của Israel Nahum Barnea nói rằng, trong vài ngày tới, Nội các an ninh Israel có thể sẽ ra quyết định rút quân khỏi Gaza sau khi hoàn tất việc phá hủy các đường hầm của các tay súng Palestine ở đây.
 
-Tuy nhiên, chính giới Israel chưa xác nhận thông tin này./.  ', sharewith: '1', view: '0', status: '0', user_id: '2')
+Tuy nhiên, chính giới Israel chưa xác nhận thông tin này./.  ', sharewith: '1', view: '0', status: '0', user_id: '2', thumbnail: '5.jpg')
 posts = Post.create(title: 'Trung Quốc rình chờ chờ cơ hội kết thúc “bá quyền” của Hải quân Mỹ', content: 'Báo chí Canada gần đây có đăng bài viết của tác giả Matthew Fischer. Bài viết cho rằng, đối với Trung Quốc, đến nay không có việc gì quan trọng hơn là kết thúc vị thế bá chủ của Hải quân Mỹ.
 
 Vì vậy, sau khi xảy ra cuộc đụng độ nguy hiểm cao giữa 1 tàu chiến Trung Quốc và 1 tàu tuần dương Mỹ (giám sát tàu sân bay Liêu Ninh Trung Quốc chạy thử ở Biển Đông cuối năm 2013), 2 tàu chiến Trung Quốc (tàu khu trục và tàu hộ vệ thuộc Hạm đội Nam Hải), 1 tàu tiếp tế và 1 tàu bệnh viện xuất hiện ở vùng biển Hawaii, gây tranh cãi cho binh sĩ hải quân nhiều nước trên thế giới.
@@ -231,5 +231,5 @@ Cách làm của Hải quân Mỹ tạo ra sự so sánh rõ rệt với phươn
 
 Câu hỏi dành cho các quân y và y tá Trung Quốc cũng phải đặt trước. Hơn nữa, họ kiên trì cho biết có quyền gạt bỏ trước khi đăng tải hoặc phát thanh.
 
-Khi được phóng viên tờ "Aviation Week" Mỹ hỏi, chỉ huy biên đội tàu chiến Trung Quốc cho biết, trong tương lai Trung Quốc sẽ cùng hải quân nước khác thực hiện nhiều nhiệm vụ và diễn tập hơn. Hải quân Mỹ, Canada nhất trí cho rằng, Hải quân Trung Quốc tham gia diễn tập quân sự ở Hawaii là một thành công to lớn.', sharewith: '1', view: '0', status: '1', user_id: '2')
+Khi được phóng viên tờ "Aviation Week" Mỹ hỏi, chỉ huy biên đội tàu chiến Trung Quốc cho biết, trong tương lai Trung Quốc sẽ cùng hải quân nước khác thực hiện nhiều nhiệm vụ và diễn tập hơn. Hải quân Mỹ, Canada nhất trí cho rằng, Hải quân Trung Quốc tham gia diễn tập quân sự ở Hawaii là một thành công to lớn.', sharewith: '1', view: '0', status: '1', user_id: '2', thumbnail: '4.jpg')
 

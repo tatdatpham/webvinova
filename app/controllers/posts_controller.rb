@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @friend_list = Share.where user_id: session[:user_id]
     @posts_shared = Post.where id: @friend_list.pluck(:post_id), sharewith: '1', status: '1'
     #my post
-    @my_post = Post.where user_id: session[:user_id], status: '1'
+    @my_post = Post.where user_id: session[:user_id], status: '1', sharewith: '1'
       
     @posts = @posts_public + @posts_shared + @my_post
   end
@@ -130,6 +130,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :sharewith, :view, :status, :user_id)
+      params.require(:post).permit(:title, :content, :sharewith, :view, :status, :user_id, :thumbnail)
     end
 end

@@ -23,16 +23,17 @@
 	padding: 0;
 }
 .feed_container{
-	width: 100%;
 	float: left;
+	width: 100%;
 }
 .feed_avatar{
-	width: 100px;
-	height: 100px;
 	float: left;
+	height: 100px;
+	width: 100px;
 }
 .feed_detail{
-	width: 760px;
-	margin-left: 10px;
 	float: left;
+	margin-left: 10px;
+	padding-top: 5px;
+	width: 760px;
 }

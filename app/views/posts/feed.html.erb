@@ -4,7 +4,7 @@
 	  <% @posts.each do |post| %>
 
 	    <div class="list-group-item feed_container">
-	    	<div class="feed_avatar"><img class="img-thumbnail" alt="100x100" src="" style="width: 100px; height: 100px;"></div>
+	    	<div class="feed_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= post.thumbnail%>" style="width: 100px; height: 100px;"></div>
 	      <div class="feed_detail">	      	
 	      <h5 class="list-group-item-heading" style="color: #4183c4">
 	      	<strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
