@@ -1,4 +1,4 @@
-
+<script type="text/javascript" src="/jquery.tokeninput.js"></script>
     <%= form_for @post, html: { class: "edit_post", id: "edit_post_45" } do |f| %>
       <% if @post.errors.any? %>
         <div id="error_explanation">
@@ -25,31 +25,58 @@
           <%= f.label :sharewith %><br>
           <%= f.select(:sharewith, options_for_select([['Public', 0], ['Friend', 1], ['Private', 2]]), {}, {class: "form-control"} ) %>
 
-          <%= f.label :status %><br>
-          <%= f.select(:status, options_for_select([['Draft', -1], ['Deactive', 0], ['Active', 1]]), {}, {class: "form-control"} ) %>
+        
         </div>
-
 
         <div class="col-lg-6">
-          <%= f.label :"List Friend" %>
-          <select multiple class="form-control">
-            <option>tatdat171@gmail.com</option>
-            <option>hai@gmail.com</option>
-            <option>vannguye@gmail.com</option>
-            <option>hchuvanan@gmail.com</option>
-            <option>hoangha@gmail.com</option>
-          </select>
-       
+          <%= f.label :status %>
+          <%= f.select(:status, options_for_select([['Draft', -1], ['Deactive', 0], ['Active', 1]]), {}, {class: "form-control"} ) %>
         </div>
       </div>
-     
         
-        <div class="row">
+      <div class="row">
           <br>
+        <div class="col-lg-9">
+          <script type="text/javascript">
+            $("#post_sharewith").change(function(){
+              if ($("#post_sharewith").val() == 1) $("#share_friend").show();
+              else $("#share_friend").hide();
+            });
+          </script>
+          <div id="share_friend" <% if (@post.sharewith != 1) %> style="display: none" <% end %>>
+            <%= label_tag("Friends") %>
+            <br>
+              <input type="text" id="demo-input-local" name="friend_list" class="form-control" />
+              <script type="text/javascript">
+              $(document).ready(function() {
+                  $("#demo-input-local").tokenInput([
+                    <% @friend.each do |friend| %>
+                      {id: <%= friend.id %>, name: "<%= friend.fullname %>"},
+                    <% end %>
+                    // {id: 0, name: ""}
+                  ]
+                <% if @friend_shared != nil %>
+                  , {
+                prePopulate: [
+                    <% @friend_shared.each do |friend_shared| %>
+                      {id: <%= friend_shared.id %>, name: "<%= friend_shared.fullname %>"},
+                    <% end %>
+                ]
+                   }
+                <% end %>
+                );
+              });
+              </script>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+        <br>
+
           <%= f.hidden_field :view, value: '0' %>
           <%= f.hidden_field :user_id, value: session[:user_id]%>
           <%= f.submit 'Post Ideal', :class => 'btn btn-success' %>
         </div>
-      
+        
+      </div>
     <% end %>
-
