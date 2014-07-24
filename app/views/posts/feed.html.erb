@@ -5,7 +5,7 @@
 	$(document).ready(function(){
 		$("#view_more").click(function(){
 			if (count <= <%= total/post_per_page %>) {
-				if (count == <%= total/post_per_page %>) $(".view_more_div").hide();
+				if (count == <%= total/post_per_page %> || ((count+1) == <%= total/post_per_page %> && <%= total%post_per_page %> == 0)) $(".view_more_div").hide();
 				$("#page"+count).show();
 				count ++;
 			}
