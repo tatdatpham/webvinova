@@ -40,4 +40,14 @@
 }
 .catalog{
 	margin-top: 5px;
+	float: left;
+}
+.view_more_div{
+	float: left;
+	padding-top: 5px;
+	width: 100%;
+	text-align: center;
+}
+#view_more{
+	display: inline-block;
 }
