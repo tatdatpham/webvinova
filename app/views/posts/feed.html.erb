@@ -1,6 +1,5 @@
 <% post_per_page = 4 %>
 <% total = @posts.count %>
-<% first = 0 %>
 <script type="text/javascript">
 	count = 1;
 	$(document).ready(function(){
@@ -13,7 +12,7 @@
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
   <div class="list-group">
-	 <% if @posts.count < post_per_page %>
+	 <% if total <= post_per_page %>
 		  <% @posts.each do |post| %>
 		    <div class="list-group-item feed_container">
 		    	<div class="feed_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= post.thumbnail%>" style="width: 100px; height: 100px;"></div>
@@ -27,27 +26,29 @@
 		    </div>
 	    <% end %>
     <% else %>
-		<% (0..(total/post_per_page-1)).each do |j| %>
+		<% (0..(total/post_per_page)).each do |j| %>
 			<div class="page" id="page<%= j %>" <% if j > 0 %>style="display: none"<% end %>>
 				<% (0..(post_per_page-1)).each do |i| %>
-				    <div class="list-group-item feed_container">
-				    	<div class="feed_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= @posts[first + i].thumbnail%>" style="width: 100px; height: 100px;"></div>
-				      <div class="feed_detail">	      	
-				      <h5 class="list-group-item-heading" style="color: #4183c4">
-				      	<strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
-				      </h5>
-				      <p class="list-group-item-text"><%= @posts[first + i].content.truncate(200, separator: ' ') %></p>
-				      <p><a href="<%= posts_path %>/<%= @posts[first + i].id%>" class="btn btn-default btn-xs"> Read more</a></p>
-				      <p class="list-group-item-text catalog"><strong>Author: </strong><%= @posts[first + i].user.fullname %> <strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
-				      </div>
-				    </div>
+			   		<% first = j * post_per_page %>
+				    <% if (first + i < total) %>
+					    <div class="list-group-item feed_container">
+					    	<div class="feed_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= @posts[first + i].thumbnail%>" style="width: 100px; height: 100px;"></div>
+					      <div class="feed_detail">	      	
+					      <h5 class="list-group-item-heading" style="color: #4183c4">
+					      	<strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
+					      </h5>
+					      <p class="list-group-item-text"><%= @posts[first + i].content.truncate(200, separator: ' ') %></p>
+					      <p><a href="<%= posts_path %>/<%= @posts[first + i].id%>" class="btn btn-default btn-xs"> Read more</a></p>
+					      <p class="list-group-item-text catalog"><strong>Author: </strong><%= @posts[first + i].user.fullname %> <strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
+					      </div>
+					    </div>
+				    <% end %>
 			    <% end %>
-			    <% first = first + post_per_page %>
 		    </div>
 		<% end %>
+	  <div class="view_more_div">
+	  	<button id="view_more">Xem thêm</button>
+	  </div>
     <% end %>
-  </div>
-  <div class="view_more_div">
-  	<button id="view_more">Xem thêm</button>
   </div>
 </div>
