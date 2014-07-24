@@ -12,12 +12,14 @@
           <%= @user.email %>
         </p>
       </a>
+      <% if session[:user_status] == 1 %>
       <a href="#" class="list-group-item">
         <p>
           <strong>Password:</strong>
           <%= @user.password %>
         </p>
       </a>
+      <% end %>
       <a href="#" class="list-group-item">
         <p>
           <strong>Fullname:</strong>

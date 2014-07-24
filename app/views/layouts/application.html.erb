@@ -49,7 +49,7 @@
               <li><a href="/users/waiting_connect"><span class="label label-primary"><%= session[:waiting_connect] %></span></a></li>
               <% end %>
               <li><a href="/users/<%= session[:user_id]%>/edit">Profile</a></li>
-              <li><a href="/users/logout">Logout(<%= session[:user_fullname] %>)</a></li>
+              <li><a href="/users/logout">Logout (<strong><%= session[:user_fullname] %></strong>)</a></li>
               <% end %>
             </ul>
           </div><!--/.nav-collapse -->
