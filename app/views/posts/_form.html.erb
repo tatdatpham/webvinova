@@ -39,11 +39,11 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-sm-6">
           <%= f.label :sharewith %><br>
           <%= f.select(:sharewith, options_for_select([['Public', 0], ['Friend', 1], ['Private', 2]], @post.sharewith), {}, {class: "form-control"} ) %>
         </div>
-        <div class="col-lg-6">
+        <div class="col-sm-6">
           <%= f.label :status %>
           <%= f.select(:status, options_for_select([['Draft', -1], ['Deactive', 0], ['Active', 1]], @post.status), {}, {class: "form-control"} ) %>
         </div>
@@ -51,7 +51,7 @@
         
       <div class="row">
           <br>
-        <div class="col-lg-9">
+        <div class="col-sm-9">
           <script type="text/javascript">
             $("#post_sharewith").change(function(){
               if ($("#post_sharewith").val() == 1) $("#share_friend").show();
@@ -85,7 +85,7 @@
           </div>
         </div>
 
-        <div class="col-lg-3">
+        <div class="col-sm-3">
           <%= f.hidden_field :view, value: '0' %>
           <%= f.hidden_field :user_id, value: session[:user_id]%>
           <%= f.submit 'Post Ideal', :class => 'btn btn-success' %>

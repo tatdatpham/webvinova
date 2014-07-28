@@ -39,15 +39,15 @@
         <p>
           <%= form_for([@post, @post.votes.build]) do |f| %>
             <div class="row">
-              <div class="col-lg-2">
+              <div class="col-sm-2">
                   <h4>Your vote: </h4>
               </div>
-              <div class="col-lg-2">
+              <div class="col-sm-2">
                 <%= f.select :rate, options_for_select([1, 2, 3, 4, 5]),{}, class: "form-control input-xs" %>
                 <%= f.hidden_field :user_id, value: session[:user_id] %>
                 <%= f.hidden_field :post_id, value: @post.id %>
               </div>
-              <div class="col-lg-3">
+              <div class="col-sm-3">
                 <%= f.submit "Vote", class: "btn btn-danger" %>
               </div>
             </div>
