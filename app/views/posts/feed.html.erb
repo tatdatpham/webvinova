@@ -12,8 +12,7 @@
 		});
 	});
 </script>
-<div class="col-sm-1"></div>
-<div class="col-sm-10">
+<div class="col-sm-12">
   <div class="list-group">
 	 <% if total <= post_per_page %>
 		  <% @posts.each do |post| %>
@@ -51,8 +50,8 @@
 			    <% end %>
 		    </div>
 		<% end %>
-	  <div class="view_more_div">
-	  	<button id="view_more">Load More</button>
+	  <div class="load-more">
+	  	<a id="view_more">Load more Ideal</a>
 	  </div>
     <% end %>
   </div>

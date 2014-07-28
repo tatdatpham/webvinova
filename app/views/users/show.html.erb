@@ -17,83 +17,100 @@
   <div class="col-sm-1"></div>
   <div class="col-sm-3">
     <div class="panel panel-primary">
-      <div class="panel-heading">Info</div>
-    </div>
-    <div>
-      <img src="/avatar/<%= session[:user_id]%>" class="profile_avatar_me" alt="">
+      <div class="panel-heading"><center><strong><%= @user.fullname %></strong></center></div>
+    </div class="side-avatar">
+    <div >
+      <img src="/avatar/<%= session[:user_id]%>" class="profile_avatar_me" alt="<%=@user.fullname%>">
+    </div> 
+    <br>
+    <div class="sidebar-container widget-about">
+      <div class="sidebar-content">
+        <div class="sidebar-header">About</div>
+        <div class="sidebar-list">Born: <strong><%= @user.birthday.strftime("%B %d,%Y")%></strong></div>
+        <div class="sidebar-list">Phone: <strong><%= @user.phone %></strong></div>
+        <div class="sidebar-list">Email: <strong><%= @user.email %></strong></div>
+        <div class="sidebar-list">Joined: <strong><%= @user.created_at.strftime("%B %d,%Y") %></strong></div>
+        <div class="sidebar-list">Friend: <strong><a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=subscriptions">3 people</a></strong></div>
+        <div class="sidebar-list">Id: <strong><a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=subscribers">350 people</a></strong></div>
+        <div class="sidebar-list">Likes: <a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=likes"><strong>11 Messages</strong></a></div>
+      </div>
     </div>
   </div>
+
   <div class="col-sm-7">
     <div class="row">
-      <div class="panel panel-primary">
-        <div class="panel-heading"><center> <strong> User Informations </strong></center></div>
-       
+      <div class="sidebar-container widget-about">
+        <div class="sidebar-content">
+          <div class="sidebar-header">User Informations</div>
+          <table class="table table-responsive">
+
+            <tbody>
+            <tr>
+              <td width=18% ><strong>Email</strong></td>
+              <td><%= @user.email %></td>
+            </tr>
+           
+            <tr>
+              <td width=18%><strong>Fullname</strong></td>
+              <td><%= @user.fullname %></td>
+            </tr>
+            <tr>
+              <td width=18%><strong>Birthday</strong></td>
+              <td><%= @user.birthday %></td>
+            </tr>
+            <tr>
+              <td width=18%><strong>Phone</strong></td>
+              <td><%= @user.phone %></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <table class="table table-responsive">
-
-        <tbody>
-        <tr>
-          <td width=18% ><strong>Email</strong></td>
-          <td><%= @user.email %></td>
-        </tr>
-       
-        <tr>
-          <td width=18%><strong>Fullname</strong></td>
-          <td><%= @user.fullname %></td>
-        </tr>
-        <tr>
-          <td width=18%><strong>Birthday</strong></td>
-          <td><%= @user.birthday %></td>
-        </tr>
-        <tr>
-          <td width=18%><strong>Phone</strong></td>
-          <td><%= @user.phone %></td>
-        </tr>
-        </tbody>
-      </table>
     </div>
-
+    <br>
     <div class="row">
-      <div class="panel panel-primary">
-        <div class="panel-heading"><center> <strong> Ideals's <%= @user.fullname%> </strong></center></div>
-        <!-- Hien thi thong tin cac ideal ma nguoi dung da dawng public -->
-        <div class="list-group">
-         <% if total <= post_per_page %>
-            <% @posts.each do |post| %>
-              <div class="list-group-item feed_container">
-                <div class="profile_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= post.thumbnail%>" style="width: 100px; height: 100px;"></div>
-                <div class="profile_detail">         
-                <h5 class="list-group-item-heading" style="color: #4183c4">
-                  <strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
-                </h5>
-                <p class="list-group-item-text"><%= post.content.truncate(200, separator: ' ') %></p>
-                <p class="list-group-item-text catalog"><strong>Views:</strong> <%= post.view %> <strong>Comments:</strong> <%= post.comments.count %></p>
+       <div class="sidebar-container widget-about">
+        <div class="sidebar-content">
+          <div class="sidebar-header">Ideals's <%= @user.fullname%></div>
+          <!-- Hien thi thong tin cac ideal ma nguoi dung da dawng public -->
+          <div class="list-group">
+           <% if total <= post_per_page %>
+              <% @posts.each do |post| %>
+                <div class=" feed_container">
+                  <div class="profile_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= post.thumbnail%>" style="width: 100px; height: 100px;"></div>
+                  <div class="profile_detail">         
+                  <h5 class="list-group-item-heading" style="color: #4183c4">
+                    <strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
+                  </h5>
+                  <p class="list-group-item-text"><%= post.content.truncate(170, separator: ' ') %></p>
+                  <p class="list-group-item-text catalog"><strong>Views:</strong> <%= post.view %> <strong>Comments:</strong> <%= post.comments.count %></p>
+                  </div>
                 </div>
-              </div>
-            <% end %>
-          <% else %>
-          <% (0..(total/post_per_page)).each do |j| %>
-            <div class="page" id="page<%= j %>" <% if j > 0 %>style="display: none"<% end %>>
-              <% (0..(post_per_page-1)).each do |i| %>
-                  <% first = j * post_per_page %>
-                  <% if (first + i < total) %>
-                    <div class="list-group-item feed_container">
-                      <div class="profile_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= @posts[first + i].thumbnail%>" style="width: 100px; height: 100px;"></div>
-                      <div class="profile_detail">         
-                      <h5 class="list-group-item-heading" style="color: #4183c4">
-                        <strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
-                      </h5>
-                      <p class="list-group-item-text"><%= @posts[first + i].content.truncate(200, separator: ' ') %></p>
-                      
-                      <p class="list-group-item-text catalog"><strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
+                <div class="sidebar-divider"></div>
+              <% end %>
+            <% else %>
+            <% (0..(total/post_per_page)).each do |j| %>
+              <div class="page" id="page<%= j %>" <% if j > 0 %>style="display: none"<% end %>>
+                <% (0..(post_per_page-1)).each do |i| %>
+                    <% first = j * post_per_page %>
+                    <% if (first + i < total) %>
+                      <div class="feed_container">
+                        <div class="profile_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= @posts[first + i].thumbnail%>" style="width: 100px; height: 100px;"></div>
+                        <div class="profile_detail">         
+                        <h5 class="list-group-item-heading" style="color: #4183c4">
+                          <strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
+                        </h5>
+                        <p class="list-group-item-text"><%= @posts[first + i].content.truncate(160, separator: ' ') %></p>
+                        
+                        <p class="list-group-item-text catalog"><strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
+                        </div>
                       </div>
-                    </div>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </div>
-          <% end %>
-          <div class="view_more_div">
-            <button id="view_more">Load More</button>
+                </div>
+            <% end %>
+          <div class="load-more">
+            <a id="view_more">View more Ideal</a>
           </div>
           <% end %>
         </div>

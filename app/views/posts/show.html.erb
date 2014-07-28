@@ -1,15 +1,36 @@
 <div class="row">
-  <div class="col-sm-2"></div>
-  <div class="col-sm-8">
-      <p id="notice"><%= notice %></p>
+  <div class="col-sm-1"></div>
+  <div class="col-sm-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><center><strong><%= @user.fullname %></strong></center></div>
+    </div class="side-avatar">
+    <div >
+      <img src="/avatar/<%= session[:user_id]%>" class="profile_avatar_me" alt="<%=@user.fullname%>">
+    </div> 
+    <br>
+    <div class="sidebar-container widget-about">
+      <div class="sidebar-content">
+        <div class="sidebar-header">About</div>
+        <div class="sidebar-list">Born: <strong><%= @user.birthday.strftime("%B %d,%Y")%></strong></div>
+        <div class="sidebar-list">Phone: <strong><%= @user.phone %></strong></div>
+        <div class="sidebar-list">Email: <strong><%= @user.email %></strong></div>
+        <div class="sidebar-list">Joined: <strong><%= @user.created_at.strftime("%B %d,%Y") %></strong></div>
+        <div class="sidebar-list">Friend: <strong><a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=subscriptions">3 people</a></strong></div>
+        <div class="sidebar-list">Id: <strong><a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=subscribers">350 people</a></strong></div>
+        <div class="sidebar-list">Likes: <a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=likes"><strong>11 Messages</strong></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-7">
+     
       <div class="list-group">
         <a href="#" class="list-group-item active">
           <h4 class="list-group-item-heading"><%= @post.title %></h4>
         </a>
-        <a href="#" class="list-group-item">
+        <div class="list-group-item">
           <p class="list-group-item-text"><%= @post.content %></p>
-        </a>
-        <a href="#" class="list-group-item">
+        </div>
+        <div class="list-group-item">
           <p class="list-group-item-text">
             <strong>Sharewith: </strong><span class="badge"><%= @post.sharewith_text %></span> |
             <strong>View: </strong><span class="badge"><%= @post.view %></span> |
@@ -24,13 +45,13 @@
                 <% end %>
               </span>
           </p>
-        </a>
-        <a href="#" class="list-group-item">
+        </div>
+        <div class="list-group-item">
           <p class="list-group-item-text">
             <strong>Posted by: </strong>
             <%= @post.user.fullname %>
           </p>
-        </a>
+        </div>
       </div>
 
 
@@ -56,13 +77,24 @@
       <% end %>
       <% if @post.comments.count > 0 %>
         <% @post.comments.each do |comment| %>    
-          <div class="alert alert-warning" role="alert">
-            <strong><%= comment.user.fullname %>: </strong> <%= comment.content %>
-            <p><%= comment.created_at.strftime("%d-%m-%Y %H:%M") %></p>
+          <div class="comment-replies comment-replies-content">
+            <div class="message-reply-container">
+          
+              <div class="comment-reply-avatar">
+                <img src="/avatar/<%= @user.id %>">
+              </div>
+              <div class="comment-reply-comment">
+                <span class="comment-reply-author"><a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=chegin"><%= comment.user.fullname %></a></span>: <%= comment.content %>
+                <div class="comment-time">
+                <div class="timeago"><%= comment.created_at.strftime("%d-%m-%Y %H:%M") %></div>
+              </div>
+            </div>        
           </div>
+          </div>
+          <div class="comment-divider"></div>
         <% end %>
       <% end %>
-
+      <br>
       <h4>Write comment for this post:</h4>
       <%= form_for([@post, @post.comments.new]) do |f| %>
         <p> 
