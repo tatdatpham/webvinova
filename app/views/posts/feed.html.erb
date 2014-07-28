@@ -20,12 +20,13 @@
 		    <div class="list-group-item feed_container">
 		    	<div class="feed_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= post.thumbnail%>" style="width: 100px; height: 100px;"></div>
 		      <div class="feed_detail">	      	
-		      <h5 class="list-group-item-heading" style="color: #4183c4">
-		      	<strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
-		      </h5>
-		      <p class="list-group-item-text"><%= post.content.truncate(200, separator: ' ') %></p>
-		      <p class="list-group-item-text catalog"><strong>Author: </strong>
-		      <a href="<%= users_path%>/<%= post.user.id %>"><%= post.user.fullname %></a> <strong>Views:</strong><%= post.view %> <strong>Comments:</strong> <%= post.comments.count %></p>
+			      <h5 class="list-group-item-heading" style="color: #4183c4">
+			      	<strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
+			      </h5>
+			      <p class="list-group-item-text"><%= post.content.truncate(200, separator: ' ') %></p>
+			      <p class="list-group-item-text catalog"><strong>Author: </strong>
+			      <a href="<%= users_path%>/<%= post.user.id %>"><%= post.user.fullname %></a> <strong>Views:</strong><%= post.view %> <strong>Comments:</strong> <%= post.comments.count %></p>
+			      <div class="feed_time_post">asas</div>
 		      </div>
 		    </div>
 	    <% end %>
@@ -38,14 +39,15 @@
 					    <div class="list-group-item feed_container">
 					    	<div class="feed_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= @posts[first + i].thumbnail%>" style="width: 100px; height: 100px;"></div>
 					      <div class="feed_detail">	      	
-					      <h5 class="list-group-item-heading" style="color: #4183c4">
-					      	<strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
-					      </h5>
-					      <p class="list-group-item-text"><%= @posts[first + i].content.truncate(200, separator: ' ') %></p>
-					      <p style="margin-top: 5px;"><a href="<%= posts_path %>/<%= @posts[first + i].id%>" class="btn btn-default btn-xs"> Read more</a></p>
-					      <p class="list-group-item-text catalog"><strong>Author: </strong>
-					      <a href="<%= users_path%>/<%= @posts[first + i].user.id %>"><%= @posts[first + i].user.fullname %></a> <strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
-					      </div>
+						      <h5 class="list-group-item-heading" style="color: #4183c4">
+						      	<strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
+						      </h5>
+						      <p class="list-group-item-text"><%= @posts[first + i].content.truncate(200, separator: ' ') %></p>
+						      <p style="margin-top: 5px;"><a href="<%= posts_path %>/<%= @posts[first + i].id%>" class="btn btn-default btn-xs"> Read more</a></p>
+						      <p class="list-group-item-text catalog"><strong>Author: </strong>
+						      <a href="<%= users_path%>/<%= @posts[first + i].user.id %>"><%= @posts[first + i].user.fullname %></a> <strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
+						   <div class="feed_time_post"><%= @posts[first + i].created_at.strftime("%H:%M %d/%m") %></div>
+						   </div>
 					    </div>
 				    <% end %>
 			    <% end %>

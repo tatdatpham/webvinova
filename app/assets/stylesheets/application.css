@@ -36,9 +36,15 @@
 	float: left;
 	margin-left: 10px;
 	padding-top: 5px;
-	width: 760px;
+	position: relative;
+	width: 775px;
 }
-
+.feed_time_post{
+	color: #a4a4a4;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
 .profile_avatar{
 	float: left;
 	height: 100px;
