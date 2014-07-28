@@ -22,7 +22,20 @@
       </div>
       <div class="field">
         <%= f.label :thumbnail %><br>
-        <%= f.text_field :thumbnail, :class => "form-control" %>
+        <div class="list_thumbnail">
+          
+            <% @files = Dir.glob('public/thumbnail/*')
+              for file in @files
+                name = File.basename(file)
+            %>
+                <div class="item_thumbnail">
+                  <img src="<%= '/thumbnail/'+name %>" class="avt_thumbnail" alt=""/>
+                  <div class="radio_thumbnail">
+                    <%= f.radio_button :thumbnail, name %>
+                  </div>
+                </div>
+            <% end %>
+        </div>
       </div>
 
       <div class="row">
@@ -74,11 +87,9 @@
 
         <div class="col-lg-3">
         <br>
-
           <%= f.hidden_field :view, value: '0' %>
           <%= f.hidden_field :user_id, value: session[:user_id]%>
           <%= f.submit 'Post Ideal', :class => 'btn btn-success' %>
         </div>
-        
       </div>
     <% end %>
