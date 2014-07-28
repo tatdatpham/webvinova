@@ -8,13 +8,16 @@ class UsersController < ApplicationController
   def index
     remain_connect_count()
     @users = User.all
+    #@top_user_id = Post.select('user_id').group(:user_id).limit(5).order('created_at DESC')
+    @top_user =  User.all.sort{ |a,b| b.posts.count <=> a.posts.count }.first(5)
+    
+      
   end
 
   def search
     remain_connect_count()
     # @users_with_email = User.where(email: params[:keyword])
 
-    # # binding.pry
     # @users_with_fullname = User.where(fullname: params[:keyword])
 
     # @users = @users_with_fullname + @users_with_email
