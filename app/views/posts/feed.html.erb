@@ -24,7 +24,8 @@
 		      	<strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
 		      </h5>
 		      <p class="list-group-item-text"><%= post.content.truncate(200, separator: ' ') %></p>
-		      <p class="list-group-item-text catalog"><strong>Author: </strong><%= post.user.fullname %> <strong>Views:</strong> <%= post.view %> <strong>Comments:</strong> <%= post.comments.count %></p>
+		      <p class="list-group-item-text catalog"><strong>Author: </strong>
+		      <a href="<%= users_path%>/<%= post.user.id %>"><%= post.user.fullname %></a> <strong>Views:</strong><%= post.view %> <strong>Comments:</strong> <%= post.comments.count %></p>
 		      </div>
 		    </div>
 	    <% end %>
@@ -42,7 +43,8 @@
 					      </h5>
 					      <p class="list-group-item-text"><%= @posts[first + i].content.truncate(200, separator: ' ') %></p>
 					      <p><a href="<%= posts_path %>/<%= @posts[first + i].id%>" class="btn btn-default btn-xs"> Read more</a></p>
-					      <p class="list-group-item-text catalog"><strong>Author: </strong><%= @posts[first + i].user.fullname %> <strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
+					      <p class="list-group-item-text catalog"><strong>Author: </strong>
+					      <a href="<%= users_path%>/<%= @posts[first + i].user.id %>"><%= @posts[first + i].user.fullname %></a> <strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
 					      </div>
 					    </div>
 				    <% end %>

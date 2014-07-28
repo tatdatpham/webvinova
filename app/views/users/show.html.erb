@@ -39,7 +39,9 @@
         </p>
       </a>
     </div>
+      <% if session[:user_id] == @user.id %>
       <%= link_to 'Edit', edit_user_path(@user) %> |
+      <% end %>
       <%= link_to 'Back', :back %>
   </div>
 </div>
