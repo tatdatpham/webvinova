@@ -19,15 +19,23 @@
  *= require style
 */
 
+*{
+	font-family: arial
+	margin: 0;
+	padding: 0;
+}
 .load-more, .load-more-chat {
 	border-bottom: 1px solid #eee;
+	float: left;
 	padding: 5px 0;
 	text-align: center;
+	text-align: center;
+	width: 100%;
 }
 .load-more a, .load-more-chat a {
 	color: #428bca;
-	text-decoration: none;
 	cursor: pointer;
+	text-decoration: none;
 }
 .load-more a:hover, .load-more-chat a:hover {
 	color: #2a6496;
@@ -35,11 +43,6 @@
 
 .profile{
 	background: #ffffff;
-}
-*{
-	margin: 0;
-	padding: 0;
-	font-family: arial
 }
 .feed_container{
 	float: left;
