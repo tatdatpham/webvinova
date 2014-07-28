@@ -38,6 +38,19 @@
 	padding-top: 5px;
 	width: 760px;
 }
+
+.profile_avatar{
+	float: left;
+	height: 100px;
+	width: 100px;
+}
+.profile_detail{
+	float: left;
+	margin-left: 10px;
+	padding-top: 5px;
+	width: 730px;
+}
+
 .catalog{
 	margin-top: 5px;
 	float: left;

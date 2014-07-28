@@ -1,45 +1,114 @@
+<% post_per_page = 4 %>
+<% total = @posts.count %>
+<script type="text/javascript">
+  count = 1;
+  $(document).ready(function(){
+    $("#view_more").click(function(){
+      if (count <= <%= total/post_per_page %>) {
+        if (count == <%= total/post_per_page %> || ((count+1) == <%= total/post_per_page %> && <%= total%post_per_page %> == 0)) $(".view_more_div").hide();
+        $("#page"+count).show();
+        count ++;
+      }
+    });
+  });
+</script>
+
+<br>
 <div class="row">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-6">
-    <p id="notice"><%= notice %></p>
-    <div class="list-group">
-      <a href="#" class="list-group-item active">
-        <h4 class="list-group-item-heading"><%= @user.fullname %></h4>
-      </a>
-      <a href="#" class="list-group-item">
-        <p>
-          <strong>Email:</strong>
-          <%= @user.email %>
-        </p>
-      </a>
-      <% if session[:user_status] == 1 %>
-      <a href="#" class="list-group-item">
-        <p>
-          <strong>Password:</strong>
-          <%= @user.password %>
-        </p>
-      </a>
-      <% end %>
-      <a href="#" class="list-group-item">
-        <p>
-          <strong>Fullname:</strong>
-          <%= @user.fullname %>
-        </p>
-      </a>
-      <a href="#" class="list-group-item">
-        <p>
-          <strong>Birthday:</strong>
-          <%= @user.birthday %>
-        </p>
-      </a>
-      <a href="#" class="list-group-item">
-        <p>
-          <strong>Phone:</strong>
-          <%= @user.phone %>
-        </p>
-      </a>
+ 
+  <div class="col-lg-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Info</div>
     </div>
-      <%= link_to 'Edit', edit_user_path(@user) %> |
-      <%= link_to 'Back', :back %>
+    <div>
+
+    </div>
   </div>
+  <div class="col-lg-9">
+    <div class="row">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><center> <strong> User Informations </strong></center></div>
+       
+      </div>
+      <table class="table table-responsive">
+
+        <tbody>
+        <tr>
+          <td width=18% ><strong>Email</strong></td>
+          <td><%= @user.email %></td>
+        </tr>
+       
+        <tr>
+          <td width=18%><strong>Fullname</strong></td>
+          <td><%= @user.fullname %></td>
+        </tr>
+        <tr>
+          <td width=18%><strong>Birthday</strong></td>
+          <td><%= @user.birthday %></td>
+        </tr>
+        <tr>
+          <td width=18%><strong>Phone</strong></td>
+          <td><%= @user.phone %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><center> <strong> Ideals's <%= @user.fullname%> </strong></center></div>
+        <!-- Hien thi thong tin cac ideal ma nguoi dung da dawng public -->
+        <div class="list-group">
+         <% if total <= post_per_page %>
+            <% @posts.each do |post| %>
+              <div class="list-group-item feed_container">
+                <div class="profile_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= post.thumbnail%>" style="width: 100px; height: 100px;"></div>
+                <div class="profile_detail">         
+                <h5 class="list-group-item-heading" style="color: #4183c4">
+                  <strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
+                </h5>
+                <p class="list-group-item-text"><%= post.content.truncate(200, separator: ' ') %></p>
+                <p class="list-group-item-text catalog"><strong>Views:</strong> <%= post.view %> <strong>Comments:</strong> <%= post.comments.count %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+          <% (0..(total/post_per_page)).each do |j| %>
+            <div class="page" id="page<%= j %>" <% if j > 0 %>style="display: none"<% end %>>
+              <% (0..(post_per_page-1)).each do |i| %>
+                  <% first = j * post_per_page %>
+                  <% if (first + i < total) %>
+                    <div class="list-group-item feed_container">
+                      <div class="profile_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= @posts[first + i].thumbnail%>" style="width: 100px; height: 100px;"></div>
+                      <div class="profile_detail">         
+                      <h5 class="list-group-item-heading" style="color: #4183c4">
+                        <strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
+                      </h5>
+                      <p class="list-group-item-text"><%= @posts[first + i].content.truncate(200, separator: ' ') %></p>
+                      
+                      <p class="list-group-item-text catalog"><strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+          <% end %>
+          <div class="view_more_div">
+            <button id="view_more">Xem thêm</button>
+          </div>
+          <% end %>
+        </div>
+      </div>  
+
+    </div>
+  </div>
+
 </div>
+<div class="row">
+  <div class="col-lg-12">
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <%= link_to 'Back', :back %>
+  </div>
+
+</div>
+
