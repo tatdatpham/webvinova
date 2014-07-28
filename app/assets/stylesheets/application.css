@@ -252,10 +252,11 @@
 	padding-bottom: 5px;
 }
 .user_list{
-	width: 100%;
+	background: white;
 	float: left;
-	padding-top: 10px;
 	padding-bottom: 10px;
+	padding-top: 10px;
+	width: 100%;
 }
 .user_row{
 	width: 100%;
