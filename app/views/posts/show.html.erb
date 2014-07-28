@@ -2,18 +2,18 @@
   <div class="col-sm-1"></div>
   <div class="col-sm-3">
     <div class="panel panel-primary">
-      <div class="panel-heading"><center><strong><%= @user.fullname %></strong></center></div>
+      <div class="panel-heading"><center><strong><%= @post.user.fullname %></strong></center></div>
     </div class="side-avatar">
     <div >
-      <img src="/avatar/<%= session[:user_id]%>" class="profile_avatar_me" alt="<%=@user.fullname%>">
+      <img src="/avatar/<%= @post.user.id %>" class="profile_avatar_me" alt="<%= @post.user.fullname %>">
     </div> 
     <br>
     <div class="sidebar-container widget-about">
       <div class="sidebar-content">
         <div class="sidebar-header">About</div>
-        <div class="sidebar-list">Born: <strong><%= @user.birthday.strftime("%B %d,%Y")%></strong></div>
-        <div class="sidebar-list">Email: <strong><%= @user.email %></strong></div>
-        <div class="sidebar-list">Joined: <strong><%= @user.created_at.strftime("%B %d,%Y") %></strong></div>
+        <div class="sidebar-list">Born: <strong><%= @post.user.birthday.strftime("%B %d,%Y")%></strong></div>
+        <div class="sidebar-list">Email: <strong><%= @post.user.email %></strong></div>
+        <div class="sidebar-list">Joined: <strong><%= @post.user.created_at.strftime("%B %d,%Y") %></strong></div>
       </div>
     </div>
   </div>

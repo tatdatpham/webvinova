@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   def show
     view_plus = @post.view + 1
     @post.update(view: view_plus)
-    @user = User.find(params[:id])
+    @last_post = Post.where
   end
 
   def uploadThumbnail
