@@ -75,3 +75,9 @@
 	text-align: center;
 	width: 100%;
 }
+.choose_button{
+	float: left;
+}
+.upload_button{
+	float: left;
+}

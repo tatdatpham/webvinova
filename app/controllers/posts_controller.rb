@@ -42,6 +42,14 @@ class PostsController < ApplicationController
     @post.update(view: view_plus)
   end
 
+  def uploadThumbnail
+    name =  params[:datafile].original_filename
+      directory = "public/thumbnail/"
+      path = File.join(directory, name)
+      File.open(path, "wb") { |f| f.write(params[:datafile].read) }
+      redirect_to :back
+  end
+
   # GET /posts/new
   def new
     @remain_connect_friend_me = Connect.where(friend: session[:user_id], status: 1)
