@@ -71,13 +71,17 @@
 	height: 100px;
 	width: 100px;
 	border-radius: 40px;
+	margin-right: 10px;
+	padding: 2px;
 }
 
 .profile_avatar_me{
-	
+	display: block;
 	height: 263px;
 	width: 100%;
 	border-radius: 12px;
+	margin-right: 10px;
+	padding: 2px;
 }
 .profile_detail{
 	float: left;
@@ -199,7 +203,11 @@
 	padding: 5px 15px 5px 58px;
 	word-wrap: break-word;
 }
-
+.comment-reply-time{
+	float:right;
+	color:#888;
+	font-size: 13px !important;
+}
 .catalog{
 	margin-top: 5px;
 	float: left;
