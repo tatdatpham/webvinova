@@ -20,7 +20,7 @@
       <div class="panel-heading"><center><strong><%= @user.fullname %></strong></center></div>
     </div class="side-avatar">
     <div >
-      <img src="/avatar/<%= session[:user_id]%>" class="profile_avatar_me" alt="<%=@user.fullname%>">
+      <img src="/avatar/<%= @user.id %>" class="profile_avatar_me" alt="<%=@user.fullname%>">
     </div> 
     <br>
     <div class="sidebar-container widget-about">
@@ -34,6 +34,7 @@
         <div class="sidebar-list">Id: <strong><a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=subscribers">350 people</a></strong></div>
         <div class="sidebar-list">Likes: <a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=likes"><strong>11 Messages</strong></a></div>
       </div>
+
     </div>
   </div>
 
