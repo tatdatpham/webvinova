@@ -106,8 +106,10 @@
 </div>
 <div class="row">
   <div class="col-lg-12">
-    <%= link_to 'Edit', edit_user_path(@user) %> |
-    <%= link_to 'Back', :back %>
+      <% if session[:user_id] == @user.id %>
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <% end %>
+      <%= link_to 'Back', :back %>
   </div>
 
 </div>

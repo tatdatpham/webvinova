@@ -63,4 +63,48 @@
 }
 #view_more{
 	display: inline-block;
+	padding: 3px;
+}
+.page{
+	float: left;
+	margin-top: 3px;
+}
+.list_thumbnail{
+	width: 100%;
+	float: left;
+}
+.item_thumbnail{
+	float: left;
+	margin-right: 10px;
+	width: 50px;
+}
+.avt_thumbnail{
+	height: 50px;
+	width: 50px;
+}
+.radio_thumbnail{
+	clear: both;
+	float: left;
+	text-align: center;
+	width: 100%;
+}
+.choose_button{
+	float: left;
+}
+.upload_button{
+	float: left;
+}
+.avatar_current{
+	width: 70px;
+	height: 70px;
+	float: left;
+	border-radius: 3px;
+}
+.upload_avatar_form{
+	width: 100%;
+	float: left;
+	clear: both;
+	border-bottom: 1px solid #dedede;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
 }

@@ -1,3 +1,12 @@
+<div class="upload_avatar_form">
+  <div class="avatar_current">
+    <img class="avatar_current" src="/avatar/<%= session[:user_id] %>" alt="">
+  </div>
+    <%= form_tag(uploadAvatar_users_path, :multipart => true) do %>
+    <%= file_field_tag :datafile, class: "btn choose_button" %>
+    <%= submit_tag "Change", class: "btn btn-sm btn-danger upload_button" %>
+  <% end %>
+</div>
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -44,3 +53,4 @@
       <%= f.submit 'Create Account', :class => "btn btn-success" %>
   </div>
 <% end %>
+
