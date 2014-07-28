@@ -16,6 +16,29 @@
         <div class="sidebar-list">Joined: <strong><%= @post.user.created_at.strftime("%B %d,%Y") %></strong></div>
       </div>
     </div>
+    <br>
+     <div class="sidebar-container widget-about">
+      <div class="sidebar-content">
+        <div class="sidebar-header">Last Post</div>
+          <% if @last_posts.count > 0 %>
+            <% @last_posts.each do |last_posts| %>    
+              <div class="comment-replies comment-replies-content">
+                <div class="message-reply-container">
+              
+                  <div class="comment-reply-avatar">
+                    <a href="/users/<%= last_posts.user.id %>"><img src="/thumbnail/<%= last_posts.thumbnail%>"></a>
+                  </div>
+                  <div class="comment-reply-comment">
+                    <span class="comment-reply-author"><a href="/posts/<%= last_posts.id %>"><%= last_posts.title.truncate(42, separator: ' ') %></a></span>
+                  
+                  </div>        
+                </div>
+              </div>
+              <div class="comment-divider"></div>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
   </div>
   <div class="col-sm-7">
      
@@ -44,34 +67,34 @@
         </div>
         <div class="list-group-item">
           <p class="list-group-item-text">
-            <strong>Posted by: </strong>
-            <%= @post.user.fullname %>
+            <% if @post.check_show_vote(session[:user_id], @post.id) == nil %>
+     
+              <p>
+                <%= form_for([@post, @post.votes.build]) do |f| %>
+                  <div class="row">
+                    <div class="col-sm-3">
+                        <h5>Your vote: </h5>
+                    </div>
+                    <div class="col-sm-2">
+                      <%= f.select :rate, options_for_select([1, 2, 3, 4, 5]),{}, class: "form-control input-xs" %>
+                      <%= f.hidden_field :user_id, value: session[:user_id] %>
+                      <%= f.hidden_field :post_id, value: @post.id %>
+                    </div>
+                    <div class="col-sm-3">
+                      <%= f.submit "Vote", class: "btn btn-danger" %>
+                    </div>
+                  </div>
+                <% end %>
+              </p>
+            <% end %>
           </p>
         </div>
       </div>
 
 
-      <% if @post.check_show_vote(session[:user_id], @post.id) == nil %>
-     
-        <p>
-          <%= form_for([@post, @post.votes.build]) do |f| %>
-            <div class="row">
-              <div class="col-sm-2">
-                  <h4>Your vote: </h4>
-              </div>
-              <div class="col-sm-2">
-                <%= f.select :rate, options_for_select([1, 2, 3, 4, 5]),{}, class: "form-control input-xs" %>
-                <%= f.hidden_field :user_id, value: session[:user_id] %>
-                <%= f.hidden_field :post_id, value: @post.id %>
-              </div>
-              <div class="col-sm-3">
-                <%= f.submit "Vote", class: "btn btn-danger" %>
-              </div>
-            </div>
-          <% end %>
-        </p>
-      <% end %>
+      
       <% if @post.comments.count > 0 %>
+      <h4> Comment </h4>
         <% @post.comments.each do |comment| %>    
           <div class="comment-replies comment-replies-content">
             <div class="message-reply-container">
