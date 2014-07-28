@@ -5,7 +5,7 @@
   $(document).ready(function(){
     $("#view_more").click(function(){
       if (count <= <%= total/post_per_page %>) {
-        if (count == <%= total/post_per_page %> || ((count+1) == <%= total/post_per_page %> && <%= total%post_per_page %> == 0)) $(".view_more_div").hide();
+        if (count == <%= total/post_per_page %> || ((count+1) == <%= total/post_per_page %> && <%= total%post_per_page %> == 0)) $(".load-more").hide();
         $("#page"+count).show();
         count ++;
       }
@@ -18,8 +18,8 @@
   <div class="col-sm-3">
     <div class="panel panel-primary">
       <div class="panel-heading"><center><strong><%= @user.fullname %></strong></center></div>
-    </div class="side-avatar">
-    <div >
+    </div >
+    <div class="side-avatar">
       <img src="/avatar/<%= @user.id %>" class="profile_avatar_me" alt="<%=@user.fullname%>">
     </div> 
     <br>
@@ -30,45 +30,14 @@
         <div class="sidebar-list">Phone: <strong><%= @user.phone %></strong></div>
         <div class="sidebar-list">Email: <strong><%= @user.email %></strong></div>
         <div class="sidebar-list">Joined: <strong><%= @user.created_at.strftime("%B %d,%Y") %></strong></div>
-        <div class="sidebar-list">Friend: <strong><a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=subscriptions">3 people</a></strong></div>
-        <div class="sidebar-list">Id: <strong><a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=subscribers">350 people</a></strong></div>
-        <div class="sidebar-list">Likes: <a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=likes"><strong>11 Messages</strong></a></div>
+        <div class="sidebar-list">Friend: <strong><a href="/users/<%= @user.id %>"><%= @user.connects.count %> people</a></strong></div>
+        <div class="sidebar-list">Ideals: <strong><a href="#"><%=@user.posts.count %> Post</a></strong></div>
       </div>
 
     </div>
   </div>
 
   <div class="col-sm-7">
-    <div class="row">
-      <div class="sidebar-container widget-about">
-        <div class="sidebar-content">
-          <div class="sidebar-header">User Informations</div>
-          <table class="table table-responsive">
-
-            <tbody>
-            <tr>
-              <td width=18% ><strong>Email</strong></td>
-              <td><%= @user.email %></td>
-            </tr>
-           
-            <tr>
-              <td width=18%><strong>Fullname</strong></td>
-              <td><%= @user.fullname %></td>
-            </tr>
-            <tr>
-              <td width=18%><strong>Birthday</strong></td>
-              <td><%= @user.birthday %></td>
-            </tr>
-            <tr>
-              <td width=18%><strong>Phone</strong></td>
-              <td><%= @user.phone %></td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <br>
     <div class="row">
        <div class="sidebar-container widget-about">
         <div class="sidebar-content">
