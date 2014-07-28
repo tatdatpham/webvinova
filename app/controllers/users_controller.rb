@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     remain_connect_count()
+    session[:current_tab] = 3
     @users = User.all
     #@top_user_id = Post.select('user_id').group(:user_id).limit(5).order('created_at DESC')
     @top_user =  User.all.sort{ |a,b| b.posts.count <=> a.posts.count }.first(5)
@@ -125,6 +126,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    session[:current_tab] = 4
     @user = User.find(params[:id])
     @posts = Post.where user_id: @user.id, status: '1'
     

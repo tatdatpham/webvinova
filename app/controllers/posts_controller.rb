@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     remain_connect_count()
+    session[:current_tab] = 2
     @posts = Post.where user_id: session[:user_id]
     if params[:user_id] != nil
       # Public post
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
   end
 
   def feed
+    session[:current_tab] = 1
     remain_connect_count()
     # Public post
     @posts_public = Post.where status: '1', sharewith: '0'
