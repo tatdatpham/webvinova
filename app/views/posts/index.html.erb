@@ -4,7 +4,6 @@
   <div class="panel-heading">
     <h3 class="panel-title">Listing Ideals</h3>
   </div>
-  <div class="panel-body">
   <% if (@posts.count == 0) %>
     <p>There are no post to show.</p>
   <% else %>
@@ -41,7 +40,6 @@
         </tbody>
       </table>
     <% end %>
-  </div>
 </div>
 
 <% if params[:user_id] == nil %>

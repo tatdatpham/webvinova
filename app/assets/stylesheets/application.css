@@ -115,3 +115,46 @@
 	margin-bottom: 10px;
 	padding-bottom: 5px;
 }
+.user_list{
+	width: 100%;
+	float: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.user_row{
+	width: 100%;
+	float: left;
+	margin-bottom: 10px;
+}
+.user_item{
+	width: 32%;
+	height: 100%;
+	float: left;
+	border: 1px solid #dedede;
+	padding: 5px;
+	margin-left: 10px;
+	position: relative;
+}
+.user_item_avt{
+	width: 50px;
+	height: 100%;
+	float: left;
+}
+.user_item_img{
+	width: 50px;
+	height: 50px;
+	border-radius: 3px;
+	float: left;
+}
+.user_item_info{
+	width: 200px;
+	height: 100%;
+	float: left;
+	margin-left: 10px;
+}
+.user_action{
+	width: 50px;
+	position: absolute;
+	right: 30px;
+	top: 18px;
+}
