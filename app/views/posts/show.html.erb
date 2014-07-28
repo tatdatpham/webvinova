@@ -12,12 +12,8 @@
       <div class="sidebar-content">
         <div class="sidebar-header">About</div>
         <div class="sidebar-list">Born: <strong><%= @user.birthday.strftime("%B %d,%Y")%></strong></div>
-        <div class="sidebar-list">Phone: <strong><%= @user.phone %></strong></div>
         <div class="sidebar-list">Email: <strong><%= @user.email %></strong></div>
         <div class="sidebar-list">Joined: <strong><%= @user.created_at.strftime("%B %d,%Y") %></strong></div>
-        <div class="sidebar-list">Friend: <strong><a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=subscriptions">3 people</a></strong></div>
-        <div class="sidebar-list">Id: <strong><a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=subscribers">350 people</a></strong></div>
-        <div class="sidebar-list">Likes: <a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=jasonstatham&amp;r=likes"><strong>11 Messages</strong></a></div>
       </div>
     </div>
   </div>
@@ -81,10 +77,10 @@
             <div class="message-reply-container">
           
               <div class="comment-reply-avatar">
-                <img src="/avatar/<%= @user.id %>">
+                <a href="/users/<%= comment.user.id %>"><img src="/avatar/<%= comment.user.id %>"></a>
               </div>
               <div class="comment-reply-comment">
-                <span class="comment-reply-author"><a href="http://phpdolphin.com/demo/index.php?a=profile&amp;u=chegin"><%= comment.user.fullname %></a></span>: <%= comment.content %>
+                <span class="comment-reply-author"><a href="/users/<%= comment.user.id %>"><%= comment.user.fullname %></a></span>: <%= comment.content %>
                 <div class="comment-time">
                 <div class="timeago"><%= comment.created_at.strftime("%d-%m-%Y %H:%M") %></div>
               </div>
@@ -94,7 +90,7 @@
           <div class="comment-divider"></div>
         <% end %>
       <% end %>
-      <br>
+      
       <h4>Write comment for this post:</h4>
       <%= form_for([@post, @post.comments.new]) do |f| %>
         <p> 
