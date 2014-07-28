@@ -44,11 +44,17 @@
 	height: 100px;
 	width: 100px;
 }
+
+.profile_avatar_me{
+	float: left;
+	height: 260px;
+	width: 260px;
+}
 .profile_detail{
 	float: left;
 	margin-left: 10px;
 	padding-top: 5px;
-	width: 730px;
+	width: 540px;
 }
 
 .catalog{

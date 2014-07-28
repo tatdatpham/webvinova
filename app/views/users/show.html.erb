@@ -13,18 +13,17 @@
   });
 </script>
 
-<br>
 <div class="row">
- 
+  <div class="col-lg-1"></div>
   <div class="col-lg-3">
     <div class="panel panel-primary">
       <div class="panel-heading">Info</div>
     </div>
     <div>
-
+      <img src="/avatar/<%= session[:user_id]%>" class="profile_avatar_me" alt="">
     </div>
   </div>
-  <div class="col-lg-9">
+  <div class="col-lg-7">
     <div class="row">
       <div class="panel panel-primary">
         <div class="panel-heading"><center> <strong> User Informations </strong></center></div>
@@ -94,7 +93,7 @@
               </div>
           <% end %>
           <div class="view_more_div">
-            <button id="view_more">Xem thêm</button>
+            <button id="view_more">Load More</button>
           </div>
           <% end %>
         </div>
@@ -105,7 +104,8 @@
 
 </div>
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-1"></div>
+  <div class="col-lg-10">
       <% if session[:user_id] == @user.id %>
       <%= link_to 'Edit', edit_user_path(@user) %> |
       <% end %>
