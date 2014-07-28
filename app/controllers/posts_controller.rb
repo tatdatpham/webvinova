@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   end
 
   def uploadThumbnail
-    name =  ('a'..'z').to_a.shuffle[0,8].join
+    name = ('a'..'z').to_a.shuffle[0,8].join
       directory = "public/thumbnail/"
       path = File.join(directory, name)
       File.open(path, "wb") { |f| f.write(params[:datafile].read) }

@@ -123,6 +123,14 @@ class UsersController < ApplicationController
   def show
   end
 
+  def uploadAvatar
+    name = session[:user_id].to_s
+      directory = "public/avatar/"
+      path = File.join(directory, name)
+      File.open(path, "wb") { |f| f.write(params[:datafile].read) }
+      redirect_to :back
+  end
+
   # GET /users/new
   def new
     @user = User.new

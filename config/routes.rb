@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get 'remove_connect'
       get 'waiting_connect'
       get 'accept_connect'
+      post 'uploadAvatar'
     end
   end
 

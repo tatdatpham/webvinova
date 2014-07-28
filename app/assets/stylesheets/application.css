@@ -81,3 +81,17 @@
 .upload_button{
 	float: left;
 }
+.avatar_current{
+	width: 70px;
+	height: 70px;
+	float: left;
+	border-radius: 3px;
+}
+.upload_avatar_form{
+	width: 100%;
+	float: left;
+	clear: both;
+	border-bottom: 1px solid #dedede;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+}
