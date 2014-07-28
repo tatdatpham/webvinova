@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     remain_connect_count()
+    session[:current_tab] = 3
     @users = User.all
   end
 
@@ -122,6 +123,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    session[:current_tab] = 4
     @user = User.find(params[:id])
     @posts = Post.where user_id: @user.id, status: '1'
     
