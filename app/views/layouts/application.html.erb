@@ -30,7 +30,10 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li <% if session[:current_tab] == 1 %> class="active"<% end %>><a href="/">Home</a></li>
+              <li <% if session[:current_tab] == 1 %> class="active"<% end %>><a href="/posts/feed">Home</a></li>
+              <% if session[:user_id] == nil %>
+                <li <% if session[:current_tab] == 2 %> class="active"<% end %>><a href="/users/login">Login</a></li>
+              <% end %>
 <!--               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -44,13 +47,13 @@
                 </ul>
               </li> -->
               <% if session[:user_id] != nil %>
-              <li <% if session[:current_tab] == 2 %> class="active"<% end %>><a href="/posts">Your ideals</a></li>
-              <li <% if session[:current_tab] == 3 %> class="active"<% end %>><a href="/users">Members</a></li>
-              <% if session[:waiting_connect] > 0 %>
-              <li><a href="/users/waiting_connect"><span class="label label-danger"><%= session[:waiting_connect] %></span></a></li>
-              <% end %>
-              <li <% if session[:current_tab] == 4 %> class="active"<% end %>><a href="/users/<%= session[:user_id]%>">Profile</a></li>
-              <li><a href="/users/logout">Logout (<strong><%= session[:user_fullname] %></strong>)</a></li>
+                <li <% if session[:current_tab] == 2 %> class="active"<% end %>><a href="/posts">Your ideals</a></li>
+                <li <% if session[:current_tab] == 3 %> class="active"<% end %>><a href="/users">Members</a></li>
+                <% if session[:waiting_connect] > 0 %>
+                <li><a href="/users/waiting_connect"><span class="label label-danger"><%= session[:waiting_connect] %></span></a></li>
+                <% end %>
+                <li <% if session[:current_tab] == 4 %> class="active"<% end %>><a href="/users/<%= session[:user_id]%>">Profile</a></li>
+                <li><a href="/users/logout">Logout (<strong><%= session[:user_fullname] %></strong>)</a></li>
               <% end %>
             </ul>
           </div><!--/.nav-collapse -->
