@@ -53,16 +53,20 @@ class UsersController < ApplicationController
     remain_connect_count()
     redirect_to request.referrer
   end
-
+  def reject_connect
+    @connect = Connect.where(friend: session[:user_id], user_id: params[:user_id][0]).destroy_all
+    remain_connect_count()
+    redirect_to request.referrer
+  end
   def accept_connect
     @connect = Connect.find_by(friend: session[:user_id], user_id: params[:user_id][0])
     @connect.update(status: '1')
-    redirect_to users_path
+    redirect_to :back
   end
 
   def waiting_connect
     #binding.pry
-    @user = User.where(id: session[:user_id])
+    @user = User.where(id: session[:user_id]).first
     #@posts = Post.where user_id: @user.id, status: '1'
 
     @remain_connect = Connect.where(friend: session[:user_id], status: 0)

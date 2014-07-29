@@ -356,6 +356,12 @@
 	right: 30px;
 	top: 18px;
 }
+.user_action_reject{
+	width: 50px;
+	position: absolute;
+	right: 30px;
+	top: 9px;
+}
 
 
 /* css comment on Post */
