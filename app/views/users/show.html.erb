@@ -46,8 +46,8 @@
           <div class="list-group">
            <% if total <= post_per_page %>
               <% @posts.each do |post| %>
-                <div class=" feed_container">
-                  <div class="profile_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= post.thumbnail%>" style="width: 100px; height: 100px;"></div>
+                <div class="profile_container">
+                  <div class="profile_avatar"><img class="profile_thumbnail_img" alt="" src="/thumbnail/<%= post.thumbnail%>"></div>
                   <div class="profile_detail">         
                   <h5 class="list-group-item-heading" style="color: #4183c4">
                     <strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
@@ -56,7 +56,6 @@
                   <p class="list-group-item-text catalog"><strong>Views:</strong> <%= post.view %> <strong>Comments:</strong> <%= post.comments.count %></p>
                   </div>
                 </div>
-                <div class="sidebar-divider"></div>
               <% end %>
             <% else %>
             <% (0..(total/post_per_page)).each do |j| %>
@@ -64,8 +63,8 @@
                 <% (0..(post_per_page-1)).each do |i| %>
                     <% first = j * post_per_page %>
                     <% if (first + i < total) %>
-                      <div class="feed_container">
-                        <div class="profile_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= @posts[first + i].thumbnail%>" style="width: 100px; height: 100px;"></div>
+                      <div class="profile_container">
+                        <div class="profile_avatar"><img class="profile_thumbnail_img" alt="" src="/thumbnail/<%= @posts[first + i].thumbnail%>"></div>
                         <div class="profile_detail">         
                         <h5 class="list-group-item-heading" style="color: #4183c4">
                           <strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
