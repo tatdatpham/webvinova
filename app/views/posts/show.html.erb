@@ -1,25 +1,46 @@
 <div class="row">
   <div class="col-sm-1"></div>
   <div class="col-sm-3">
-    <div class="panel panel-primary">
-      <div class="panel-heading"><center><strong><%= @post.user.fullname %></strong></center></div>
-    </div class="side-avatar">
-    <div >
-      <img src="/avatar/<%= @post.user.id %>" class="profile_avatar_me" alt="<%= @post.user.fullname %>">
-    </div> 
-    <br>
     <div class="sidebar-container widget-about">
       <div class="sidebar-content">
-        <div class="sidebar-header">About</div>
+        <div class="sidebar-header"><center><%= @post.user.fullname %></center></div>
+        <div class="#">
+          <img src="/avatar/<%= @post.user.id %>" class="profile_avatar_me" alt="<%= @post.user.fullname %>">
+        </div> 
         <div class="sidebar-list">Born: <strong><%= @post.user.birthday.strftime("%B %d,%Y")%></strong></div>
         <div class="sidebar-list">Email: <strong><%= @post.user.email %></strong></div>
         <div class="sidebar-list">Joined: <strong><%= @post.user.created_at.strftime("%B %d,%Y") %></strong></div>
       </div>
     </div>
     <br>
-     <div class="sidebar-container widget-about">
+
+    <div class="sidebar-container widget-about">
       <div class="sidebar-content">
-        <div class="sidebar-header">Last Post</div>
+        <div class="sidebar-header"><center>Top Post</center></div>
+          <% if @top_posts.count > 0 %>
+            <% @top_posts.each do |top_posts| %>    
+              <div class="comment-replies comment-replies-content">
+                <div class="message-reply-container">
+              
+                  <div class="comment-reply-avatar">
+                    <a href="/users/<%= top_posts.user.id %>"><img src="/thumbnail/<%= top_posts.thumbnail%>"></a>
+                  </div>
+                  <div class="comment-reply-comment">
+                    <span class="comment-reply-author"><a href="/posts/<%= top_posts.id %>"><%= top_posts.title.truncate(42, separator: ' ') %></a></span>
+                  
+                  </div>        
+                </div>
+              </div>
+              <div class="comment-divider"></div>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+
+    <br>
+    <div class="sidebar-container widget-about">
+      <div class="sidebar-content">
+        <div class="sidebar-header"><center>Last Post</center></div>
           <% if @last_posts.count > 0 %>
             <% @last_posts.each do |last_posts| %>    
               <div class="comment-replies comment-replies-content">
@@ -39,21 +60,22 @@
           <% end %>
       </div>
     </div>
+
+    
   </div>
   <div class="col-sm-7">
     <div class="row">
-      <div class="list-group">
-        <a href="#" class="list-group-item active">
-          <h4 class="list-group-item-heading"><%= @post.title %></h4>
-        </a>
-        <div class="list-group-item">
-          <p class="list-group-item-text">
+      <div class="sidebar-container widget-about sidebar-content">
+        <div class="sidebar-header"><center><%= @post.title %></center></div>
+    
+        <div class="sidebar-list">
+          <p class="#">
             <img src="/thumbnail/<%= @post.thumbnail%>" class="post_thumbnail_img" align="left" alt="">
             <%= @post.content.html_safe %>
           </p>
         </div>
-        <div class="list-group-item">
-          <p class="list-group-item-text">
+        <div class="sidebar-list">
+          <p class="#">
             <strong>Sharewith: </strong><span class="badge"><%= @post.sharewith_text %></span> |
             <strong>View: </strong><span class="badge"><%= @post.view %></span> |
             <strong>Status: </strong><span class="badge"><%= @post.status_text %></span> |
@@ -68,8 +90,8 @@
               </span>
           </p>
         </div>
-        <div class="list-group-item">
-          <p class="list-group-item-text">
+        <div class="sidebar-list">
+          <p class="#">
             <% if @post.check_show_vote(session[:user_id], @post.id) == nil %>
               <p>
                 <%= form_for([@post, @post.votes.build]) do |f| %>

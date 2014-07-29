@@ -47,7 +47,8 @@ class PostsController < ApplicationController
   def show
     view_plus = @post.view + 1
     @post.update(view: view_plus)
-    @last_posts = Post.limit(5).order('created_at DESC')
+    @last_posts = Post.limit(4).order('created_at DESC')
+    @top_posts = Post.all.sort{ |a,b| b.votes.count <=> a.votes.count }.first(4)
   end
 
   def uploadThumbnail
