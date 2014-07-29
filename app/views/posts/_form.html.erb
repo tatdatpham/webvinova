@@ -24,7 +24,7 @@
         <%= f.label :thumbnail %><br>
         <div class="list_thumbnail">
           
-            <% @files = Dir.glob('public/thumbnail/*')
+            <% @files = Dir.glob('public/thumbnail/'+session[:user_id].to_s+'*')
               for file in @files
                 name = File.basename(file)
             %>
