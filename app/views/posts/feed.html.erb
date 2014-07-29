@@ -26,7 +26,7 @@
 			      <p class="list-group-item-text"><%= post.content.truncate(200, separator: ' ').html_safe %></p>
 			      <p class="list-group-item-text catalog"><strong>Author:</strong>
 			      <a href="<%= users_path%>/<%= post.user.id %>"><%= post.user.fullname %></a> <strong>Views:</strong> <%= post.view %> <strong>Comments:</strong> <%= post.comments.count %></p>
-			      <div class="feed_time_post"><%= post.created_at.strftime("%H:%M %d/%m") %></div>
+			      <div class="feed_time_post"><%= post.get_time(post.created_at) %></div>
 		      </div>
 		    </div>
 	    <% end %>
@@ -46,7 +46,7 @@
 						      <p style="margin-top: 5px;"><a href="<%= posts_path %>/<%= @posts[first + i].id%>" class="btn btn-default btn-xs"> Read more</a></p>
 						      <p class="list-group-item-text catalog"><strong>Author:</strong>
 						      <a href="<%= users_path%>/<%= @posts[first + i].user.id %>"><%= @posts[first + i].user.fullname %></a> <strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
-						   <div class="feed_time_post"><%= @posts[first + i].created_at.strftime("%H:%M %d/%m") %></div>
+						   <div class="feed_time_post"><%= @posts[first + i].get_time(@posts[first + i].created_at) %></div>
 						   </div>
 					    </div>
 				    <% end %>

@@ -95,4 +95,5 @@
 <% if (session[:user_status] > 0) %>
   <%= button_to 'New User', new_user_path, class: "btn btn-success", method: "get" %>
 <% end %>
+<p><%= link_to 'Back', :back %></p>
 </div>

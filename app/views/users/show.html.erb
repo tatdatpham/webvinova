@@ -30,8 +30,8 @@
         <div class="sidebar-list">Phone: <strong><%= @user.phone %></strong></div>
         <div class="sidebar-list">Email: <strong><%= @user.email %></strong></div>
         <div class="sidebar-list">Joined: <strong><%= @user.created_at.strftime("%B %d,%Y") %></strong></div>
-        <div class="sidebar-list">Friend: <strong><a href="/users/<%= @user.id %>"><%= @user.connects.count %> people</a></strong></div>
-        <div class="sidebar-list">Ideals: <strong><a href="#"><%=@user.posts.count %> Post</a></strong></div>
+        <div class="sidebar-list">Friend: <strong><%= @user.connects.count %> people</strong></div>
+        <div class="sidebar-list">Ideals: <strong><%=@user.posts.count %> posts</strong></div>
       </div>
 
     </div>

@@ -47,7 +47,7 @@
               <li <% if session[:current_tab] == 2 %> class="active"<% end %>><a href="/posts">Your ideals</a></li>
               <li <% if session[:current_tab] == 3 %> class="active"<% end %>><a href="/users">Members</a></li>
               <% if session[:waiting_connect] > 0 %>
-              <li><a href="/users/waiting_connect"><span class="label label-primary"><%= session[:waiting_connect] %></span></a></li>
+              <li><a href="/users/waiting_connect"><span class="label label-danger"><%= session[:waiting_connect] %></span></a></li>
               <% end %>
               <li <% if session[:current_tab] == 4 %> class="active"<% end %>><a href="/users/<%= session[:user_id]%>">Profile</a></li>
               <li><a href="/users/logout">Logout (<strong><%= session[:user_fullname] %></strong>)</a></li>
