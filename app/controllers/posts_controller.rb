@@ -30,6 +30,10 @@ class PostsController < ApplicationController
     @my_post = Post.where user_id: session[:user_id], status: '1', sharewith: '1'
       
     @posts = @posts_public + @posts_shared + @my_post
+
+    if session[:user_id] == nil
+      @posts = @posts_public
+    end
   end
 
   def remain_connect_count
@@ -47,7 +51,7 @@ class PostsController < ApplicationController
   end
 
   def uploadThumbnail
-    name = ('a'..'z').to_a.shuffle[0,8].join
+    name = session[:user_id].to_s+'_'+('a'..'z').to_a.shuffle[0,8].join
       directory = "public/thumbnail/"
       path = File.join(directory, name)
       File.open(path, "wb") { |f| f.write(params[:datafile].read) }

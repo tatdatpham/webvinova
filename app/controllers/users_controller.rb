@@ -68,6 +68,7 @@ class UsersController < ApplicationController
   end
 
   def login
+    session[:current_tab] = 2
     if session[:user_id].nil? 
       @users_all = User.all
       @check = false

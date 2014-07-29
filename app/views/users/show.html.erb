@@ -30,8 +30,8 @@
         <div class="sidebar-list">Phone: <strong><%= @user.phone %></strong></div>
         <div class="sidebar-list">Email: <strong><%= @user.email %></strong></div>
         <div class="sidebar-list">Joined: <strong><%= @user.created_at.strftime("%B %d,%Y") %></strong></div>
-        <div class="sidebar-list">Friend: <strong><a href="/users/<%= @user.id %>"><%= @user.connects.count %> people</a></strong></div>
-        <div class="sidebar-list">Ideals: <strong><a href="#"><%=@user.posts.count %> Post</a></strong></div>
+        <div class="sidebar-list">Friend: <strong><%= @user.connects.count %> people</strong></div>
+        <div class="sidebar-list">Ideals: <strong><%=@user.posts.count %> posts</strong></div>
       </div>
 
     </div>
@@ -46,17 +46,16 @@
           <div class="list-group">
            <% if total <= post_per_page %>
               <% @posts.each do |post| %>
-                <div class=" feed_container">
-                  <div class="profile_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= post.thumbnail%>" style="width: 100px; height: 100px;"></div>
+                <div class="profile_container">
+                  <div class="profile_avatar"><img class="profile_thumbnail_img" alt="" src="/thumbnail/<%= post.thumbnail%>"></div>
                   <div class="profile_detail">         
                   <h5 class="list-group-item-heading" style="color: #4183c4">
                     <strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
                   </h5>
-                  <p class="list-group-item-text"><%= post.content.truncate(170, separator: ' ') %></p>
+                  <p class="list-group-item-text"><%= post.content.truncate(170, separator: ' ').html_safe %></p>
                   <p class="list-group-item-text catalog"><strong>Views:</strong> <%= post.view %> <strong>Comments:</strong> <%= post.comments.count %></p>
                   </div>
                 </div>
-                <div class="sidebar-divider"></div>
               <% end %>
             <% else %>
             <% (0..(total/post_per_page)).each do |j| %>
@@ -64,13 +63,13 @@
                 <% (0..(post_per_page-1)).each do |i| %>
                     <% first = j * post_per_page %>
                     <% if (first + i < total) %>
-                      <div class="feed_container">
-                        <div class="profile_avatar"><img class="img-thumbnail" alt="100x100" src="/thumbnail/<%= @posts[first + i].thumbnail%>" style="width: 100px; height: 100px;"></div>
+                      <div class="profile_container">
+                        <div class="profile_avatar"><img class="profile_thumbnail_img" alt="" src="/thumbnail/<%= @posts[first + i].thumbnail%>"></div>
                         <div class="profile_detail">         
                         <h5 class="list-group-item-heading" style="color: #4183c4">
                           <strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
                         </h5>
-                        <p class="list-group-item-text"><%= @posts[first + i].content.truncate(160, separator: ' ') %></p>
+                        <p class="list-group-item-text"><%= @posts[first + i].content.truncate(160, separator: ' ').html_safe %></p>
                         
                         <p class="list-group-item-text catalog"><strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
                         </div>

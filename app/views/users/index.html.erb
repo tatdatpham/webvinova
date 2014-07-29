@@ -1,21 +1,4 @@
 <div class="row">
-  <div class="col-sm-4"></div>
-  <div class="col-sm-7">
-  <%= form_tag('users/search', method: 'get') do %>
-    <div class="row">
-      <div class="col-sm-9">
-        <%= text_field_tag 'keyword', nil, class: 'form-control', placeholder: 'Find a friend' %>
-      </div>
-      <div>
-        <%= button_tag 'Search', class: 'btn btn-sm btn-default' %>
-      </div>
-    </div>
-  <% end %>
-  </div>
-</div>
-
-<br>
-<div class="row">
   <div class="col-sm-1"></div>
   <div class="col-sm-3">
     <div class="sidebar-container widget-about">
@@ -25,14 +8,12 @@
             <% @top_user.each do |top_user| %>    
               <div class="comment-replies comment-replies-content">
                 <div class="message-reply-container">
-              
                   <div class="comment-reply-avatar">
                     <a href="/users/<%= top_user.id %>"><img src="/avatar/<%= top_user.id%>"></a>
                   </div>
                   <div class="comment-reply-comment">
                     <span class="comment-reply-author"><a href="/users/<%= top_user.id %>"><%= top_user.fullname %></a></span><br>
-                      3 Post
-                  
+                      <%= top_user.posts.count %> posts
                   </div>        
                 </div>
               </div>
@@ -43,6 +24,18 @@
     </div>
   </div>
   <div class="col-sm-7">
+    <%= form_tag('users/search', method: 'get') do %>
+      <div class="row">
+        <div class="col-sm-9">
+          <%= text_field_tag 'keyword', nil, class: 'form-control', placeholder: 'Find a friend' %>
+        </div>
+        <div>
+          <%= button_tag 'Search', class: 'btn btn-sm btn-default' %>
+        </div>
+      </div>
+    <% end %>
+    <br>
+    
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Listing Members</h3>
