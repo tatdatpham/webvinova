@@ -9,7 +9,7 @@
               <div class="comment-replies comment-replies-content">
                 <div class="message-reply-container">
                   <div class="comment-reply-avatar">
-                    <a href="/users/<%= top_user.id %>"><img src="/avatar/<%= top_user.id%>"></a>
+                    <a href="/users/<%= top_user.id %>"><img src="/avatar/<%= top_user.avatar%>"></a>
                   </div>
                   <div class="comment-reply-comment">
                     <span class="comment-reply-author"><a href="/users/<%= top_user.id %>"><%= top_user.fullname %></a></span><br>
@@ -54,7 +54,7 @@
                 <% end %>
                 <div class="user_item">
                   <div class="user_item_avt">
-                    <img src="/avatar/<%= user.id %>" alt="" class="user_item_img">
+                    <img src="/avatar/<%= user.avatar %>" alt="" class="user_item_img">
                   </div>
                   <div class="user_item_info">
                     <a href="<%= users_path %>/<%= user.id %>">

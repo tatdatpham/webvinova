@@ -30,7 +30,7 @@
 				      <a href="<%= users_path%>/<%= post.user.id %>"><%= post.user.fullname %></a> 
 				      <strong>Views:</strong> <%= post.view %> 
 				      <strong>Comments:</strong> <%= post.comments.count %>
-						<strong>Rate:</strong> <%= post.votes.average(:rate) %>
+						<strong>Rate:</strong> <% if post.votes.average(:rate) == nil %>0<% else %><%= post.votes.average(:rate) %><% end %>
 						<strong>Votes:</strong> <%= post.votes.count %>
 			      </p>
 			      <div class="feed_time_post"><%= post.get_time(post.created_at) %></div>

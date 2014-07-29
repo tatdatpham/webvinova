@@ -80,6 +80,7 @@ class UsersController < ApplicationController
           session[:user_birthday] = user.birthday
           session[:user_phone] = user.phone
           session[:user_status] = user.status
+          session[:user_avatar] = user.avatar
           @check = true
 
           remain_connect_count()
@@ -107,9 +108,10 @@ class UsersController < ApplicationController
     session[:user_birthday] = nil
     session[:user_phone] = nil
     session[:user_status] = nil
+    session[:user_avatar] = nil
     session[:waiting_connect] = nil
     @msg = ""
-    redirect_to login_users_path
+    redirect_to root_path
   end
 
   def posts
@@ -135,10 +137,13 @@ class UsersController < ApplicationController
 
   def uploadAvatar
     name = session[:user_id].to_s
-      directory = "public/avatar/"
-      path = File.join(directory, name)
-      File.open(path, "wb") { |f| f.write(params[:datafile].read) }
-      redirect_to :back
+    directory = "public/avatar/"
+    path = File.join(directory, name)
+    File.open(path, "wb") { |f| f.write(params[:datafile].read) }
+    @user = User.find_by(id: session[:user_id])
+    @user.update(avatar: session[:user_id])
+
+    redirect_to :back
   end
 
   # GET /users/new
@@ -154,15 +159,19 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      session[:user_email] = @user.email
+      session[:user_fullname] = @user.fullname
+      session[:user_birthday] = @user.birthday
+      session[:user_phone] = @user.phone
+      session[:user_status] = @user.status
+      session[:user_avatar] = @user.avatar
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to root_path, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+      remain_connect_count()
+      redirect_to root_path
+    else
+      redirect_to login_user_path
     end
   end
 
@@ -200,7 +209,8 @@ class UsersController < ApplicationController
     def user_params
       params[:user][:password] = Digest::MD5.hexdigest(params[:user][:password])
       params[:user][:status] = 0
+      params[:user][:avatar] = 'noavatar'
       
-      params.require(:user).permit(:email, :password, :fullname, :birthday, :phone, :status)
+      params.require(:user).permit(:email, :password, :fullname, :birthday, :phone, :status, :avatar)
     end
 end
