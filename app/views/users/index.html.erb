@@ -1,77 +1,107 @@
-
-<div class="col-sm-1"></div>
-<div class="col-sm-10">
-<%= form_tag('users/search', method: 'get') do %>
-  <div class="row">
-    <div class="col-sm-4">
-      <%= text_field_tag 'keyword', nil, class: 'form-control', placeholder: 'Find a friend' %>
-    </div>
-    <div>
-      <%= button_tag 'Search', class: 'btn btn-sm btn-default' %>
-    </div>
-  </div>
-<% end %>
-<br>
-
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title">Listing Users</h3>
-  </div>
-  <% if @users.count == 0 %>
-    <p>There are no post to show.</p>
-  <% else %>
-    <div class="user_list">
-      <div class="user_row">
-        <% count = 1 %>
-        <% @users.each do |user| %>
-        <% if user.id != session[:user_id] %>
-            <% if count > 3 and count % 3 == 1 %>
-              </div>
-              <div class="user_row">
-            <% end %>
-            <div class="user_item">
-              <div class="user_item_avt">
-                <img src="/avatar/<%= user.id %>" alt="" class="user_item_img">
-              </div>
-              <div class="user_item_info">
-                <a href="<%= users_path %>/<%= user.id %>">
-                  <strong><%= user.fullname %></strong>
-                </a>
-                <br>
-                <%= user.connects.count%> friends
-              </div>
-              <div class="user_action">
-                <% @check_connect_of_me = Connect.where user_id: session[:user_id], friend: user.id %>
-                  <% @check_connect_of_friend = Connect.where friend: session[:user_id], user_id: user.id %>
-
-                  <% @count = @check_connect_of_me.count + @check_connect_of_friend.count %>
-                  <% @status = @check_connect_of_me.pluck(:status) + @check_connect_of_friend.pluck(:status) %>
-
-                  <% if @count == 0 %>
-                    <%= form_tag('users/connect', method: "get") do %>
-                      <%= hidden_field :user_id, nil, value: user.id %>
-                      <%= submit_tag "Add friend", class: "btn btn-xs btn-primary" %>
-                    <% end %>
-
-                  <% elsif @status[0] == 0 %>
-                    <span class="label label-default">Waiting</span>
-                  <% else %>
-                    <%= form_tag('users/remove_connect', method: "get") do %>
-                      <%= hidden_field :user_id, nil, value: user.id %>
-                      <%= submit_tag "Unfriend", class: "btn btn-xs btn-danger" %>
-                    <% end %>
-                  <% end %>
-              </div>
-            </div>
-            <% count += 1 %>
-        <% end %>
-        <% end %>
-      </div>      
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-7">
+  <%= form_tag('users/search', method: 'get') do %>
+    <div class="row">
+      <div class="col-sm-9">
+        <%= text_field_tag 'keyword', nil, class: 'form-control', placeholder: 'Find a friend' %>
+      </div>
+      <div>
+        <%= button_tag 'Search', class: 'btn btn-sm btn-default' %>
+      </div>
     </div>
   <% end %>
+  </div>
 </div>
 
-<% if session[:user_status] > 0 %>
+<br>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-3">
+    <div class="sidebar-container widget-about">
+      <div class="sidebar-content">
+        <div class="sidebar-header">Top Members</div>
+          <% if @top_user.count > 0 %>
+            <% @top_user.each do |top_user| %>    
+              <div class="comment-replies comment-replies-content">
+                <div class="message-reply-container">
+              
+                  <div class="comment-reply-avatar">
+                    <a href="/users/<%= top_user.id %>"><img src="/avatar/<%= top_user.id%>"></a>
+                  </div>
+                  <div class="comment-reply-comment">
+                    <span class="comment-reply-author"><a href="/users/<%= top_user.id %>"><%= top_user.fullname %></a></span><br>
+                      3 Post
+                  
+                  </div>        
+                </div>
+              </div>
+              <div class="comment-divider"></div>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-7">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Listing Members</h3>
+      </div>
+      <% if @users.count == 0 %>
+        <p>There are no member to show.</p>
+      <% else %>
+        <div class="user_list">
+          <div class="user_row">
+            <% count = 1 %>
+            <% @users.each do |user| %>
+            <% if user.id != session[:user_id] %>
+                <% if count > 2 and count % 2 == 1 %>
+                  </div>
+                  <div class="user_row">
+                <% end %>
+                <div class="user_item">
+                  <div class="user_item_avt">
+                    <img src="/avatar/<%= user.id %>" alt="" class="user_item_img">
+                  </div>
+                  <div class="user_item_info">
+                    <a href="<%= users_path %>/<%= user.id %>">
+                      <strong><%= user.fullname %></strong>
+                    </a>
+                    <br>
+                    <%= user.connects.count%> friends
+                  </div>
+                  <div class="user_action">
+                    <% @check_connect_of_me = Connect.where user_id: session[:user_id], friend: user.id %>
+                      <% @check_connect_of_friend = Connect.where friend: session[:user_id], user_id: user.id %>
+
+                      <% @count = @check_connect_of_me.count + @check_connect_of_friend.count %>
+                      <% @status = @check_connect_of_me.pluck(:status) + @check_connect_of_friend.pluck(:status) %>
+
+                      <% if @count == 0 %>
+                        <%= form_tag('users/connect', method: "get") do %>
+                          <%= hidden_field :user_id, nil, value: user.id %>
+                          <%= submit_tag "Add friend", class: "btn btn-xs btn-primary" %>
+                        <% end %>
+
+                      <% elsif @status[0] == 0 %>
+                        <span class="label label-default">Waiting</span>
+                      <% else %>
+                        <%= form_tag('users/remove_connect', method: "get") do %>
+                          <%= hidden_field :user_id, nil, value: user.id %>
+                          <%= submit_tag "Unfriend", class: "btn btn-xs btn-danger" %>
+                        <% end %>
+                      <% end %>
+                  </div>
+                </div>
+                <% count += 1 %>
+            <% end %>
+            <% end %>
+          </div>      
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <% if session[:user_status] > 0 %>
   <%= button_to 'New User', new_user_path, class: "btn btn-success", method: "get" %>
-<% end %>
+  <% end %>
 </div>

@@ -42,6 +42,9 @@
 	color: #2a6496;
 }
 
+.profile{
+	background: #F9F9F9;
+}
 .feed_container{
 	border-bottom: 1px solid #dedede;
 	float: left;
@@ -93,9 +96,20 @@
 }
 
 .profile_avatar_me{
+	height: 100px;
+	width: 100px;
+	border-radius: 40px;
+	margin-right: 10px;
+	padding: 2px;
+}
+
+.profile_avatar_me{
+	display: block;
 	height: 263px;
 	width: 100%;
 	border-radius: 12px;
+	margin-right: 10px;
+	padding: 2px;
 }
 .profile_detail{
 	float: left;
@@ -207,7 +221,7 @@
 	border-bottom: 1px solid #EEE;
 }
 .comment-reply-author a {
-	color: #3A5796;
+	color: #428bca;
 	cursor: pointer;
 	font-weight: bold;
 	font-family: Tahoma, Arial, 'Segoe UI', Verdana, sans-serif;
@@ -216,7 +230,11 @@
 	padding: 5px 15px 5px 58px;
 	word-wrap: break-word;
 }
-
+.comment-reply-time{
+	float:right;
+	color:#888;
+	font-size: 13px !important;
+}
 .catalog{
 	margin-top: 5px;
 	float: left;
@@ -291,8 +309,8 @@
 	margin-bottom: 10px;
 }
 .user_item{
-	background: #fff;
-	width: 32%;
+	background: #F9F9F9	;
+	width: 48%;
 	height: 100%;
 	float: left;
 	border: 1px solid #dedede;
@@ -316,6 +334,7 @@
 	height: 100%;
 	float: left;
 	margin-left: 10px;
+	padding: 8px 10px 10px 0;
 }
 .user_action{
 	width: 50px;

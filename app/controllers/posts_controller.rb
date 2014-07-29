@@ -16,7 +16,8 @@ class PostsController < ApplicationController
       @posts = @posts_public + @posts_shared
     end
   end
-
+  
+  ###
   def feed
     session[:current_tab] = 1
     remain_connect_count()
