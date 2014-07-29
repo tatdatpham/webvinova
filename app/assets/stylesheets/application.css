@@ -97,7 +97,7 @@
 .sidebar-content {
 	box-shadow: 0px 1px 1px #CCC;
 	border: 1px solid #BFBFBF;
-	background: #fff;
+	background: #F6F6F6;
 	color: #6B6B6B;
 	border-radius: 3px;
 	overflow: hidden;
@@ -138,13 +138,13 @@
 	font-family: 'Segoe UI', Tahoma, Verdana, Arial, sans-serif;
 	box-shadow: 0px 1px 1px #CCC;
 	border: 1px solid #BFBFBF;
-	background: #fff;
+	background: #F6F6F6;
 	color: #6B6B6B;
 	border-radius: 3px;
 	overflow: auto;
 }
 .comment-header {
-	background: #f8f8f8;
+	background: #F6F6F6;
 	padding: 10px;
 	font-family: Tahoma, Verdana, Arial, sans-serif;
 	font-size: 13px;
@@ -202,6 +202,10 @@
 .comment-reply-comment {
 	padding: 5px 15px 5px 58px;
 	word-wrap: break-word;
+}
+.comment-reply-content:hover {
+	background: #fff;
+	box-shadow:0 0 5px #008FBB;
 }
 .comment-reply-time{
 	float:right;
@@ -275,7 +279,7 @@
 	margin-bottom: 10px;
 }
 .user_item{
-	background: #F9F9F9	;
+	background: #F6F6F6	;
 	width: 48%;
 	height: 100%;
 	float: left;
@@ -283,6 +287,15 @@
 	padding: 5px;
 	margin-left: 10px;
 	position: relative;
+	border-radius: 3px;
+	box-shadow: 0 0 10px #D5D3BE;
+	-webkit-transition: background 0.7s; /* For Safari 3.1 to 6.0 */
+    transition: background 0.7s;
+}
+.user_item:hover{
+	text-decoration:underline;
+	background: #fff;
+	box-shadow:0 0 5px #008FBB;
 }
 .user_item_avt{
 	width: 50px;
@@ -308,3 +321,45 @@
 	right: 30px;
 	top: 18px;
 }
+
+
+/* css comment on Post */
+
+.inserted{float:right; font-size: 11px !important; text-transform:lowercase !important;}
+.review-item{margin-top:20px;}
+.review-item:first-child{margin-top:0;}
+.review-item .user-info{position:relative;height:50px;}
+.review-item .user-info .avatar{float:left;position:relative;padding: 2px;}
+.review-item .user-info .avatar img{float:left;width:48px;height:48px; border-radius: 5px}
+.review-item .user-info .user{margin-left:60px;position:relative;height:100%;overflow:hidden;}
+.review-item .user-info .user h3{font-size:15px;font-weight:bold;margin:15px 0 0 0;height:18px;}
+.review-item .user-info .user h3.no-under{margin-top:31px;}
+.review-item .user-info .user h3 a{color:#000;float:left;}
+.review-item .user-info .user h3 .vip{background-color:#D1E751;color:black;font-family:'Lato','Droid Sans',sans-serif;font-weight:700;padding:1px 4px;border-radius:3px;font-size:13px;margin:-1px 0 0 7px;float:left;box-shadow:0 0 5px #999;}
+.review-item .user-info .user h4{margin:-1px 0 0 0;padding:0; padding-bottom: 2px;}
+.review-item .user-info .user h4 .stat{padding-left:16px;background-repeat:no-repeat;background-position:0 0;background-size:auto 12px;margin-right:6px;opacity:.6;font-size:11px!important; text-transform:lowercase !important;font-weight:normal;}
+.review-item .user-info .user h4 .no-icon{padding-left:0;}
+.review-item .user-info .user h4 .location{background-image:url(https://slurm.trakt.us/images/icons/network-location@2x.png);padding-left:10px;}
+.review-item .user-info .user h4 .stat.likes{background-image:url(https://slurm.trakt.us/images/icon-ratings-dark@2x.png);}
+.review-item .user-info .user h4 .stat.shouts{background-image:url(https://slurm.trakt.us/images/icon-shouts-filled-dark@2x.png);}
+.review-item .user-info .user h4 .stat-link{color:#000;}
+.review-item .user-info .user h4 .stat-link:hover .stat{}.review-item .user-info .user h4 .like-shout{font-weight:normal;font-size:11px;margin-right:6px;}
+.review-item .user-info .user h4 .stat.reply{background-image:url(https://slurm.trakt.us/images/icon-reply-linked@2x.png);padding-left:19px;color:#008fbb;opacity:1;}
+.review-item .user-info .user h4 .like-shout.selected{background-image:url(https://slurm.trakt.us/images/icon-ratings-linked@2x.png);padding-left:16px;background-repeat:no-repeat;background-position:0 0;background-size:auto 12px;}
+.review-item .user-info .inserted{color:#888;text-transform:uppercase;font-size:13px;position:absolute;right:0;bottom:0;}.review-item .user-info .manage{position:absolute;right:0;bottom:22px;z-index:1;}
+.review-item .user-info .edit-shout,.review-item .user-info .delete-shout{display:none;}
+.review-item:hover .user-info .edit-shout,.review-item:hover .user-info .delete-shout{display:inline;}
+.review-item .review-text{margin-top:10px;margin-bottom:0;color:#666;background-color:#F6F6EF;padding:10px;border-radius:3px;box-shadow:0 0 20px #D5D3BE;position:relative;-webkit-transition:background-color 1s;-moz-transition:background-color 1s;-o-transition:background-color 1s;-ms-transition:background-color 1s;transition:background-color 1s;}
+.review-item .review-text .spoiler{background:#F6F6EF url(https://slurm.trakt.us/images/spoiler.png) no-repeat 50% 50%;width:100%;height:100%;position:absolute;top:0;left:0;border-radius:3px;cursor:pointer;}
+.review-item:hover .review-text{background-color:#fff;}
+.review-item.own .review-text,.review-item.own .review-text .spoiler,.review-item.own:hover .review-text{box-shadow:0 0 10px #008FBB;background-color:#EFF4FA;}
+.review-item .review-text blockquote{border-left:solid 2px #D5D3BE;margin-left:10px;padding:3px 0 3px 10px;}
+.review-item .review-text .at-reply{font-weight:no;color:#333;}
+.review-item.reply .user-info{height:24px;}
+.review-item.reply .user-info .user{margin-left:35px;margin-right:400px;}
+.review-item.reply .user-info .user h3{margin-top:5px;}
+.review-item.reply .user-info .avatar img{width:24px;height:24px;}
+.review-item .user-info .bottom-rating-overlay{width:auto;padding-right:5px;position:relative;border-radius:3px;float:left;}
+.review-item .user-info .bottom-rating-overlay span{border-radius:3px 0 0 3px;
+
+	/* end css for comment on post */
