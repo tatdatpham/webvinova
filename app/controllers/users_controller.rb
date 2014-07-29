@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def search
+    @top_user =  User.all.sort{ |a,b| b.posts.count <=> a.posts.count }.first(5)
     remain_connect_count()
     # @users_with_email = User.where(email: params[:keyword])
 
@@ -31,6 +32,7 @@ class UsersController < ApplicationController
       or(t[:email].matches("%#{params[:keyword]}%"))
     )
     return @users
+
   end
 
   def remain_connect_count
@@ -59,6 +61,10 @@ class UsersController < ApplicationController
   end
 
   def waiting_connect
+    #binding.pry
+    @user = User.where(id: session[:user_id])
+    #@posts = Post.where user_id: @user.id, status: '1'
+
     @remain_connect = Connect.where(friend: session[:user_id], status: 0)
     @users = User.where(id: @remain_connect.pluck(:user_id))
   end
@@ -130,6 +136,15 @@ class UsersController < ApplicationController
     session[:current_tab] = 4
     @user = User.find(params[:id])
     @posts = Post.where user_id: @user.id, status: '1'
+    #binding.pry
+    @friend_list1 = Connect.where user_id: session[:user_id], status: '1'
+    @friend_list2 = Connect.where friend: session[:user_id], status: '1'
+    @friend_list = @friend_list1 + @friend_list2
+    @friend_user1 = User.where id: @friend_list1.pluck(:user_id)
+    @friend_user2 = User.where id: @friend_list1.pluck(:friend)
+    @friend_user3 = User.where id: @friend_list2.pluck(:user_id)
+    @friend_user4 = User.where id: @friend_list2.pluck(:friend)
+    @friend_user = @friend_user1 + @friend_user2 + @friend_user3 + @friend_user4
     
   end
 
