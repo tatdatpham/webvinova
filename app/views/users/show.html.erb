@@ -52,7 +52,7 @@
                   <h5 class="list-group-item-heading" style="color: #4183c4">
                     <strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
                   </h5>
-                  <p class="list-group-item-text"><%= post.content.truncate(170, separator: ' ') %></p>
+                  <p class="list-group-item-text"><%= post.content.truncate(170, separator: ' ').html_safe %></p>
                   <p class="list-group-item-text catalog"><strong>Views:</strong> <%= post.view %> <strong>Comments:</strong> <%= post.comments.count %></p>
                   </div>
                 </div>
@@ -69,7 +69,7 @@
                         <h5 class="list-group-item-heading" style="color: #4183c4">
                           <strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
                         </h5>
-                        <p class="list-group-item-text"><%= @posts[first + i].content.truncate(160, separator: ' ') %></p>
+                        <p class="list-group-item-text"><%= @posts[first + i].content.truncate(160, separator: ' ').html_safe %></p>
                         
                         <p class="list-group-item-text catalog"><strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
                         </div>

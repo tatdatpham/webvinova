@@ -342,3 +342,8 @@
 	right: 30px;
 	top: 18px;
 }
+.post_thumbnail_img{
+	width: 150px;
+	height: 180px;
+	padding-right: 10px;
+}
