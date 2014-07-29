@@ -154,6 +154,7 @@
     <% end %>
     </div>
     <div class="row" id="comment">
+    <% if session[:user_id] != nil %>
       <h4>Write comment for this post:</h4>
       <%= form_for([@post, @post.comments.new]) do |f| %>
         <p> 
@@ -168,7 +169,11 @@
         </p>
         
       <% end %>
-
+    <% else %>
+      <p>
+        <center><a href="<%= login_users_path%>">Login</a> to comment</center>
+      </p>
+    <% end %>
 
       <% if session[:user_id] == @post.user_id %>
         <%= link_to 'Edit', edit_post_path(@post) %> |

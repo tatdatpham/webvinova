@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724031543) do
+ActiveRecord::Schema.define(version: 20140729065415) do
 
   create_table "comments", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|
     t.text     "content"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20140724031543) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "status"
+    t.string   "avatar"
   end
 
   create_table "votes", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|

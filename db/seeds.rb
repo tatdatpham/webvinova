@@ -7,10 +7,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-users = User.create(email: 'dat@gmail.com', password: '202cb962ac59075b964b07152d234b70', fullname: 'Phạm Tất Đạt', birthday: '1993-01-01', phone: '03903029', status: '0')
-users = User.create(email: 'hai@gmail.com', password: '202cb962ac59075b964b07152d234b70', fullname: 'Nguyễn Đức Hai', birthday: '1993-04-01', phone: '0434034434', status: '0')
-users = User.create(email: 'justin@gmail.com', password: '202cb962ac59075b964b07152d234b70', fullname: 'Nguyễn Bình Diệu', birthday: '1990-02-01', phone: '083920293', status: '0')
-users = User.create(email: 'admin@gmail.com', password: '202cb962ac59075b964b07152d234b70', fullname: 'Adminstrator', birthday: '1980-03-05', phone: '0302050295', status: '1')
+users = User.create(email: 'dat@gmail.com', password: '202cb962ac59075b964b07152d234b70', fullname: 'Phạm Tất Đạt', birthday: '1993-01-01', phone: '03903029', status: '0', avatar: '1')
+users = User.create(email: 'hai@gmail.com', password: '202cb962ac59075b964b07152d234b70', fullname: 'Nguyễn Đức Hai', birthday: '1993-04-01', phone: '0434034434', status: '0', avatar: '2')
+users = User.create(email: 'justin@gmail.com', password: '202cb962ac59075b964b07152d234b70', fullname: 'Nguyễn Bình Diệu', birthday: '1990-02-01', phone: '083920293', status: '0', avatar: '3')
+users = User.create(email: 'admin@gmail.com', password: '202cb962ac59075b964b07152d234b70', fullname: 'Adminstrator', birthday: '1980-03-05', phone: '0302050295', status: '1', avatar: 'noavatar')
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 posts = Post.create(title: 'Tìm thấy hộp đen vụ rơi máy bay ở Đài Loan', content: '<b>VOV.VN</b> <p>- Trong khi đó, các nhân viên điều tra vẫn đang tiếp tục làm việc tại hiện trường vụ tai nạn để làm rõ nguyên nhân.</p>
