@@ -43,7 +43,7 @@
 	background: #fff;
 	color: #6B6B6B;
 	float: left;
-	padding: 5px 5px 0 5px ;
+	padding: 5px 5px 12px 5px ;
 	width: 100%;
 	border-bottom: 1px solid #eee;
 	box-shadow: 0px 0px 2px #999;
@@ -460,3 +460,23 @@
 	height: 180px;
 	padding-right: 10px;
 }
+.ap-xdot{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;	
+}
+
+.cover{padding-top: 2px; position:relative;width:683px;}
+.cover .image{width:683px;overflow:hidden;height:300px;} 
+.cover .image img{width:700px;min-height:300px;}
+.cover .text{position:absolute;bottom:0px;left:-95px;width:100%;background: rgba(0,0,0,0.7);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7d000000, endColorstr=#7d000000)";}
+.cover:hover .text{background: rgba(0,0,0,0.8);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#a3000000, endColorstr=#a3000000)";}
+.cover .text .in{padding:10px 20px;color:#ccc;}
+.cover .text .icon{width:14px;font-size:14px;display:inline-block;margin-right:5px;}
+.cover .text .info{width:640px;text-shadow:0 1px 1px #000;overflow:hidden;}
+.cover .text .name{margin-bottom:5px;}
+.cover .text .name a{color:#62b7e7;font-size:20px;font-weight:normal;}
+.cover .text .time{color:#ccc;font-size:13px;float:left;padding-top:8px;width:20%;}
+.cover .text .time a{font-weight:normal;color:#fff;}
+.cover .links{position:absolute;right:15px;width:280px;top:40px;}

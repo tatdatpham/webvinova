@@ -5,6 +5,12 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+    $(function(){
+        $('.dropdown-toggle').dropdown()
+    });
+    
+</script>
 </head>
 <body>
   <% if session[:current_tab] == nil %>
@@ -32,7 +38,7 @@
             <ul class="nav navbar-nav">
               <li <% if session[:current_tab] == 1 %> class="active"<% end %>><a href="/posts/feed"><strong>Home</strong></a></li>
  
-<!--               <li class="dropdown">
+              <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Action</a></li>
@@ -43,7 +49,9 @@
                   <li><a href="#">Separated link</a></li>
                   <li><a href="#">One more separated link</a></li>
                 </ul>
-              </li> -->
+              </li> 
+
+
               <% if session[:user_id] != nil %>
                 <li <% if session[:current_tab] == 2 %> class="active"<% end %>>
                   <a href="/posts"><strong>Your ideals</strong></a></li>
@@ -82,5 +90,7 @@
       </div>
       </div>
     </div>
+
+  
 </body>
 </html>
