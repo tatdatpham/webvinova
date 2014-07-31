@@ -1,6 +1,10 @@
 <div class="row">
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6">
+	   <% if session[:user_id] == nil %>
+	   	<br><br>
+	   	<center>You must <b><a href="http://localhost:3000/users/login">login</a></b> or <b><a href="http://localhost:3000/users/signup">Register</a></b> new account to post</center>
+	   	<%else%>
 		<div class="panel panel-primary">
 		    <div class="panel-heading">
 		      <h3 class="panel-title">New post</h3>
@@ -10,6 +14,7 @@
 	        </div>
 	  	</div>
 		<%= link_to 'Back', :back %>
+		<%end%>
 	</div>
 </div>
 

@@ -1,3 +1,4 @@
+<% if session[:user_id] != nil %>
 <div class="upload_avatar_form">
   <div class="avatar_current">
     <img class="avatar_current" src="/avatar/<%= session[:user_id] %>" alt="">
@@ -54,3 +55,4 @@
   </div>
 <% end %>
 
+<%end%>

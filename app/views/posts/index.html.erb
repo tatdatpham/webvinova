@@ -1,5 +1,6 @@
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
+  <% if session[:user_id] != nil %>
   <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title">Listing Ideals</h3>
@@ -51,10 +52,10 @@
     <% end %>
 </div>
 
-<% if params[:user_id] == nil %>
-  <%= button_to 'New Ideal', new_post_path, class: "btn btn-success", method: "get" %>
-<% else %>
-  <%= link_to 'Back', :back %>
-<% end %>
-
+  <% if params[:user_id] == nil %>
+    <%= button_to 'New Ideal', new_post_path, class: "btn btn-success", method: "get" %>
+  <% else %>
+    <%= link_to 'Back', :back %>
+  <% end %>
+<%end%>
 </div>
