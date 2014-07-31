@@ -26,12 +26,12 @@
 			      <p class="list-group-item-text"><%= post.content.truncate(200, separator: ' ').html_safe %></p>
 			
 			      <p class="list-group-item-text catalog">
-				      <strong>Author:</strong>
+				      <span class="glyphicon glyphicon-user"></span>
 				      <a href="<%= users_path%>/<%= post.user.id %>"><%= post.user.fullname %></a> 
-				      <strong>Views:</strong> <%= post.view %> 
-				      <strong>Comments:</strong> <%= post.comments.count %>
-						<strong>Rate:</strong> <% if post.votes.average(:rate) == nil %>0<% else %><%= post.votes.average(:rate) %><% end %>
-						<strong>Votes:</strong> <%= post.votes.count %>
+				      <span class="glyphicon glyphicon-globe"></span> <%= post.view %> <span class="stat">views</span> 
+				      <span class="glyphicon glyphicon-comment"></span> <%= post.comments.count %> <span class="stat">comments</span>
+						<span class="glyphicon glyphicon-star "></span> <% if post.votes.average(:rate) == nil %>0<% else %><%= post.votes.average(:rate) %><% end %> <span class="stat">star</span> 
+						<span class="glyphicon glyphicon-thumbs-up "></span> <%= post.votes.count %> <span class="stat"> votes</span>
 			      </p>
 			      <div class="feed_time_post"><%= post.get_time(post.created_at) %></div>
 		      </div>
@@ -54,10 +54,10 @@
 						      <p class="list-group-item-text catalog">
 							      <strong>Author:</strong>
 							      <a href="<%= users_path%>/<%= @posts[first + i].user.id %>"><%= @posts[first + i].user.fullname %></a> 
-							      <strong>Views:</strong> <%= @posts[first + i].view %> 
-							      <strong>Comments:</strong> <%= @posts[first + i].comments.count %>
-							      <strong>Rate:</strong> <%= @posts[first + i].votes.average(:rate) %>
-							      <strong>Votes:</strong> <%= @posts[first + i].votes.count %>
+							      <span class="glyphicon glyphicon-globe"></span> <%= @posts[first + i].view %><span class="stat">views</span> 
+							      <span class="glyphicon glyphicon-comment "></span><%= @posts[first + i].comments.count %><span class="stat">comments</span> 
+							      <span class="glyphicon glyphicon-star "> <%= @posts[first + i].votes.average(:rate) %> <span class="stat">star</span>
+							      <span class="glyphicon glyphicon-thumbs-up "></span> <%= @posts[first + i].votes.count %> <span class="stat">votes</span>
 						      </p>
 						   <div class="feed_time_post"><%= @posts[first + i].get_time(@posts[first + i].created_at) %></div>
 						   </div>
