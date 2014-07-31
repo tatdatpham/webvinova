@@ -40,7 +40,7 @@
             <h3 class="panel-title">Friend's <%= @user.fullname%></h3>
           </div>
           <% if @friend_user.count == 0 %>
-            <br> <center><p>There are no member to show.</p></center>
+            <br> <center><p>There are no friend? <strong><a href="http://localhost:3000/users">Connect now</a></strong>.</p></center>
           <% else %>
             <div class="user_list">
               <div class="user_row">
@@ -111,7 +111,8 @@
                     <strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
                   </h5>
                   <p class="list-group-item-text"><%= post.content.truncate(170, separator: ' ').html_safe %></p>
-                  <p class="list-group-item-text catalog"><strong>Views:</strong> <%= post.view %> <strong>Comments:</strong> <%= post.comments.count %></p>
+                  <p class="list-group-item-text catalog"><span class="glyphicon glyphicon-globe"></span> <%= post.view %> <span class="stat">views</span> <span class="glyphicon glyphicon-comment"></span> <%= post.comments.count %> <span class="stat">comments</span></p>
+
                   </div>
                 </div>
               <% end %>
@@ -129,7 +130,7 @@
                         </h5>
                         <p class="list-group-item-text"><%= @posts[first + i].content.truncate(160, separator: ' ').html_safe %></p>
                         
-                        <p class="list-group-item-text catalog"><strong>Views:</strong> <%= @posts[first + i].view %> <strong>Comments:</strong> <%= @posts[first + i].comments.count %></p>
+                        <p class="list-group-item-text catalog"><span class="glyphicon glyphicon-globe"></span> <%= @posts[first + i].view %> <span class="stat">views</span> <span class="glyphicon glyphicon-comment "></span> <%= @posts[first + i].comments.count %> <span class="stat">comments</span></p
                         </div>
                       </div>
                     <% end %>

@@ -10,7 +10,9 @@ class UsersController < ApplicationController
     session[:current_tab] = 3
     @users = User.all
     #@top_user_id = Post.select('user_id').group(:user_id).limit(5).order('created_at DESC')
-    @top_user =  User.all.sort{ |a,b| b.posts.count <=> a.posts.count }.first(5)
+    @top_user =  User.all.sort{ |a,b| b.posts.count <=> a.posts.count }.first(4)
+    #binding.pry    
+    @last_user = User.limit(4).order('created_at DESC')
     
       
   end

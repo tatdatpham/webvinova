@@ -17,6 +17,7 @@ group :assets do
 	gem "compass-rails"
 	gem 'font-awesome-rails'
 	gem 'bootstrap-sass'
+  	gem "twitter-bootstrap-rails"
 end
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
