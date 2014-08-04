@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     #@user = User.find(params[:id])
     remain_connect_count()
     session[:current_tab] = 2
-    @posts = Post.all
+    @posts = Post.where status: '1'
     @last_posts = Post.limit(4).order('created_at DESC')
     @top_posts = Post.all.sort{ |a,b| b.votes.count <=> a.votes.count }.first(4)
     if params[:user_id] != nil

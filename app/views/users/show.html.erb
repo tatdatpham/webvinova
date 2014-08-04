@@ -103,16 +103,24 @@
           <!-- Hien thi thong tin cac ideal ma nguoi dung da dawng public -->
           <div class="list-group">
            <% if total <= post_per_page %>
-              <% @posts.each do |post| %>
+               <% @posts.each do |post| %>
                 <div class="profile_container">
                   <div class="profile_avatar"><img class="profile_thumbnail_img" alt="" src="/thumbnail/<%= post.thumbnail%>"></div>
                   <div class="profile_detail">         
-                  <h5 class="list-group-item-heading" style="color: #4183c4">
+                  <div class="name">
                     <strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
-                  </h5>
-                  <p class="list-group-item-text"><%= post.content.truncate(170, separator: ' ').html_safe %></p>
-                  <p class="list-group-item-text catalog"><span class="glyphicon glyphicon-globe"></span> <%= post.view %> <span class="stat">views</span> <span class="glyphicon glyphicon-comment"></span> <%= post.comments.count %> <span class="stat">comments</span></p>
-
+                  </div>
+                  
+                  
+                  <div><span class="info">Author: </span>
+                    <a href="<%= users_path%>/<%= post.user.id %>"><%= post.user.fullname %></a>
+                    <span class="info">Time:</span> <%= post.get_time(post.created_at) %>
+                  </div>
+                  <div><span class="glyphicon glyphicon-globe info"></span> <%= post.view %> <span class="stat">views</span></div>
+                  <div><span class="glyphicon glyphicon-comment info"></span> <%= post.comments.count %> <span class="stat">comments</span></div>
+                  <div><span class="glyphicon glyphicon-star info"></span> <% if post.votes.average(:rate) == nil %>0<% else %><%= post.votes.average(:rate) %><% end %> <span class="stat">star</span> 
+                  <span class="glyphicon glyphicon-thumbs-up info"></span> <%= post.votes.count %> <span class="stat">votes</span></div>
+                  
                   </div>
                 </div>
               <% end %>
@@ -125,12 +133,17 @@
                       <div class="profile_container">
                         <div class="profile_avatar"><img class="profile_thumbnail_img" alt="" src="/thumbnail/<%= @posts[first + i].thumbnail%>"></div>
                         <div class="profile_detail">         
-                        <h5 class="list-group-item-heading" style="color: #4183c4">
+                        <div class="name">
                           <strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
-                        </h5>
-                        <p class="list-group-item-text"><%= @posts[first + i].content.truncate(160, separator: ' ').html_safe %></p>
+                        </div>
                         
-                        <p class="list-group-item-text catalog"><span class="glyphicon glyphicon-globe"></span> <%= @posts[first + i].view %> <span class="stat">views</span> <span class="glyphicon glyphicon-comment "></span> <%= @posts[first + i].comments.count %> <span class="stat">comments</span></p
+                        <div><span class="info">Author: </span>
+                         <a href="<%= users_path%>/<%= @posts[first + i].user.id %>"><%= @posts[first + i].user.fullname %></a> <span class="info">Time: </span><%= @posts[first + i].get_time(@posts[first + i].created_at) %></div>
+                        <div><span class="info glyphicon glyphicon-globe"></span> <%= @posts[first + i].view %> <span class="stat">views</span></div>
+                        <div><span class="glyphicon glyphicon-comment info"></span> <%= @posts[first + i].comments.count %> <span class="stat">comments</span></div>
+                        <div><span class="glyphicon glyphicon-star info"></span> <%= @posts[first + i].votes.average(:rate) %> <span class="stat">star</span> 
+                        <span class="glyphicon glyphicon-thumbs-up info "></span> <%= @posts[first + i].votes.count %> <span class="stat">votes</span></div>
+                        
                         </div>
                       </div>
                     <% end %>
