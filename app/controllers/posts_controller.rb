@@ -5,8 +5,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     #@user = User.find(params[:id])
-    remain_connect_count()
     session[:current_tab] = 2
+
     @posts = Post.all
     @last_posts = Post.limit(4).order('created_at DESC')
     @top_posts = Post.all.sort{ |a,b| b.votes.count <=> a.votes.count }.first(4)
@@ -23,7 +23,6 @@ class PostsController < ApplicationController
   ###
   def feed
     session[:current_tab] = 1
-    remain_connect_count()
     # Public post
     @posts_public = Post.where status: '1', sharewith: '0'
     # Shared post
@@ -37,12 +36,6 @@ class PostsController < ApplicationController
     if session[:user_id] == nil
       @posts = @posts_public
     end
-  end
-
-  def remain_connect_count
-    @remain_connect = Connect.where(friend: session[:user_id], status: 0)
-    @users_count = User.where(id: @remain_connect.pluck(:user_id))
-    session[:waiting_connect] = @users_count.count
   end
 
   # GET /posts/1

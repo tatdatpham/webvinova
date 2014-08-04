@@ -20,7 +20,7 @@
       <div class="sidebar-content">
         <div class="sidebar-header"><center><strong><%= @user.fullname %></strong></center></div>
         <div class="side-avatar">
-          <img src="/avatar/<%= @user.id %>" class="profile_avatar_me" alt="<%=@user.fullname%>">
+          <img src="/avatar/<%= @user.avatar %>" class="profile_avatar_me" alt="<%=@user.fullname%>">
         </div> 
         <div class="sidebar-list">Born: <strong><%= @user.birthday.strftime("%B %d,%Y")%></strong></div>
         <div class="sidebar-list">Phone: <strong><%= @user.phone %></strong></div>
@@ -52,8 +52,10 @@
                       <div class="user_row">
                     <% end %>
                     <div class="user_item">
+                      <div class="user_item_online" <% if Useronline.exists? user_id: user.id %>style="background:url(/online.gif) no-repeat center center;" <% end %>>
+                      </div>
                       <div class="user_item_avt">
-                        <img src="/avatar/<%= user.id %>" alt="" class="user_item_img">
+                        <img src="/avatar/<%= user.id %>" alt="<%= user.fullname%>" class="user_item_img">
                       </div>
                       <div class="user_item_info">
                         <a href="<%= users_path %>/<%= user.id %>">

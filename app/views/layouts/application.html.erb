@@ -8,6 +8,11 @@
   
 </head>
 <body>
+  <% if session[:user_id] != nil %>
+    <% useronline_resign() %>
+    <% remain_connect_count() %>
+  <% end %>
+  
   <% if session[:current_tab] == nil %>
   <% session[:current_tab] = 1 %> 
   <% end %>

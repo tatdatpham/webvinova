@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    remain_connect_count()
     session[:current_tab] = 3
     @users = User.all
     #@top_user_id = Post.select('user_id').group(:user_id).limit(5).order('created_at DESC')
@@ -19,7 +18,6 @@ class UsersController < ApplicationController
 
   def search
     @top_user =  User.all.sort{ |a,b| b.posts.count <=> a.posts.count }.first(5)
-    remain_connect_count()
     # @users_with_email = User.where(email: params[:keyword])
 
     # @users_with_fullname = User.where(fullname: params[:keyword])
@@ -37,27 +35,18 @@ class UsersController < ApplicationController
 
   end
 
-  def remain_connect_count
-    @remain_connect = Connect.where(friend: session[:user_id], status: 0)
-    @users_count = User.where(id: @remain_connect.pluck(:user_id))
-    session[:waiting_connect] = @users_count.count
-  end
-
   def connect
     @connect = Connect.create(user_id: session[:user_id], friend: params[:user_id][0], status: '0')
-    remain_connect_count()
     redirect_to request.referrer
   end
 
   def remove_connect
     @connect = Connect.where(user_id: session[:user_id], friend: params[:user_id][0]).destroy_all
     @connect = Connect.where(friend: session[:user_id], user_id: params[:user_id][0]).destroy_all
-    remain_connect_count()
     redirect_to request.referrer
   end
   def reject_connect
     @connect = Connect.where(friend: session[:user_id], user_id: params[:user_id][0]).destroy_all
-    remain_connect_count()
     redirect_to request.referrer
   end
   def accept_connect
@@ -95,8 +84,6 @@ class UsersController < ApplicationController
           session[:user_avatar] = user.avatar
           @check = true
 
-          remain_connect_count()
-
           redirect_to feed_posts_path
         end
         if @check
@@ -127,13 +114,11 @@ class UsersController < ApplicationController
   end
 
   def posts
-    remain_connect_count()
     @user = User.find(params[:id])
     @posts = Post.where user_id: @user.id, status: '1'
   end
 
   def post_show
-    remain_connect_count()
     @post = Post.find(params[:post_id])
   end
 
@@ -189,10 +174,9 @@ class UsersController < ApplicationController
       session[:user_status] = @user.status
       session[:user_avatar] = @user.avatar
 
-      remain_connect_count()
       redirect_to root_path
     else
-      redirect_to login_user_path
+      redirect_to signup_users_path
     end
   end
 

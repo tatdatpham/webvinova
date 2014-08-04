@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729065415) do
+ActiveRecord::Schema.define(version: 20140804015829) do
 
   create_table "comments", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|
     t.text     "content"
@@ -58,6 +58,14 @@ ActiveRecord::Schema.define(version: 20140729065415) do
 
   add_index "shares", ["post_id"], name: "index_shares_on_post_id", using: :btree
   add_index "shares", ["user_id"], name: "index_shares_on_user_id", using: :btree
+
+  create_table "useronlines", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "useronlines", ["user_id"], name: "index_useronlines_on_user_id", using: :btree
 
   create_table "users", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|
     t.string   "email"
