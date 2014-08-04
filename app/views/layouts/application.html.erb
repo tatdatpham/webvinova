@@ -59,7 +59,7 @@
                   <a href="/users/waiting_connect"><span class="label label-danger"><%= session[:waiting_connect] %></span></a></li>
               <% end %>
               <li <% if session[:current_tab] == 4 %> class="active"<% end %>>
-                  <a href="/users/<%= session[:user_id]%>"><img src="/avatar/<%= session[:user_avatar]%>" style="width: 25px; height: 25px; border-radius: 3px; "> <strong><%= session[:user_fullname] %></strong></a></li>
+                  <a href="/users/<%= session[:user_id]%>"><strong>Profile</strong></a></li>
                 <li>
                   <a href="/users/logout"><strong>Logout</strong></a></li>
               <% end %>
