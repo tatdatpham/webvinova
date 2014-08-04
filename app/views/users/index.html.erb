@@ -62,8 +62,8 @@
     <br>
     
     <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Listing Members </h3>
+      <div class="sidebar-header">
+        Listing Members
       </div>
       <% if @users.count == 0 %>
         <p>There are no member to show.</p>
@@ -78,6 +78,8 @@
                   <div class="user_row">
                 <% end %>
                 <div class="user_item">
+                  <div class="user_item_online" <% if Useronline.exists? user_id: user.id %>style="background:url(/online.gif) no-repeat center center;" <% end %>>
+                        </div>
                   <div class="user_item_avt">
                     <img src="/avatar/<%= user.avatar %>" alt="" class="user_item_img">
                   </div>

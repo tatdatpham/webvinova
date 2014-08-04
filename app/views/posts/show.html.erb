@@ -1,3 +1,10 @@
+<script type="text/javascript" src="/jquery.js"></script>
+<script type="text/javascript" src="/jquery.form.js"></script>
+<script type="text/javascript" src="/jquery.rating.js"></script>
+<script type="text/javascript" src="/jquery.MetaData.js"></script>
+<script type="text/javascript" src="/jquery.rating.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="/jquery.rating.css" />
+</script>
 <div class="row">
   <div class="col-sm-1"></div>
   <div class="col-sm-3">
@@ -81,7 +88,7 @@
                 <span class="glyphicon glyphicon-link"></span> <%= @post.sharewith_text %>
               </div>
               <div class="time ap-xdot">
-                <span class="icon entypo">🕔</span> <%= @post.view %> views
+                <span class="icon entypo"></span> <%= @post.view %> views
               </div>
               <div class="time ap-xdot">
                 <span class="glyphicon glyphicon-cog"></span> <%= @post.status_text %>
@@ -98,36 +105,35 @@
       </div>
       <div class="sidebar-container widget-about sidebar-content">   
         <div class="sidebar-list">
-          
-
           <p class="#">
-            
             <%= @post.content.html_safe %>
           </p>
         </div>
+        <% if @post.check_show_vote(session[:user_id], @post.id) == nil %>
         <div class="sidebar-list">
           <p class="#">
-            <% if @post.check_show_vote(session[:user_id], @post.id) == nil %>
               <p>
                 <%= form_for([@post, @post.votes.build]) do |f| %>
                   <div class="row">
-                    <div class="col-sm-3">
-                        <h5>Your vote: </h5>
-                    </div>
-                    <div class="col-sm-2">
-                      <%= f.select :rate, options_for_select([1, 2, 3, 4, 5]),{}, class: "form-control input-xs" %>
+                    <div class="col-sm-5">
+                        <strong>Your vote: </strong>
+                        <div style="float:right"><%= f.submit "Vote", class: "btn btn-xs btn-danger" %></div>
+                        <div class="post_yourvote_choose">
+                           <input name="star" type="radio" value="1" class="star"/>
+                           <input name="star" type="radio" value="2" class="star"/>
+                           <input name="star" type="radio" value="3" class="star"/>
+                           <input name="star" type="radio" value="4" class="star"/>
+                           <input name="star" type="radio" value="5" class="star"/>
+                        </div>
                       <%= f.hidden_field :user_id, value: session[:user_id] %>
                       <%= f.hidden_field :post_id, value: @post.id %>
-                    </div>
-                    <div class="col-sm-3">
-                      <%= f.submit "Vote", class: "btn btn-danger" %>
                     </div>
                   </div>
                 <% end %>
               </p>
-            <% end %>
           </p>
         </div>
+        <% end %>
       </div>
     </div> 
 
@@ -137,9 +143,6 @@
       <% @post.comments.reverse_each do |comment| %>    
       <div class="review-item " id="shout-16700">
         <div class="user-info">
-          <div class="manage">
-            <span class="review-inline">Comment</span>
-          </div>
           <div class="inserted">
             <%= @post.get_time(comment.created_at) %>
           </div>
@@ -156,9 +159,9 @@
                 <%= comment.like %>
                 <% end %>
               </span>
-              <a href="<%= comments_path%>/update_like?id=<%= comment.id%>" class="like-shout " rel="{&quot;comment_id&quot;:16700,&quot;type&quot;:&quot;movie&quot;}">Like</a>
+              <a href="<%= comments_path%>/update_like?id=<%= comment.id%>" class="like-shout" rel="{&quot;comment_id&quot;:16700,&quot;type&quot;:&quot;movie&quot;}">Like</a>
               <span class="stat shouts">0</span>
-               <span class="stat reply">Reply</span>
+               <a class="like-shout" href="">Reply</a>
             </h4>
           </div>
         </div>

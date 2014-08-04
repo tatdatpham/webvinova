@@ -12,9 +12,7 @@
 
 //= require jquery
 //= require jquery_ujs
-
 //= require bootstrap
 //= require bootstrap.min
 //= require jquery.tokeninput
 //= require jquery-2.1.1
-//= require jquery-2.1.1.min

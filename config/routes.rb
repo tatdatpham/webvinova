@@ -13,7 +13,12 @@ Rails.application.routes.draw do
       get 'feed'
       post 'uploadThumbnail'
     end
+  end
 
+  resources :votes do
+    collection do
+      get 'vote_star'
+    end
   end
 
   resources :users do

@@ -165,18 +165,22 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      session[:user_email] = @user.email
-      session[:user_fullname] = @user.fullname
-      session[:user_birthday] = @user.birthday
-      session[:user_phone] = @user.phone
-      session[:user_status] = @user.status
-      session[:user_avatar] = @user.avatar
+    
+    respond_to do |format|
+      if @user.save
+        session[:user_id] = @user.id
+        session[:user_email] = @user.email
+        session[:user_fullname] = @user.fullname
+        session[:user_birthday] = @user.birthday
+        session[:user_phone] = @user.phone
+        session[:user_status] = @user.status
+        session[:user_avatar] = @user.avatar
 
-      redirect_to root_path
-    else
-      redirect_to signup_users_path
+        redirect_to root_path
+      else
+        # redirect_to signup_users_path
+        format.html { render :signup }
+      end
     end
   end
 

@@ -36,11 +36,11 @@
   <div class="col-sm-7">
     <div class="row">
         <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Friend's <%= @user.fullname%></h3>
+          <div class="sidebar-header">
+            Friend's <%= @user.fullname%>
           </div>
           <% if @friend_user.count == 0 %>
-            <br> <center><p>There are no friend? <strong><a href="http://localhost:3000/users">Connect now</a></strong>.</p></center>
+            <center><p>There are no friend? <strong><a href="http://localhost:3000/users">Connect now</a></strong>.</p></center>
           <% else %>
             <div class="user_list">
               <div class="user_row">
