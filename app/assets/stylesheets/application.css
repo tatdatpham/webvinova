@@ -175,7 +175,7 @@
 	background-color:#428bca;
 	border-color:#428bca;
 	padding: 10px;
-	font-family: Tahoma, Verdana, Arial, sans-serif;
+	font-family: Arial, Tahoma, Verdana;
 	font-size: 13px;
 	font-weight: bold;
 	color: #777;
@@ -204,7 +204,7 @@
 	color: #3C5C9E;
 }
 .comment-content {
-	font-family: 'Segoe UI', Tahoma, Verdana, Arial, sans-serif;
+	font-family: Arial, Tahoma, Verdana;
 	box-shadow: 0px 1px 1px #CCC;
 	border: 1px solid #BFBFBF;
 	background: #F6F6F6;
@@ -215,7 +215,7 @@
 .comment-header {
 	background: #F6F6F6;
 	padding: 10px;
-	font-family: Tahoma, Verdana, Arial, sans-serif;
+	font-family: Arial, Tahoma, Verdana;
 	font-size: 13px;
 	font-weight: bold;
 	color: #777;
@@ -266,7 +266,7 @@
 	color: #428bca;
 	cursor: pointer;
 	font-weight: bold;
-	font-family: Tahoma, Arial, 'Segoe UI', Verdana, sans-serif;
+	font-family: Arial, Tahoma, Verdana;
 }
 .comment-reply-comment {
 	padding: 5px 15px 5px 58px;
@@ -423,7 +423,7 @@
 .review-item .user-info .user h3{font-size:15px;font-weight:bold;margin:15px 0 0 0;height:18px;}
 .review-item .user-info .user h3.no-under{margin-top:31px;}
 .review-item .user-info .user h3 a{color:#000;float:left;}
-.review-item .user-info .user h3 .vip{background-color:#D1E751;color:black;font-family:'Lato','Droid Sans',sans-serif;font-weight:700;padding:1px 4px;border-radius:3px;font-size:13px;margin:-1px 0 0 7px;float:left;box-shadow:0 0 5px #999;}
+.review-item .user-info .user h3 .vip{background-color:#D1E751;color:black;font-family:Arial, Tahoma, Verdana;font-weight:700;padding:1px 4px;border-radius:3px;font-size:13px;margin:-1px 0 0 7px;float:left;box-shadow:0 0 5px #999;}
 .review-item .user-info .user h4{margin:-1px 0 0 0;padding:0; padding-bottom: 2px;}
 .review-item .user-info .user h4 .stat{padding-left:16px;background-repeat:no-repeat;background-position:0 0;background-size:auto 12px;margin-right:6px;opacity:.6;font-size:11px!important; text-transform:lowercase !important;font-weight:normal;}
 .review-item .user-info .user h4 .no-icon{padding-left:0;}
@@ -467,7 +467,7 @@
 .cover{padding-top: 2px; position:relative;width:683px;}
 .cover .image{width:683px;overflow:hidden;height:300px;} 
 .cover .image img{width:700px;min-height:300px;}
-.cover .text{position:absolute;bottom:0px;left:-95px;width:100%;background: rgba(0,0,0,0.7);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7d000000, endColorstr=#7d000000)";}
+.cover .text{font-family: Arial, Tahoma, Verdana; position:absolute;bottom:0px;left:-95px;width:100%;background: rgba(0,0,0,0.7);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7d000000, endColorstr=#7d000000)";}
 .cover:hover .text{background: rgba(0,0,0,0.8);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#a3000000, endColorstr=#a3000000)";}
 .cover .text .in{padding:10px 20px;color:#ccc;}
 .cover .text .icon{width:14px;font-size:14px;display:inline-block;margin-right:5px;}
