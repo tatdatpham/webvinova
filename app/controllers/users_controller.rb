@@ -213,8 +213,6 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params[:user][:password] = Digest::MD5.hexdigest(params[:user][:password])
-      params[:user][:status] = 0
-      params[:user][:avatar] = 'noavatar'
       
       params.require(:user).permit(:email, :password, :fullname, :birthday, :phone, :status, :avatar)
     end

@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :comments do
+    collection do
+      get 'update_like'
+    end
+  end
+
   resources :posts do
     resources :votes
     resources :comments

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804015829) do
+ActiveRecord::Schema.define(version: 20140804032827) do
 
   create_table "comments", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|
     t.text     "content"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140804015829) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "like", :default => 0
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
@@ -75,8 +76,8 @@ ActiveRecord::Schema.define(version: 20140804015829) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "status"
-    t.string   "avatar"
+    t.integer  "status", :default => 0
+    t.string   "avatar", :default => 'noavatar'
   end
 
   create_table "votes", options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: true do |t|

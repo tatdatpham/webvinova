@@ -7,6 +7,13 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
 
+  def update_like
+    @comment_current = Comment.where(id: params[:id]).first
+    # binding.pry
+    like_plus = @comment_current.like + 1
+    @comment_current.update(like: like_plus)
+    redirect_to :back
+  end
   # GET /comments/1
   # GET /comments/1.json
   def show
@@ -63,6 +70,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:content, :status, :post_id, :user_id)
+      params.require(:comment).permit(:content, :status, :like, :post_id, :user_id)
     end
 end
