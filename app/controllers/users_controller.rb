@@ -12,8 +12,6 @@ class UsersController < ApplicationController
     @top_user =  User.all.sort{ |a,b| b.posts.count <=> a.posts.count }.first(4)
     #binding.pry    
     @last_user = User.limit(4).order('created_at DESC')
-    
-      
   end
 
   def search

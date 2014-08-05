@@ -89,6 +89,17 @@
                   <span class="glyphicon glyphicon-thumbs-up info"></span> <%= post.votes.count %> <span class="stat">votes</span></div>
                   
                   </div>
+
+                  <% if post.sharewith == 0 
+                    color_sharewith = 'public_color'
+                  elsif post.sharewith == 1
+                    color_sharewith = 'share_color'
+                  else
+                    color_sharewith = 'private_color'
+                  end
+                  %>
+                  <div class="profile_status <%= color_sharewith%>" title="<%= post.sharewith_text%>"></div>
+
                 </div>
               <% end %>
             <% else %>
@@ -112,6 +123,17 @@
                         <span class="glyphicon glyphicon-thumbs-up info "></span> <%= @posts[first + i].votes.count %> <span class="stat">votes</span></div>
                         
                         </div>
+
+                        <% if @posts[first + i].sharewith == 0 
+                          color_sharewith = 'public_color'
+                        elsif @posts[first + i].sharewith == 1
+                          color_sharewith = 'share_color'
+                        else
+                          color_sharewith = 'private_color'
+                        end
+                        %>
+                        <div class="profile_status <%= color_sharewith%>" title="<%= @posts[first + i].sharewith_text%>"></div>
+
                       </div>
                     <% end %>
                   <% end %>
