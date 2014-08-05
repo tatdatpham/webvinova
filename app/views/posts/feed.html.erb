@@ -32,7 +32,7 @@
 	                  	<div><span class="glyphicon glyphicon-eye-open info"></span> <%= post.view %> <span class="stat">views</span></div>
 	                  	<div><span class="glyphicon glyphicon-comment info"></span> <%= post.comments.count %> <span class="stat">comments</span></div>
 	                  	<div><span class="glyphicon glyphicon-star info "></span> <% if post.votes.average(:rate) == nil %>0<% else %><%= post.votes.average(:rate) %><% end %> <span class="stat">star</span> 
-	                  	<span class="glyphicon glyphicon-thumbs-up info"></span> <%= post.votes.count %> <span class="stat">votes</span></div>
+	                  	&nbsp<span class="glyphicon glyphicon-thumbs-up info"></span> <%= post.votes.count %> <span class="stat">votes</span></div>
 			      </div>
 			    </div>
 		    <% end %>
