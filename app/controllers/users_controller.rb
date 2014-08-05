@@ -142,13 +142,16 @@ class UsersController < ApplicationController
   end
 
   def uploadAvatar
-    name = session[:user_id].to_s
-    directory = "public/avatar/"
-    path = File.join(directory, name)
-    File.open(path, "wb") { |f| f.write(params[:datafile].read) }
-    @user = User.find_by(id: session[:user_id])
-    @user.update(avatar: session[:user_id])
-
+    # binding.pry
+    if params[:datafile] != nil
+      name = session[:user_id].to_s
+      directory = "public/avatar/"
+      path = File.join(directory, name)
+      File.open(path, "wb") { |f| f.write(params[:datafile].read) }
+      @user = User.find_by(id: session[:user_id])
+      @user.update(avatar: session[:user_id])
+      session[:user_avatar] = name
+    end
     redirect_to :back
   end
 

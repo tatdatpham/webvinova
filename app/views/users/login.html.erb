@@ -5,28 +5,29 @@
 		<p style="color: red"><%= @msg %></p>
 		
 		<%= form_tag("", method: "get") do %>
-		  	
-
 	  		<div class="form-group">
 			    <div class="input-group">
 			      	<div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
 			      	 <%= text_field_tag(:email,nil, class: 'form-control', placeholder: 'Email' )  %>
 			    </div>
 			 </div>
-
 			 <div class="form-group">
 			    <div class="input-group">
 			      	<div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
 			      	<%= password_field_tag(:password,nil, class: 'form-control' , placeholder: 'Password')%>
 			    </div>
 			 </div>
-		  	
 		  	<center>
 		  		<%= submit_tag ("Login"), class: "btn btn-success" %>
 		  		<%= link_to 'Don\'t have account?', signup_users_path, class: "btn btn-default" %>
 		  	</center>
+		  	<br>
+		  	<center>
+		  		<a href="/auth/facebook">
+			    	<img src="/fblogin.png" alt="Facebook login" style="width: 285px; height: 50px;">
+			    </a>
+		  	</center>
 		<% end %>
-
 	</div>
 	<div class="col-sm-4"></div>
 </div>

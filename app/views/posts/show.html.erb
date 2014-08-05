@@ -197,7 +197,7 @@
     </div>
     <div class="row" id="comment">
     <% if session[:user_id] != nil %>
-      <h4>Write comment for this post:</h4>
+      <h4>Write comment for this ideal:</h4>
       <%= form_for([@post, @post.comments.new]) do |f| %>
         <p> 
           <%= f.text_area :content, class: "form-control", rows: "6" %>

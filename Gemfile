@@ -46,3 +46,4 @@ gem 'pry'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'omniauth-facebook', '~> 1.4.1'
