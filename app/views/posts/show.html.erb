@@ -115,6 +115,7 @@
               <p>
                 <%= form_for([@post, @post.votes.build]) do |f| %>
                   <div class="row">
+                    <div class="col-sm-3"></div>
                     <div class="col-sm-5">
                         <strong>Your vote: </strong>
                         <div style="float:right"><%= f.submit "Vote", class: "btn btn-xs btn-danger" %></div>
@@ -133,6 +134,10 @@
               </p>
           </p>
         </div>
+        <% else %>
+          <center>
+            <strong>Thanks for your vote !!!</strong>
+          </center>
         <% end %>
       </div>
     </div> <br>

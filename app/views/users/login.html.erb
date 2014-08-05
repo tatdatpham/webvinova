@@ -19,13 +19,13 @@
 			 </div>
 		  	<center>
 		  		<%= submit_tag ("Login"), class: "btn btn-success" %>
-		  		<%= link_to 'Don\'t have account?', signup_users_path, class: "btn btn-default" %>
+		  		<a href="/auth/facebook">
+			    	<img src="/fblogin.png" alt="Facebook login" style="width: 190px; height: 39px;">
+			    </a>
 		  	</center>
 		  	<br>
 		  	<center>
-		  		<a href="/auth/facebook">
-			    	<img src="/fblogin.png" alt="Facebook login" style="width: 285px; height: 50px;">
-			    </a>
+		  		<%= link_to 'Don\'t have account?', signup_users_path, class: "btn btn-default" %>
 		  	</center>
 		<% end %>
 	</div>
