@@ -44,6 +44,8 @@ class PostsController < ApplicationController
     @post.update(view: view_plus)
     @last_posts = Post.limit(4).order('created_at DESC')
     @top_posts = Post.all.sort{ |a,b| b.votes.count <=> a.votes.count }.first(4)
+    @random_posts = Post.where(status: '1').offset(rand(Post.count)).first(4)
+    #@author_posts = Post.where(user_id: session[:user_id], status: '1').first(4)
   end
 
   def uploadThumbnail
