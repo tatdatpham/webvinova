@@ -23,7 +23,7 @@
 
     <div class="sidebar-container widget-about">
       <div class="sidebar-content">
-        <div class="sidebar-header"><center>Top Post</center></div>
+        <div class="sidebar-header"><center>Top Ideals</center></div>
           <% if @top_posts.count > 0 %>
             <% @top_posts.each do |top_posts| %>    
               <div class="comment-replies comment-replies-content">
@@ -47,7 +47,7 @@
     <br>
     <div class="sidebar-container widget-about">
       <div class="sidebar-content">
-        <div class="sidebar-header"><center>Last Post</center></div>
+        <div class="sidebar-header"><center>Last Ideals</center></div>
           <% if @last_posts.count > 0 %>
             <% @last_posts.each do |last_posts| %>    
               <div class="comment-replies comment-replies-content">
@@ -174,7 +174,7 @@
     </div>
     <div class="row" id="comment">
     <% if session[:user_id] != nil %>
-      <h4>Write comment for this post:</h4>
+      <h4>Write comment for this ideal:</h4>
       <%= form_for([@post, @post.comments.new]) do |f| %>
         <p> 
           <%= f.text_area :content, class: "form-control", rows: "6" %>

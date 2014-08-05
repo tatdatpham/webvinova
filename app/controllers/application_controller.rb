@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
 		session[:waiting_connect] = @users_count.count
 	end
 	  helper_method :remain_connect_count
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+	  helper_method :current_user
 end
