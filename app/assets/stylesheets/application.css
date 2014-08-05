@@ -18,7 +18,6 @@
  *= require bootstrap-theme.min
  *= require style
 */
-
 .load-more, .load-more-chat {
 	border-bottom: 1px solid #eee;
 	float: left;

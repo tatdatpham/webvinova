@@ -29,7 +29,6 @@
         <div class="sidebar-list">Friend: <strong><%= @user.connects.count %> people</strong></div>
         <div class="sidebar-list">Ideals: <strong><%=@user.posts.count %> posts</strong></div>
       </div>
-
     </div>
   </div>
 
@@ -37,7 +36,8 @@
 
   <div class="col-sm-7">
     <div class="row">
-        <div class="panel panel-primary">
+        <div class="sidebar-container ">
+        <div class="sidebar-content">
           <div class="sidebar-header">
             Friend's <%= @user.fullname%>
           </div>
@@ -96,11 +96,10 @@
             </div>
           <% end %>
         </div>
+        </div>
     </div>
-  
+  <br>
   <% end %>
-
-
     <div class="row">
        <div class="sidebar-container widget-about">
         <div class="sidebar-content">
@@ -115,8 +114,6 @@
                   <div class="name">
                     <strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
                   </div>
-                  
-                  
                   <div><span class="info">Author: </span>
                     <a href="<%= users_path%>/<%= post.user.id %>"><%= post.user.fullname %></a>
                     <span class="info">Time:</span> <%= post.get_time(post.created_at) %>
@@ -125,7 +122,6 @@
                   <div><span class="glyphicon glyphicon-comment info"></span> <%= post.comments.count %> <span class="stat">comments</span></div>
                   <div><span class="glyphicon glyphicon-star info"></span> <% if post.votes.average(:rate) == nil %>0<% else %><%= post.votes.average(:rate) %><% end %> <span class="stat">star</span> 
                   <span class="glyphicon glyphicon-thumbs-up info"></span> <%= post.votes.count %> <span class="stat">votes</span></div>
-                  
                   </div>
                 </div>
               <% end %>
@@ -141,14 +137,12 @@
                         <div class="name">
                           <strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
                         </div>
-                        
                         <div><span class="info">Author: </span>
                          <a href="<%= users_path%>/<%= @posts[first + i].user.id %>"><%= @posts[first + i].user.fullname %></a> <span class="info">Time: </span><%= @posts[first + i].get_time(@posts[first + i].created_at) %></div>
                         <div><span class="info glyphicon glyphicon-globe"></span> <%= @posts[first + i].view %> <span class="stat">views</span></div>
                         <div><span class="glyphicon glyphicon-comment info"></span> <%= @posts[first + i].comments.count %> <span class="stat">comments</span></div>
                         <div><span class="glyphicon glyphicon-star info"></span> <%= @posts[first + i].votes.average(:rate) %> <span class="stat">star</span> 
                         <span class="glyphicon glyphicon-thumbs-up info "></span> <%= @posts[first + i].votes.count %> <span class="stat">votes</span></div>
-                        
                         </div>
                       </div>
                     <% end %>
@@ -161,21 +155,18 @@
           <% end %>
         </div>
       </div>  
-
     </div>
   </div>
-
   </div>
 </div>
 <br>
 <div class="row">
   <div class="col-sm-1"></div>
-  <div class="col-sm-10">
+  <div class="col-sm-8">
       <% if session[:user_id] == @user.id %>
       <%= link_to 'Edit', edit_user_path(@user) %> |
       <% end %>
       <%= link_to 'Back', :back %>
   </div>
-
 </div>
 
