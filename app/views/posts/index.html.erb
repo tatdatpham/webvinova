@@ -72,14 +72,19 @@
             <div class="list-group">
              <% if total <= post_per_page %>
                 <% @posts.each do |post| %>
-                  <div class="profile_container">
+                    <% if post.sharewith == 0 
+                      color_sharewith = 'public_color'
+                    elsif post.sharewith == 1
+                      color_sharewith = 'share_color'
+                    else
+                      color_sharewith = 'private_color'
+                    end %>
+                  <div class="profile_container <%= color_sharewith%>">
                     <div class="profile_avatar"><img class="profile_thumbnail_img" alt="" src="/thumbnail/<%= post.thumbnail%>"></div>
                     <div class="profile_detail">         
                     <div class="name">
                       <strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
                     </div>
-                    
-                    
                     <div><span class="info">Author: </span>
                       <a href="<%= users_path%>/<%= post.user.id %>"><%= post.user.fullname %></a>
                       <span class="info">Time:</span> <%= post.get_time(post.created_at) %>
@@ -88,18 +93,7 @@
                     <div><span class="glyphicon glyphicon-comment info"></span> <%= post.comments.count %> <span class="stat">comments</span></div>
                     <div><span class="glyphicon glyphicon-star info"></span> <% if post.votes.average(:rate) == nil %>0<% else %><%= post.votes.average(:rate) %><% end %> <span class="stat">star</span> 
                     <span class="glyphicon glyphicon-thumbs-up info"></span> <%= post.votes.count %> <span class="stat">votes</span></div>
-                    
                     </div>
-
-                    <% if post.sharewith == 0 
-                      color_sharewith = 'public_color'
-                    elsif post.sharewith == 1
-                      color_sharewith = 'share_color'
-                    else
-                      color_sharewith = 'private_color'
-                    end
-                    %>
-                    <div class="profile_status <%= color_sharewith%>" title="<%= post.sharewith_text%>"></div>
                   </div>
                 <% end %>
               <% else %>
@@ -108,32 +102,26 @@
                   <% (0..(post_per_page-1)).each do |i| %>
                       <% first = j * post_per_page %>
                       <% if (first + i < total) %>
-                        <div class="profile_container">
-                          <div class="profile_avatar"><img class="profile_thumbnail_img" alt="" src="/thumbnail/<%= @posts[first + i].thumbnail%>"></div>
-                          <div class="profile_detail">         
-                          <div class="name">
-                            <strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
-                          </div>
-                          
-                          <div><span class="info">Author: </span>
-                           <a href="<%= users_path%>/<%= @posts[first + i].user.id %>"><%= @posts[first + i].user.fullname %></a> <span class="info">Time: </span><%= @posts[first + i].get_time(@posts[first + i].created_at) %></div>
-                          <div><span class="info glyphicon glyphicon-eye-open"></span> <%= @posts[first + i].view %> <span class="stat">views</span></div>
-                          <div><span class="glyphicon glyphicon-comment info"></span> <%= @posts[first + i].comments.count %> <span class="stat">comments</span></div>
-                          <div><span class="glyphicon glyphicon-star info"></span> <%= @posts[first + i].votes.average(:rate) %> <span class="stat">star</span> 
-                          <span class="glyphicon glyphicon-thumbs-up info "></span> <%= @posts[first + i].votes.count %> <span class="stat">votes</span></div>
-                          
-                          </div>
-
                           <% if @posts[first + i].sharewith == 0 
                             color_sharewith = 'public_color'
                           elsif @posts[first + i].sharewith == 1
                             color_sharewith = 'share_color'
                           else
                             color_sharewith = 'private_color'
-                          end
-                          %>
-                          <div class="profile_status <%= color_sharewith%>" title="<%= @posts[first + i].sharewith_text%>"></div>
-
+                          end %>
+                        <div class="profile_container <%= color_sharewith%>">
+                          <div class="profile_avatar"><img class="profile_thumbnail_img" alt="" src="/thumbnail/<%= @posts[first + i].thumbnail%>"></div>
+                          <div class="profile_detail">         
+                          <div class="name">
+                            <strong><a href="<%= posts_path %>/<%= @posts[first + i].id%>"><%= @posts[first + i].title %></a></strong>
+                          </div>
+                          <div><span class="info">Author: </span>
+                           <a href="<%= users_path%>/<%= @posts[first + i].user.id %>"><%= @posts[first + i].user.fullname %></a> <span class="info">Time: </span><%= @posts[first + i].get_time(@posts[first + i].created_at) %></div>
+                          <div><span class="info glyphicon glyphicon-eye-open"></span> <%= @posts[first + i].view %> <span class="stat">views</span></div>
+                          <div><span class="glyphicon glyphicon-comment info"></span> <%= @posts[first + i].comments.count %> <span class="stat">comments</span></div>
+                          <div><span class="glyphicon glyphicon-star info"></span> <%= @posts[first + i].votes.average(:rate) %> <span class="stat">star</span> 
+                          <span class="glyphicon glyphicon-thumbs-up info "></span> <%= @posts[first + i].votes.count %> <span class="stat">votes</span></div>
+                          </div>
                         </div>
                       <% end %>
                     <% end %>
@@ -145,7 +133,6 @@
             <% end %>
           </div>
         </div>  
-
       </div>
       <br>
           <% if params[:user_id] == nil %>
@@ -153,7 +140,6 @@
       <% else %>
         <%= link_to 'Back', :back %>
       <% end %>
-
     </div>
   </div>
   </div>

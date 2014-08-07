@@ -90,24 +90,25 @@
 	margin-left: 15px;
 	padding-top: 5px;
 	position: relative;
-	width: 775px;
+	width: 805px;
 }
 .feed_status{
 	width: 7px;
-	height: 129px;
+	height: 130px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
 	opacity: 0.7;
 }
 .public_color{
-	background: #31B404;
+	background: ;
+	border-right: 4px solid #31B404;
 }
 .share_color{
-	background: #0174DF;
+	border-right: 4px solid #0174DF;
 }
 .private_color{
-	background: #9B9A9A;
+	border-right: 4px solid #9B9A9A;
 }
 .profile{
 	background: #ffffff;
@@ -116,7 +117,7 @@
 	background: #ffffff;
 	float: left;
 	padding: 5px 0px 15px 10px;
-	width: 100%;
+	width: 681px;
 	border-bottom: 1px solid #eee;
 	box-shadow: 0px 0px 2px #999;
 	position: relative;

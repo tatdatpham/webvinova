@@ -67,7 +67,6 @@
           <% end %>
       </div>
     </div>
-
     
   </div>
   <div class="col-sm-7">
@@ -224,6 +223,7 @@
 
       <% if session[:user_id] == @post.user_id %>
         <%= link_to 'Edit', edit_post_path(@post) %> |
+        <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %> | 
         <%= link_to 'Back', :back %>
       <% end %>
     </div>

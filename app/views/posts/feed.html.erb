@@ -18,9 +18,16 @@
 	  <div class="list-group">
 		 <% if total <= post_per_page %>
 			  <% @posts.each do |post| %>
-			    <div class="feed_container">
+			      <% if post.sharewith == 0 
+			      	color_sharewith = 'public_color'
+			      elsif post.sharewith == 1
+			      	color_sharewith = 'share_color'
+			      else
+			      	color_sharewith = 'private_color'
+	      		end %>
+			    <div class="feed_container <%= color_sharewith%>">
 			    	<div class="feed_avatar"><img class="feed_avatar_img" alt="" src="/thumbnail/<%= post.thumbnail%>"></div>
-			      	<div class="profile_detail">	      	
+			      	<div class="feed_detail">	      	
 				      	<div class="name">
 				      		<strong><a href="<%= posts_path %>/<%= post.id%>"><%= post.title %></a></strong>
 				      	</div>
@@ -36,15 +43,6 @@
                   	&nbsp<span class="glyphicon glyphicon-thumbs-up info"></span> <%= post.votes.count %> <span class="stat">votes</span>
 	              </div>
 			      </div>
-			      <% if post.sharewith == 0 
-			      	color_sharewith = 'public_color'
-			      elsif post.sharewith == 1
-			      	color_sharewith = 'share_color'
-			      else
-			      	color_sharewith = 'private_color'
-	      		end
-			      %>
-			      <div class="feed_status <%= color_sharewith%>" title="<%= post.sharewith_text%>"></div>
 			    </div>
 		    <% end %>
 	    <% else %>
@@ -53,7 +51,14 @@
 					<% (0..(post_per_page-1)).each do |i| %>
 				   		<% first = j * post_per_page %>
 					    <% if (first + i < total) %>
-						    <div class="feed_container">
+						      <% if @posts[first + i].sharewith == 0 
+						      	color_sharewith = 'public_color'
+						      elsif @posts[first + i].sharewith == 1
+						      	color_sharewith = 'share_color'
+						      else
+						      	color_sharewith = 'private_color'
+				      		end %>
+						    <div class="feed_container <%= color_sharewith%>">
 						    	<div class="feed_avatar"><img class="feed_avatar_img" alt="" src="/thumbnail/<%= @posts[first + i].thumbnail%>"></div>
 						      	<div class="feed_detail">	      	
 							      	<div class="name">
@@ -72,15 +77,6 @@
                       	<span class="glyphicon glyphicon-thumbs-up info "></span> <%= @posts[first + i].votes.count %> <span class="stat">votes</span>
 			                  </div>
 							   </div>
-						      <% if @posts[first + i].sharewith == 0 
-						      	color_sharewith = 'public_color'
-						      elsif @posts[first + i].sharewith == 1
-						      	color_sharewith = 'share_color'
-						      else
-						      	color_sharewith = 'private_color'
-				      		end
-						      %>
-						      <div class="feed_status <%= color_sharewith%>" title="<%= @posts[first + i].sharewith_text%>"></div>
 						    </div>
 					    <% end %>
 				    <% end %>
