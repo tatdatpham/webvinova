@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140805015927) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "thumbnail"
+    t.string   "thumbnail", default: "nothumbnail.jpg"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 20140805015927) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "status",           default: 0
-    t.string   "avatar",           default: "noavatar"
+    t.integer  "status", default: 0
+    t.string   "avatar", default: "noavatar"
     t.string   "provider"
     t.string   "uid"
     t.string   "oauth_token"

@@ -87,7 +87,11 @@
 
         <div class="col-sm-3">
           <%= f.hidden_field :view, value: '0' %>
-          <%= f.hidden_field :user_id, value: session[:user_id]%>
+          <% if @post.user_id == nil%>
+            <%= f.hidden_field :user_id, value: session[:user_id]%>
+          <% else %>
+            <%= f.hidden_field :user_id, value: @post.user_id%>
+          <% end %>
           <%= f.submit 'Post Ideal', :class => 'btn btn-success' %>
         </div>
       </div>

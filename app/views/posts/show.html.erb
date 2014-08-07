@@ -213,14 +213,12 @@
         <p style="float:right">
           <%= f.submit "Post Comment", class: "btn btn-sm btn-success" %>
         </p>
-        
       <% end %>
     <% else %>
       <p>
         <center><a href="<%= login_users_path%>">Login</a> to comment</center>
       </p>
     <% end %>
-
       <% if session[:user_id] == @post.user_id %>
         <%= link_to 'Edit', edit_post_path(@post) %> |
         <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %> | 
