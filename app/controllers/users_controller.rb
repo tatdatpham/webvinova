@@ -140,9 +140,12 @@ class UsersController < ApplicationController
   end
 
   def uploadAvatar
-    # binding.pry
     if params[:datafile] != nil
-      name = session[:user_id].to_s
+      if session[:user_status] > 0
+        name = params[:user_id].to_s
+      else
+        name = session[:user_id].to_s
+      end
       directory = "public/avatar/"
       path = File.join(directory, name)
       File.open(path, "wb") { |f| f.write(params[:datafile].read) }
