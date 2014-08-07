@@ -10,7 +10,11 @@
 				<%= render 'form' %>
 	        </div>
 		</div>
-		<%= link_to 'Back', :back %>
+		<% if session[:user_status] != 1 %>
+			<%= link_to 'Back', :back %>
+		<% else %>
+			<%= link_to 'Back', :users %>
+		<% end %>
 	</div>
 </div>
 <%end%>

@@ -19,7 +19,6 @@
  *= require style
 */
 .load-more, .load-more-chat {
-	border-bottom: 1px solid #eee;
 	float: left;
 	padding: 5px 0;
 	text-align: center;

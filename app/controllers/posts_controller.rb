@@ -17,6 +17,9 @@ class PostsController < ApplicationController
       @posts_shared = Post.where id: @friend_list.pluck(:post_id), sharewith: '1', status: '1', user_id: params[:user_id]
       @posts = @posts_public + @posts_shared
     end
+    if session[:user_status] == 1
+      @posts = Post.all
+    end
   end
   
   ###
@@ -117,7 +120,7 @@ class PostsController < ApplicationController
           share = Share.create(post_id: @post.id, user_id: f)
         end
 
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to posts_path, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
