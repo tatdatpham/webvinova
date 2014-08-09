@@ -21,7 +21,7 @@ posts = Post.create(title: 'Tìm thấy hộp đen vụ rơi máy bay ở Đài 
 <p>Trước đó, theo thông tin ban đầu, có 51 người thiệt mạng trong vụ rơi máy bay nói trên. Tuy nhiên, Wen Chia-hung, phát ngôn viên của trung tâm ứng phó thiên tai Bành Hồ đã chính thức lên tiếng xác nhận số người thiệt mạng trong vụ tai nạn là 48.</p>
 <p>Lãnh đạo Đài Loan Mã Anh Cửu cho biết: “Đây là một ngày đau thương đối với lịch sử hàng không Đài Loan”.</p>
 <p>Vụ việc chuyến bay GE222 gặp nạn được cho là vụ tai nạn hàng không gây tử vong đầu tiên ở Đài Loan kể từ 12 năm qua. Trong khi xuất hiện một số thông tin cho rằng, có thể chiếc máy bay gặp nạn vì thời tiết xấu do ảnh hưởng của báo Matmo. Tuy nhiên, một đại diện của cơ quan hàng không dân dụng Đài Loan khẳng định, thời tiết “đủ tốt” để máy bay có thể hạ cánh an toàn.</p>
-<p>Đại diện của cơ quan này cũng cho biết, cơ trưởng trên chuyến bay GE222 là một phi công giàu kinh nghiệm với 22 năm trong nghề. Hiện hãng hàng không TransAsia Airways đã có hỗ trợ ban đầu cho mỗi gia đình nạn nhân khoảng 6.600 USD.</p>', sharewith: '0', view: '0', status: '-1', user_id: '1', thumbnail: '8.jpg')
+<p>Đại diện của cơ quan này cũng cho biết, cơ trưởng trên chuyến bay GE222 là một phi công giàu kinh nghiệm với 22 năm trong nghề. Hiện hãng hàng không TransAsia Airways đã có hỗ trợ ban đầu cho mỗi gia đình nạn nhân khoảng 6.600 USD.</p>', sharewith: '2', view: '0', status: '-1', user_id: '1', thumbnail: '8.jpg')
 
 posts = Post.create(title: 'Indonesia: Những thách thức với Tổng thống đắc cử Jokowi', content: '<p>Ông Jokowi sẽ nhậm chức Tổng thống vào tháng 10 tới đây với nhiều thách thức ở phía trước.</p>
 <p>Indonesia: Những thách thức với Tổng thống đắc cử Jokowi</p>
@@ -85,7 +85,7 @@ posts = Post.create(title: 'Tìm thấy hộp đen vụ rơi máy bay ở Đài 
 <p>Trước đó, theo thông tin ban đầu, có 51 người thiệt mạng trong vụ rơi máy bay nói trên. Tuy nhiên, Wen Chia-hung, phát ngôn viên của trung tâm ứng phó thiên tai Bành Hồ đã chính thức lên tiếng xác nhận số người thiệt mạng trong vụ tai nạn là 48.</p>
 <p>Lãnh đạo Đài Loan Mã Anh Cửu cho biết: “Đây là một ngày đau thương đối với lịch sử hàng không Đài Loan”.</p>
 <p>Vụ việc chuyến bay GE222 gặp nạn được cho là vụ tai nạn hàng không gây tử vong đầu tiên ở Đài Loan kể từ 12 năm qua. Trong khi xuất hiện một số thông tin cho rằng, có thể chiếc máy bay gặp nạn vì thời tiết xấu do ảnh hưởng của báo Matmo. Tuy nhiên, một đại diện của cơ quan hàng không dân dụng Đài Loan khẳng định, thời tiết “đủ tốt” để máy bay có thể hạ cánh an toàn.</p>
-<p>Đại diện của cơ quan này cũng cho biết, cơ trưởng trên chuyến bay GE222 là một phi công giàu kinh nghiệm với 22 năm trong nghề. Hiện hãng hàng không TransAsia Airways đã có hỗ trợ ban đầu cho mỗi gia đình nạn nhân khoảng 6.600 USD.</p>', sharewith: '0', view: '0', status: '-1', user_id: '2', thumbnail: '8.jpg')
+<p>Đại diện của cơ quan này cũng cho biết, cơ trưởng trên chuyến bay GE222 là một phi công giàu kinh nghiệm với 22 năm trong nghề. Hiện hãng hàng không TransAsia Airways đã có hỗ trợ ban đầu cho mỗi gia đình nạn nhân khoảng 6.600 USD.</p>', sharewith: '2', view: '0', status: '-1', user_id: '2', thumbnail: '8.jpg')
 
 posts = Post.create(title: 'Indonesia: Những thách thức với Tổng thống đắc cử Jokowi', content: '<p>Ông Jokowi sẽ nhậm chức Tổng thống vào tháng 10 tới đây với nhiều thách thức ở phía trước.</p>
 <p>Indonesia: Những thách thức với Tổng thống đắc cử Jokowi</p>
