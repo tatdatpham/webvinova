@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  
+
 </head>
 <body>
   <% if session[:user_id] != nil %>
@@ -64,7 +64,8 @@
               <% if session[:user_id] != nil %>
                 <% if session[:waiting_connect] > 0 %>
                 <li>
-                  <a href="/users/waiting_connect"><span class="label label-danger"><%= session[:waiting_connect] %></span></a></li>
+                  <a href="/users/waiting_connect"><span class="label label-danger"><%= session[:waiting_connect] %></span></a>
+                </li>
               <% end %>
               <li <% if session[:current_tab] == 4 %> class="active"<% end %>>
                   <a href="/users/<%= session[:user_id]%>"><strong>Profile</strong></a></li>
@@ -89,7 +90,10 @@
       <div class="container">
       <div class="col-sm-1"></div>
       <div class="col-sm-10">
-        <p class="text-muted" style="margin: 0px; padding: 10px 0px 10px 0px;">Vote for ideal you like</p>
+        <span class="text-muted" style="float:left; margin: 10px 0px 0px 0px; font-size: 15px">Vote for ideal you like</span>
+        <div style="float:right">
+          <iframe src="//www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2Fvoteideal&amp;width&amp;height=35&amp;colorscheme=light&amp;layout=standard&amp;show_faces=false&amp;appId=299803620198002" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:35px;width: 350px;margin-top: 5px;" allowTransparency="true"></iframe>
+        </div>
       </div>
       </div>
     </div>

@@ -12,7 +12,7 @@
       <div class="sidebar-content">
         <div class="sidebar-header"><center><%= @post.user.fullname %></center></div>
         <div class="#">
-          <img src="/avatar/<%= @post.user.id %>" class="profile_avatar_me" alt="<%= @post.user.fullname %>">
+          <img src="/avatar/<%= @post.user.avatar %>" class="profile_avatar_me" alt="<%= @post.user.fullname %>">
         </div> 
         <div class="sidebar-list">Born: <strong><%= @post.user.birthday.strftime("%B %d,%Y")%></strong></div>
         <div class="sidebar-list">Email: <strong><%= @post.user.email %></strong></div>
@@ -58,7 +58,6 @@
                   </div>
                   <div class="comment-reply-comment">
                     <span class="comment-reply-author"><a href="/posts/<%= last_posts.id %>"><%= last_posts.title.truncate(42, separator: ' ') %></a></span>
-                  
                   </div>        
                 </div>
               </div>
@@ -72,11 +71,9 @@
   <div class="col-sm-7">
     <div class="row">
       <div class="cover"> 
-
         <div class="image">
           <img src="/thumbnail/<%= @post.thumbnail%>">
         </div>
-        
         <div class="text">
           <div class="in"> 
             <div class="info"> 
@@ -108,36 +105,34 @@
             <%= @post.content.html_safe %>
           </p>
         </div>
-        <% if @post.check_show_vote(session[:user_id], @post.id) == nil %>
         <div class="sidebar-list">
-          <p class="#">
-              <p>
-                <%= form_for([@post, @post.votes.build]) do |f| %>
-                  <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-5">
-                        <strong>Your vote: </strong>
-                        <div style="float:right"><%= f.submit "Vote", class: "btn btn-xs btn-danger" %></div>
-                        <div class="post_yourvote_choose">
-                           <input name="star" type="radio" value="1" class="star"/>
-                           <input name="star" type="radio" value="2" class="star"/>
-                           <input name="star" type="radio" value="3" class="star"/>
-                           <input name="star" type="radio" value="4" class="star"/>
-                           <input name="star" type="radio" value="5" class="star"/>
-                        </div>
-                      <%= f.hidden_field :user_id, value: session[:user_id] %>
-                      <%= f.hidden_field :post_id, value: @post.id %>
-                    </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fvoteideal.vn&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=299803620198002" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+              </div>
+              <div class="col-sm-5">
+              <% if @post.check_show_vote(session[:user_id], @post.id) == nil %>
+                  <%= form_for([@post, @post.votes.build]) do |f| %>
+                  <strong>Your vote: </strong>
+                  <div style="float:right"><%= f.submit "Vote", class: "btn btn-xs btn-danger" %></div>
+                  <div class="post_yourvote_choose">
+                     <input name="star" type="radio" value="1" class="star"/>
+                     <input name="star" type="radio" value="2" class="star"/>
+                     <input name="star" type="radio" value="3" class="star"/>
+                     <input name="star" type="radio" value="4" class="star"/>
+                     <input name="star" type="radio" value="5" class="star"/>
                   </div>
-                <% end %>
-              </p>
-          </p>
+                <%= f.hidden_field :user_id, value: session[:user_id] %>
+                <%= f.hidden_field :post_id, value: @post.id %>
+              <% end %>
+              <% else %>
+                <center>
+                  <strong>Thanks for your vote !!!</strong>
+                </center>
+              <% end %>
+            </div>
+          </div>
         </div>
-        <% else %>
-          <center>
-            <strong>Thanks for your vote !!!</strong>
-          </center>
-        <% end %>
       </div>
     </div> <br>
     <div class="row">
