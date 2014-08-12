@@ -5,7 +5,16 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        setInterval(function() {
+          $('#wrap_notification').load('http://localhost:3000 #notification');
+          if ($('#num_waiting_connect').text() > '0') {
+            $('#wrap_notification').show();
+          }
+        },1000);
+    });
+</script>
 </head>
 <body>
   <% if session[:user_id] != nil %>
@@ -62,15 +71,17 @@
                 <li <% if session[:current_tab] == 3 %> class="active"<% end %>>
                   <a href="/users"><strong>Members</strong></a></li>
               <% if session[:user_id] != nil %>
-                <% if session[:waiting_connect] > 0 %>
-                <li>
-                  <a href="/users/waiting_connect"><span class="label label-danger"><%= session[:waiting_connect] %></span></a>
+                <li id="wrap_notification" style="display: none;">
+                  <div id="notification" style="margin: 10px 0 0 0; padding: 0;">
+                    <a href="/users/waiting_connect" style="text-decoration: none;"><span class="label label-danger" id="num_waiting_connect"><%= session[:waiting_connect] %></span></a>
+                  </div>
                 </li>
-              <% end %>
-              <li <% if session[:current_tab] == 4 %> class="active"<% end %>>
-                  <a href="/users/<%= session[:user_id]%>"><strong>Profile</strong></a></li>
+                <li <% if session[:current_tab] == 4 %> class="active"<% end %>>
+                  <a href="/users/<%= session[:user_id]%>"><strong>Profile</strong></a>
+                  </li>
                 <li>
-                  <a href="/users/logout"><strong>Logout</strong></a></li>
+                  <a href="/users/logout"><strong>Logout</strong></a>
+                </li>
               <% end %>
               <% if session[:user_id] == nil %>
                 <li <% if session[:current_tab] == 4 %> class="active"<% end %>><a href="/users/login"><strong>Login</strong></a></li>
