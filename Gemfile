@@ -47,3 +47,4 @@ gem 'pry'
 # gem 'debugger', group: [:development, :test]
 
 gem 'omniauth-facebook', '~> 1.4.1'
+gem 'seed_dump'
