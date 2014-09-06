@@ -42,7 +42,7 @@
             Friend's <%= @user.fullname%>
           </div>
           <% if @friend_user.count == 0 %>
-            <center><p>There are no friend? <strong><a href="http://localhost:3000/users">Connect now</a></strong>.</p></center>
+            <center><p>There are no friend? <strong><a href="<%=users_path%>">Connect now</a></strong>.</p></center>
           <% else %>
             <div class="user_list">
               <div class="user_row">
